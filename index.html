@@ -5,141 +5,148 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
     <title>Célia Tosic - Portfolio</title>
 </head>
 <body>
-    <header class="header">
-        <img class="header-burger" src="images/burger-menu.png" alt="burger-menu">
-        <nav>
-            <ul class="header-nav">
-                <li><a class="header-nav__link" href="#accueil">Accueil</a></li>
-                <li><a class="header-nav__link" href="#competences">Compétences</a></li>
-                <li><a class="header-nav__link" href="#projets">Projets</a></li>
-                <li><a class="header-nav__link" href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <div class="wrapper">
+        <header class="header">
+            <img class="header-burger" src="images/burger-menu.png" alt="burger-menu">
+            <nav>
+                <!-- <img class="header-burger" src="images/burger-menu.png" alt="burger-menu">-->
+                <ul class="header-ul">
+                    <li><a class="header-link" href="#accueil">Accueil</a></li>
+                    <li><a class="header-link" href="#competences">Compétences</a></li>
+                    <li><a class="header-link" href="#projets">Projets</a></li>
+                    <li><a class="header-link" href="#contact">Contact</a></li>
+                </ul>
+            </nav>
 
-        <div class="header-left">
-            <h1 class="header-left__title">Je suis <span class="header-left__title--strong">Célia Tosic</span></h1>
-            <h2 class="header-left__subtitle">Développeuse web et web mobile</h2>
-            <p class="header-left__paragraph"></p>
-        </div>
-
-        <div class="header-right">
-            <img class="photo" src="images/celia-nb.png" alt="photo de Célia Tosic">
-        </div>
-        
-    </header>
-    <main>
-        <section>
-            <h2>Compétences</h2>
-            <p>Salut! Moi c'est Célia ! 
-                Initialement issue d'un parcours en gestion de l'environnement, je suis depuis peu devenue une véritable développeuse web fullstack après une reconversion professionnelle qui me permet ainsi d'élargir mes compétences. 
-                Après avoir commencé à apprendre le développement en autodidacte pendant quelques temps, j'ai suivi une formation fullstack PHP à l'école O'clock. Voici les langages, outils et frameworks que j'utilise au quotidien :
-            </p>
-            <ul class="card">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>SASS</li>
-                <li>JavaScript</li>
-                <li>MySQL</li>
-                <li>PHP</li>
-                <li>Symfony</li>
-                <li>Git</li>
-                <li>GitHub</li>
-                <li>VSCode</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Projets</h2>
-
-            <article class="project">
-                <div class="project__content">
-                    <h3 class="project__title">Carnet de voyages</h3>
-                    <h4 class="project__subtitle">Projet personnel</h4>
-                    <p class="project__description"></p>
-                    <span class="project__techno"></span>
+                <div class="header-description">
+                    <h1 class="header-description__title">Je suis <span class="header-description__title--underline">Célia Tosic</span></h1>
+                    <h2 class="header-description__subtitle">Développeuse web et web mobile</h2>
+                    <p class="header-description__paragraph">Bienvenue sur mon portfolio ! Découvrez les projets sur lesquels je travaille et sur lesquels j'ai travaillé. Découvrez-en un peu plus sur moi !   </p>
                 </div>
-                <div>
-                    <img class="image" src="images/work-in-progress.png" alt="work in progress">
-                </div>
-                
-            </article>
-
-            <article class="project">
-                <div class="project__content">
-                    <h3 class="project__title">O'transport</h3>
-                    <h4 class="project__subtitle">Projet de fin de formation</h4>
-                    <p class="project__description"></p>
-                    <span class="project__techno"></span>
-                <div>
-                <div class="project__actions">
-                    <a class="link" href="">Voir la démo</a>
-                    <a class="link" href="">Voir le code</a>
-                </div>
-                <div class="project__slider">
-                    <img class="slider-img slider__img--current" src="images/otransport-accueil.png" alt="">
-                    <img class="slider-img" src="images/otransport-chauffeurs.png" alt="">
-                    <img class="slider-img" src="images/otransport-livraisons-chauffeurs.png" alt="">
-                    <button class="btn slider-btn" type="button" aria-label="Précédent">&lt;</button>
-                    <button class="btn slider-btn" type="button" aria-label="Suivant">&gt;</button>
-                </div>
-            </article>
-
-
-            <article class="project">
-                <div class="project__content">
-                    <h3 class="project__title">SSHACK</h3>
-                    <h4 class="project__subtitle">Projet personnel</h4>
-                    <p class="project__description"></p>
-                    <span class="project__techno"></span>
-                </div>
-                <div class="project__actions">
-                    <a class="link" href="">Découvrir le site</a>
-                </div>
-                <div class="project__slider">
-                    <img class="slider-img slider__img--current" src="images/sshack-accueil.png" alt="">
-                    <img class="slider-img" src="images/sshack-text.png" alt="">
-                    <img class="slider-img" src="images/sshack-contact.png" alt="">
-                    <button class="btn slider-btn" type="button" aria-label="Précédent">&lt;</button>
-                    <button class="btn slider-btn" type="button" aria-label="Suivant">&gt;</button>
-                </div>
-            </article>
-
-            <article class="project">
-                <div class="project__content">
-                    <h3 class="project__title">Challenges Frontend Mentor</h3>
-                    <h4 class="project__subtitle">Projets personnels</h3>
-                    <p class="project__description"></p>
-                    <span class="project__techno"></span>
-                </div>
-                <div class="project__actions">
-                    <a class="link" href="">Découvrir les projets</a>
-                    <a class="link" href="">Voir le code</a>
-                </div>
-                <div class="project__slider">
-                    <img class="slider-img slider__img--current" src="" alt="">
-                    <img class="slider-img" src="images/frontend-mentor-order-card.PNG" alt="">
-                    <img class="slider-img" src="images/frontend-mentor-todo-app.png" alt="">
-                    <button class="btn slider-btn" type="button" aria-label="Précédent">&lt;</button>
-                    <button class="btn slider-btn" type="button" aria-label="Suivant">&gt;</button>
-                </div>
-            </article>
-        </section>
-
-        <section>
-            <h2>Contact</h2>
-            <p></p>
-
-            <ul>
-                <li>Mail : </li>
-                <li>LinkedIn : </li>
-                <li>GitHub : </li>
-                <li>CV :</li>
-            </ul>
+            </div>
             
-        </section>
-    </main>    
+        </header>
+        <main>
+            <section>
+                <h2>Compétences</h2>
+                <p>Salut! Moi c'est Célia ! 
+                    Initialement issue d'un parcours en gestion de l'environnement, je suis depuis peu devenue une véritable développeuse web fullstack après une reconversion professionnelle qui me permet ainsi d'élargir mes compétences. 
+                    Après avoir commencé à apprendre le développement en autodidacte pendant quelques temps, j'ai suivi une formation fullstack PHP à l'école O'clock. Voici les langages, outils et frameworks que j'utilise au quotidien :
+                </p>
+                <ul class="card">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>SASS</li>
+                    <li>JavaScript</li>
+                    <li>MySQL</li>
+                    <li>PHP</li>
+                    <li>Symfony</li>
+                    <li>Git</li>
+                    <li>GitHub</li>
+                    <li>VSCode</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Projets</h2>
+
+                <article class="project">
+                    <div class="project__content">
+                        <h3 class="project__title">Carnet de voyages</h3>
+                        <h4 class="project__subtitle">Projet personnel</h4>
+                        <p class="project__description"></p>
+                        <span class="project__techno"></span>
+                    </div>
+                    <div>
+                        <img class="image" src="images/work-in-progress.png" alt="work in progress">
+                    </div>
+                    
+                </article>
+
+                <article class="project">
+                    <div class="project__content">
+                        <h3 class="project__title">O'transport</h3>
+                        <h4 class="project__subtitle">Projet de fin de formation</h4>
+                        <p class="project__description"></p>
+                        <span class="project__techno"></span>
+                    <div>
+                    <div class="project__actions">
+                        <a class="link" href="">Voir la démo</a>
+                        <a class="link" href="">Voir le code</a>
+                    </div>
+                    <div class="project__slider">
+                        <img class="slider-img slider__img--current" src="images/otransport-accueil.png" alt="">
+                        <img class="slider-img" src="images/otransport-chauffeurs.png" alt="">
+                        <img class="slider-img" src="images/otransport-livraisons-chauffeurs.png" alt="">
+                        <button class="btn slider-btn" type="button" aria-label="Précédent">&lt;</button>
+                        <button class="btn slider-btn" type="button" aria-label="Suivant">&gt;</button>
+                    </div>
+                </article>
+
+
+                <article class="project">
+                    <div class="project__content">
+                        <h3 class="project__title">SSHACK</h3>
+                        <h4 class="project__subtitle">Projet personnel</h4>
+                        <p class="project__description"></p>
+                        <span class="project__techno"></span>
+                    </div>
+                    <div class="project__actions">
+                        <a class="link" href="">Découvrir le site</a>
+                    </div>
+                    <div class="project__slider">
+                        <img class="slider-img slider__img--current" src="images/sshack-accueil.png" alt="">
+                        <img class="slider-img" src="images/sshack-text.png" alt="">
+                        <img class="slider-img" src="images/sshack-contact.png" alt="">
+                        <button class="btn slider-btn" type="button" aria-label="Précédent">&lt;</button>
+                        <button class="btn slider-btn" type="button" aria-label="Suivant">&gt;</button>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <div class="project__content">
+                        <h3 class="project__title">Challenges Frontend Mentor</h3>
+                        <h4 class="project__subtitle">Projets personnels</h3>
+                        <p class="project__description"></p>
+                        <span class="project__techno"></span>
+                    </div>
+                    <div class="project__actions">
+                        <a class="link" href="">Découvrir les projets</a>
+                        <a class="link" href="">Voir le code</a>
+                    </div>
+                    <div class="project__slider">
+                        <img class="slider-img slider__img--current" src="" alt="">
+                        <img class="slider-img" src="images/frontend-mentor-order-card.PNG" alt="">
+                        <img class="slider-img" src="images/frontend-mentor-todo-app.png" alt="">
+                        <button class="btn slider-btn" type="button" aria-label="Précédent">&lt;</button>
+                        <button class="btn slider-btn" type="button" aria-label="Suivant">&gt;</button>
+                    </div>
+                </article>
+            </section>
+
+            <section>
+                <h2>Contact</h2>
+                <p>Pour me joindre, c'est par ici !</p>
+
+                <div class="header-right">
+                    <img class="photo" src="images/celia-nb.png" alt="photo de Célia Tosic">
+                </div>
+
+                <ul>
+                    <li>Mail : </li>
+                    <li>LinkedIn : </li>
+                    <li>GitHub : </li>
+                    <li>CV :</li>
+                </ul>
+                
+            </section>
+        </main>   
+    </div> 
 </body>
 </html>
