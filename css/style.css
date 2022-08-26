@@ -133,6 +133,10 @@ body {
   line-height: 2.2rem;
 }
 
+nav.active {
+  left: 0;
+}
+
 img {
   max-width: 100%;
 }
