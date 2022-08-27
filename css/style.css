@@ -157,6 +157,7 @@ p {
 .header-description__paragraph {
   font-size: 1.7rem;
   line-height: 2.2rem;
+  margin-bottom: 20px;
 }
 
 nav.active {
@@ -207,6 +208,20 @@ img {
   background-repeat: no-repeat;
   background-size: 100% 0.3em;
   background-position: 0 100%;
+}
+
+img.photo {
+  display: none;
+  clip-path: ellipse(33% 50%);
+}
+
+.wrap-photo {
+  filter: drop-shadow(15px 10px 6px #A15C38);
+}
+
+.photo.show {
+  display: initial;
+  animation: slideFromUp 1s none ease-out;
 }
 
 /*# sourceMappingURL=style.css.map */
