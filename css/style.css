@@ -179,6 +179,23 @@ p {
   margin-bottom: 20px;
 }
 
+img.photo {
+  display: none;
+  clip-path: ellipse(33% 50%);
+  border: none;
+}
+
+.wrap-photo {
+  filter: drop-shadow(15px 10px 6px #A15C38);
+  display: flex;
+  justify-content: center;
+}
+
+.photo.show {
+  display: initial;
+  animation: slideFromUp 1s none ease-out;
+}
+
 img {
   max-width: 100%;
 }
