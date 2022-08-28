@@ -1,0 +1,14 @@
+@mixin IconsPosition {
+    padding: 2rem;
+    width: 4rem;
+    position: fixed;
+    
+}
+
+@mixin navbarLinksPosition {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+}

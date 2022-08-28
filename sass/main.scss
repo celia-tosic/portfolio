@@ -3,74 +3,13 @@
 @import "./utils/variables";
 @import "./utils/maps";
 @import "./utils/mixins";
+@import "./components/nav";
 
-
-h2{
-    font-size: 3rem;
-    margin-bottom :2rem;
-}
-
-p{
-    font-size: 1.7rem;
-    line-height: 2.2rem;
-}
 //Header
 
 .header{
     min-height: 100vh;
     background-color: $color-primary;
-    
-        &-burger{
-            padding: 2rem;
-            width: 4rem;
-            height: auto;
-            z-index: 3;
-            position: absolute;
-            position: fixed;
-            animation: slideFromUp 1s none ease-out;
-        }
-        &-cross{
-            padding: 2rem;
-            width: 4rem;
-            height: auto;
-            z-index: 3;
-            position: absolute;
-            position: fixed;
-            display: none;
-        }
-        nav{
-            position: absolute;
-            position: fixed;
-            top: 0%;
-            width: 50%;
-            height: 70%;
-            left: -100%;
-            background-color: $color-background;
-            transition: .5s ease-out;
-            box-shadow: 0rem 0rem 1rem 0rem $color-background ;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            z-index: 2;
-            transition: 0.9s ease-in;
-        }
-        &-ul{
-            height: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-        }
-        &-link{
-            text-decoration: none;
-            color: $color-button-text;
-            font-weight: bold;
-                &:hover{
-                    color: $color-primary;
-                    transition: 0.7s ease-out;
-                }
-        }
 }
 
 .header-description{
@@ -109,37 +48,7 @@ p{
         }
 }
 
-//display navbar 
 
-nav.active{
-    left: 0;
-    transition: 0.9s ease-out;
-}
-
-.header-burger.active{
-    display: none; 
-}
-
-.header-cross.active{
-    display: initial;
-    position: absolute;
-    top:0%;
-    left:29%;
-    position: fixed;
-    animation: slideFromUp 1s none ease-out;
-    
-}
-
-@keyframes slideFromUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        translate: translateY(0px);
-    }
-}
 
 img{
     max-width: 100%;
@@ -172,10 +81,13 @@ img{
 img.photo{
     display: none;
     clip-path:ellipse(33% 50%);
+    border: none;
 }
 
 .wrap-photo{
-    filter: drop-shadow(15px 10px 6px$color-decoration);
+    filter: drop-shadow(15px 10px 6px $color-decoration);
+    display: flex;
+    justify-content: center;
 
 }
 

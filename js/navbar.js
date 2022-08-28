@@ -19,13 +19,15 @@ const navbar = {
     show: function(){
         navbar.burger.classList.add("active");
         navbar.nav.classList.add("active");
-        navbar.cross.classList.add("active");
+        setTimeout(function(){
+            navbar.cross.classList.add("active")}, 800);
     },
 
     //Enlève la classe active à la navbar pour la faire disparaître lorqu'on clique sur les liens du menu
     removeSideBar: function(){
         navbar.nav.classList.remove("active");
         navbar.cross.classList.remove("active");
-        navbar.burger.classList.remove("active");
+        setTimeout(function(){
+            navbar.burger.classList.remove("active")}, 800);
     },
 }
