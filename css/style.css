@@ -61,21 +61,31 @@ body {
   font-family: "Lora", serif;
 }
 
-h2 {
+h1 {
   font-size: 3rem;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+h2 {
+  font-size: 2.5rem;
   margin-bottom: 2rem;
 }
 
 p {
   font-size: 1.7rem;
-  line-height: 2.2rem;
+  line-height: 2.6rem;
+}
+
+img {
+  max-width: 100%;
 }
 
 .header-burger {
   padding: 2rem;
   width: 4rem;
   position: fixed;
-  animation: slideFromUp 1s none ease-out;
+  animation: slideFromUp 2s none ease-out;
 }
 
 .nav {
@@ -128,7 +138,7 @@ p {
   display: initial;
   top: 0%;
   left: 29%;
-  animation: slideFromUp 1s none ease-out;
+  animation: slideFromUp 2s none ease-out;
 }
 
 @keyframes slideFromUp {
@@ -152,10 +162,16 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: slideFromLeft 2s none ease-out;
+  position: relative;
 }
-.header-description__title {
-  font-size: 3rem;
-  margin-bottom: 2rem;
+.header-description::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  border-bottom: 2px solid #A15C38;
 }
 .header-description__title--underline {
   font-weight: bold;
@@ -163,49 +179,44 @@ p {
   background-image: linear-gradient(120deg, #fa9c84 0%, #A15C38 100%);
   background-repeat: no-repeat;
   background-size: 100% 0.3em;
-  background-position: 0 88%;
-  transition: background-size 0.25s ease-in;
+  background-position: 0% 88%;
+  transition: background-size 0.3s ease-in;
 }
 .header-description__title--underline:hover {
   background-size: 100% 88%;
 }
-.header-description__subtitle {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
 .header-description__paragraph {
-  font-size: 1.7rem;
-  line-height: 2.2rem;
-  margin-bottom: 20px;
+  margin-bottom: 5%;
 }
-
-img.photo {
-  display: none;
-  clip-path: ellipse(33% 50%);
-  border: none;
-}
-
-.wrap-photo {
-  filter: drop-shadow(15px 10px 6px #A15C38);
+.header-description__photo {
+  height: 30%;
   display: flex;
   justify-content: center;
+  filter: drop-shadow(0.5rem 0.5rem 0.5rem #A15C38);
+}
+.header-description .photo {
+  clip-path: ellipse(33% 50%);
+  border: none;
+  object-fit: cover;
 }
 
-.photo.show {
-  display: initial;
-  animation: slideFromUp 1s none ease-out;
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    translate: translateX(0px);
+  }
 }
-
-img {
-  max-width: 100%;
-}
-
 .skills {
   min-height: 100vh;
   padding: 2rem;
   background-color: #F7F1F0;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 .skills h2 {
   width: fit-content;
@@ -216,23 +227,6 @@ img {
   background-repeat: no-repeat;
   background-size: 100% 0.3em;
   background-position: 0 100%;
-}
-
-img.photo {
-  display: none;
-  clip-path: ellipse(33% 50%);
-  border: none;
-}
-
-.wrap-photo {
-  filter: drop-shadow(15px 10px 6px #A15C38);
-  display: flex;
-  justify-content: center;
-}
-
-.photo.show {
-  display: initial;
-  animation: slideFromUp 1s none ease-out;
 }
 
 /*# sourceMappingURL=style.css.map */
