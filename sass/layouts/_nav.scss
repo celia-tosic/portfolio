@@ -1,6 +1,7 @@
 .header-burger{
     @include IconsPosition;
     animation: slideFromUp 2s none ease-out;
+    z-index:3;    
 }
 
 .nav{

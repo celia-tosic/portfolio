@@ -86,6 +86,7 @@ img {
   width: 4rem;
   position: fixed;
   animation: slideFromUp 2s none ease-out;
+  z-index: 3;
 }
 
 .nav {
@@ -179,8 +180,8 @@ img {
   background-image: linear-gradient(120deg, #fa9c84 0%, #A15C38 100%);
   background-repeat: no-repeat;
   background-size: 100% 0.3em;
-  background-position: 0% 88%;
   transition: background-size 0.3s ease-in;
+  background-position: 0% 88%;
 }
 .header-description__title--underline:hover {
   background-size: 100% 88%;
@@ -218,15 +219,61 @@ img {
   flex-direction: column;
   justify-content: space-around;
 }
-.skills h2 {
+
+.skills-presentation {
+  display: flex;
+  flex-direction: column;
+}
+.skills-presentation__title {
+  margin-top: 2rem;
+  align-self: center;
   width: fit-content;
-  position: relative;
   font-weight: bold;
-  box-sizing: content-box;
+  background-position: 0 100%;
   background-image: linear-gradient(120deg, #fa9c84 0%, #A15C38 100%);
   background-repeat: no-repeat;
   background-size: 100% 0.3em;
-  background-position: 0 100%;
+  transition: background-size 0.3s ease-in;
+}
+.skills-presentation__title:hover {
+  background-size: 100% 88%;
+}
+.skills-presentation__paragraph {
+  margin: 2rem 0;
+}
+
+.skills-card {
+  position: relative;
+}
+.skills-card__list {
+  margin: 2rem 1rem;
+  z-index: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  z-index: 4;
+  column-count: 2;
+  column-fill: auto;
+  position: relative;
+}
+.skills-card__list li {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.skills-card__image:nth-child(1) {
+  position: absolute;
+  left: -10px;
+  top: -12px;
+  z-index: 0;
+}
+.skills-card__image:nth-child(2) {
+  position: absolute;
+  right: -13px;
+  bottom: -10px;
+  z-index: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
