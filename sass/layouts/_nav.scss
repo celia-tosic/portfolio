@@ -1,7 +1,7 @@
 .header-burger{
     @include IconsPosition;
     animation: slideFromUp 2s none ease-out;
-    z-index:3;    
+    z-index:5;    
 }
 
 .nav{
@@ -13,7 +13,7 @@
     background-color: $color-background;
     box-shadow: 0rem 0rem 1rem 0rem $color-background ;
     @include navbarLinksPosition;
-    z-index: 2;
+    z-index: 5;
     transition: 0.9s ease-in;
         &-cross{
             @include IconsPosition;

@@ -72,9 +72,20 @@ h2 {
   margin-bottom: 2rem;
 }
 
+h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+h4 {
+  font-size: 1.7rem;
+  margin-bottom: 2rem;
+}
+
 p {
   font-size: 1.7rem;
   line-height: 2.6rem;
+  margin-bottom: 2rem;
 }
 
 img {
@@ -86,7 +97,7 @@ img {
   width: 4rem;
   position: fixed;
   animation: slideFromUp 2s none ease-out;
-  z-index: 3;
+  z-index: 5;
 }
 
 .nav {
@@ -101,7 +112,7 @@ img {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  z-index: 2;
+  z-index: 5;
   transition: 0.9s ease-in;
 }
 .nav-cross {
@@ -218,6 +229,15 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  position: relative;
+}
+.skills::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  border-bottom: 2px solid #A15C38;
 }
 
 .skills-presentation {
@@ -255,6 +275,7 @@ img {
   column-count: 2;
   column-fill: auto;
   position: relative;
+  backdrop-filter: blur(5px);
 }
 .skills-card__list li {
   padding: 2rem;
@@ -262,18 +283,62 @@ img {
   font-size: 1.5rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.skills-card__image:nth-child(1) {
+.skills-card__list img {
+  width: 45%;
+  margin-bottom: 10px;
+}
+.skills-card__square:nth-child(1) {
   position: absolute;
   left: -10px;
   top: -12px;
   z-index: 0;
 }
-.skills-card__image:nth-child(2) {
+.skills-card__square:nth-child(2) {
   position: absolute;
   right: -13px;
   bottom: -10px;
   z-index: 0;
+}
+.skills-card .glass {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.projects {
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #F7F1F0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+}
+.projects::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  border-bottom: 2px solid #A15C38;
+}
+.projects h2 {
+  margin-top: 2rem;
+  align-self: center;
+  width: fit-content;
+  font-weight: bold;
+  background-position: 0 100%;
+  background-image: linear-gradient(120deg, #fa9c84 0%, #A15C38 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  transition: background-size 0.3s ease-in;
+}
+.projects h2:hover {
+  background-size: 100% 88%;
 }
 
 /*# sourceMappingURL=style.css.map */
