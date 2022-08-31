@@ -23,13 +23,13 @@ const slider = {
             buttonNext.addEventListener('click', slider.handleRightButtonClick);
 
         };
-        
 
     },
 
     //2. On définit la fonction handleLeftButtonCLick et handleRightButtonClick. Ces fonctions appellent plusieurs fonctions 
     handleLeftButtonClick: function ()
-    {
+    {      
+
         slider.hideSlide(slider.currentSlideIndex);
         slider.moveToPreviousSlide();
         slider.showSlide(slider.currentSlideIndex);
@@ -38,14 +38,17 @@ const slider = {
 
     handleRightButtonClick: function ()
     {
+
         slider.hideSlide(slider.currentSlideIndex);
         slider.moveToNextSlide();
         slider.showSlide(slider.currentSlideIndex);
+       
     },
 
     //4. On définit les fonctions 
     hideSlide: function(slideIndexToHide)
     {
+
         // on veut récupérer la slide qui est à l'index slideIndexToHide
         slider.slideList[slideIndexToHide].classList.remove('slider__img--current');
     },
@@ -83,3 +86,13 @@ const slider = {
 
 }
 
+
+
+// const child = event.target;
+// const parent = child.parentNode;
+// // console.log(parent.classList);
+// const classes = parent.classList;
+// const classe = classes[1];
+
+// const list = '.' + classe + '> .slider__img';
+// const slideListImages = document.querySelectorAll(list);
