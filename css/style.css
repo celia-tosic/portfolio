@@ -341,4 +341,30 @@ img {
   background-size: 100% 88%;
 }
 
+.project {
+  padding: 2rem 0rem;
+  margin-bottom: 4rem;
+}
+.project__description {
+  margin-bottom: 2rem;
+}
+.project__techno {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.project__techno span {
+  padding: 1rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5%;
+  border: 2px solid rgb(209, 186, 186);
+}
+.project__slider {
+  margin-top: 1rem;
+}
+
 /*# sourceMappingURL=style.css.map */
