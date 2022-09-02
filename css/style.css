@@ -62,28 +62,28 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 2rem;
   padding-top: 2rem;
 }
 
 h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-
-h3 {
   font-size: 2rem;
   margin-bottom: 2rem;
 }
 
-h4 {
+h3 {
   font-size: 1.7rem;
   margin-bottom: 2rem;
 }
 
+h4 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
 p {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   line-height: 2.6rem;
   margin-bottom: 2rem;
 }
@@ -179,6 +179,13 @@ img {
   animation: slideFromLeft 2s none ease-out;
   position: relative;
 }
+@media screen and (min-width: 481px) {
+  .header-description {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .header-description::before {
   content: "";
   position: absolute;
@@ -187,9 +194,14 @@ img {
   right: 20%;
   border-bottom: 2px solid #A15C38;
 }
+@media screen and (min-width: 481px) {
+  .header-description div {
+    width: 50%;
+  }
+}
 .header-description__title--underline {
   font-weight: bold;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   background-image: linear-gradient(120deg, #fa9c84 0%, #A15C38 100%);
   background-repeat: no-repeat;
   background-size: 100% 0.3em;
@@ -256,7 +268,13 @@ footer p {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   position: relative;
+}
+@media screen and (min-width: 481px) {
+  .skills {
+    align-items: center;
+  }
 }
 .skills::before {
   content: "";
@@ -292,6 +310,11 @@ footer p {
 .skills-card {
   position: relative;
 }
+@media screen and (min-width: 481px) {
+  .skills-card {
+    width: 85%;
+  }
+}
 .skills-card__list {
   margin: 2rem 1rem;
   background-color: rgba(255, 255, 255, 0.2);
@@ -311,9 +334,19 @@ footer p {
   justify-content: center;
   align-items: center;
 }
+@media screen and (min-width: 481px) {
+  .skills-card__list li {
+    padding: 2rem 1rem;
+  }
+}
 .skills-card__list img {
-  width: 45%;
+  width: 35%;
   margin-bottom: 10px;
+}
+@media screen and (min-width: 481px) {
+  .skills-card__list img {
+    width: 20%;
+  }
 }
 .skills-card__square:nth-child(1) {
   position: absolute;
@@ -332,6 +365,21 @@ footer p {
   height: 100%;
   position: absolute;
   background-color: rgba(255, 255, 255, 0);
+}
+
+.portfolio, .wip {
+  width: 80%;
+}
+@media screen and (min-width: 481px) {
+  .portfolio, .wip {
+    width: 60%;
+  }
+}
+
+.project__content-wip .project__slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .projects {
@@ -382,6 +430,11 @@ footer p {
   justify-content: space-around;
   align-items: center;
 }
+@media screen and (min-width: 481px) {
+  .project__techno {
+    justify-content: flex-start;
+  }
+}
 .project__techno span {
   padding: 1rem;
   margin-right: 2rem;
@@ -423,6 +476,13 @@ footer p {
   margin-bottom: 2rem;
   width: 100%;
 }
+@media screen and (min-width: 481px) {
+  .slider {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 45rem;
+    height: 27rem;
+  }
+}
 .slider__img {
   position: absolute;
   max-width: 100%;
@@ -431,6 +491,11 @@ footer p {
   opacity: 0;
   transition: opacity 1s;
   filter: grayscale(1);
+}
+@media screen and (min-width: 481px) {
+  .slider__img {
+    object-fit: contain;
+  }
 }
 .slider__img:hover {
   filter: initial;
@@ -449,6 +514,11 @@ footer p {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+@media screen and (min-width: 481px) {
+  .buttons {
+    height: 10%;
+  }
 }
 .buttons .slider__btn {
   font-weight: bold;

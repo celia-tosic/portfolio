@@ -12,18 +12,29 @@
     justify-content: center;
     animation: slideFromLeft 2s none ease-out; 
     position: relative;
+    @include tablet {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
         &::before{
             @include decorationLineBetweenSections; 
+        }
+
+        div{
+            @include tablet {
+                width: 50%;
+            }
         }
     
         &__title--underline{
             font-weight: bold;
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             @include underlineEffect;
             background-position: 0% 88%;
                 &:hover {
                     background-size: 100% 88%;
-                }     
+                }   
         }
 
         &__paragraph{

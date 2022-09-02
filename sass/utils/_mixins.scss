@@ -67,12 +67,6 @@
 
 // Media queries 
 
-@mixin small-mobile {
-    @media screen and (min-width: map-get($breakpoints, small-mobile)){
-        @content;
-    }
-}
-
 @mixin tablet {
     @media screen and (min-width: map-get($breakpoints, tablet)){
         @content;

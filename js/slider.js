@@ -66,6 +66,7 @@ const slider = {
     //4. On définit les fonctions 
     hideSlide: function(slideIndexToHide, slideList)
     {
+        console.log(slideList);
         // on veut récupérer la slide qui est à l'index slideIndexToHide
        slideList[slideIndexToHide].classList.remove('slider__img--current');
     },

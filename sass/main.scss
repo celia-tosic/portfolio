@@ -17,8 +17,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center ;
     position : relative;
-
+    @include tablet{
+        align-items: center;
+    }
         &::before{
            @include decorationLineBetweenSections; 
         }
@@ -49,6 +52,9 @@
 
 .skills-card{
     position : relative;
+    @include tablet {
+        width: 85%;
+    }
     
         &__list{
             margin: 2rem 1rem;
@@ -67,11 +73,17 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
+                    @include tablet{
+                        padding: 2rem 1rem;
+                    }
                 }
 
                 img{
-                    width: 45%;
+                    width: 35%;
                     margin-bottom: 10px;
+                    @include tablet {
+                        width: 20%;
+                    }
                 }
         }
 
@@ -90,6 +102,19 @@
     
 
 // Section projects
+
+.portfolio, .wip{
+    width:80%;
+    @include tablet{
+        width: 60%;
+    }
+}
+
+.project__content-wip .project__slider{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .projects{
     min-height: 100vh;
@@ -132,6 +157,9 @@
             flex-wrap: wrap;
             justify-content: space-around;
             align-items: center;
+            @include tablet{
+                justify-content: flex-start;
+            }
                 span{
                     padding :1rem;
                     margin-right: 2rem;
@@ -177,6 +205,11 @@
     // justify-content: center;
     margin-bottom: 2rem;
     width: 100%;
+    @include tablet{
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        width: 45rem;
+        height: 27rem;
+    }
 
         &__img {
             position: absolute;
@@ -186,6 +219,9 @@
             opacity: 0;
             transition: opacity 1s;
             filter: grayscale(1);
+            @include tablet{
+                object-fit: contain;
+            }
 
                 &:hover{
                 filter: initial;
@@ -207,6 +243,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    @include tablet{
+        height: 10%;
+    }
 
         .slider__btn{
             font-weight: bold;

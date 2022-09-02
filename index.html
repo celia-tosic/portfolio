@@ -24,14 +24,16 @@
                     <li><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </nav>
-                <div class="header-description">
+            <div class="header-description">
+                <div>
                     <h1 class="header-description__title">Je suis <span class="header-description__title--underline">Célia Tosic</span></h1>
                     <h2 class="header-description__subtitle">Développeuse web et web mobile</h2>
                     <p class="header-description__paragraph">Bienvenue sur mon portfolio ! Découvrez les projets sur lesquels je travaille et sur lesquels j'ai travaillé. Découvrez-en un peu plus sur moi !</p>
-                    <div class="header-description__photo">
-                        <img class="photo" src="images/celia-nb.png" alt="photo de Célia Tosic">
-                    </div>
-                </div>            
+                </div>
+                <div class="header-description__photo">
+                    <img class="photo" src="images/celia-nb.png" alt="photo de Célia Tosic">
+                </div>
+            </div>            
         </header>
         <main>
             <section class="skills" id="skills">
@@ -65,7 +67,7 @@
             <section class="projects" id="projects">
                 <h2>Projets</h2>
 
-                <article class="project">
+                <article class="project project__content-wip">
                     <div class="project__content">
                         <h3 class="project__title">Carnet de voyage - en cours</h3>
                         <h4 class="project__subtitle">Projet personnel</h4>
@@ -75,21 +77,21 @@
                         </div>
                     </div>
                     <div class="project__slider">
-                        <img class="image" src="images/wip.png" alt="work in progress">
+                        <img class="slider-img slider__img--current wip" src="images/wip.png" alt="work in progress">
                     </div>  
                 </article>
 
-                <article class="project">
-                    <div class="project__content">
+                <article class="project project__content-wip">
+                    <div class="project__content" >
                         <h3 class="project__title">Portfolio</h3>
                         <h4 class="project__subtitle">Projet personnel</h4>
                         <p class="project__description">Ce portfolio personnel présente les outils sur lesquels je travaille et les différents projets que j'ai réalisés. Ayant appris récemment à utiliser le préprocesseur SASS, la réalisation de ce portfolio a été un bon exercice pour pratiquer ! </p>
                         <div class="project__techno">
                             <span>HTML</span><span>SASS</span><span>JavaScript</span>
                         </div> 
-                    <div>
+                    </div>
                     <div class="project__slider">
-                        <img class="slider-img slider__img--current" src="images/accueil-otransport.png" alt="">
+                        <img class="slider-img slider__img--current portfolio" src="images/accueil-otransport.png" alt="">
                     </div>
                     <div class="project__actions">
                         <a class="link" href="https://github.com/celia-tosic/portfolio" target="_blank" title ="ouverture dans une nouvelle fenêtre">Voir le code sur GitHub</a>
