@@ -13,8 +13,12 @@ const navbar = {
         navbar.burger.addEventListener("click", navbar.show);
         navbar.cross.addEventListener("click", navbar.removeSideBar);
 
-        const date = new Date();
-        console.log(date.getFullYear());
+        //On veut gérer le scroll au clic sur un lien de la navbar 
+        const anchors = document.querySelectorAll('a[href^="#"]');
+        
+        for(const anchor of anchors){
+            anchor.addEventListener('click', navbar.anchorSmooth);
+        };
     },
 
     show: function(){
@@ -31,4 +35,15 @@ const navbar = {
         setTimeout(function(){
             navbar.burger.classList.remove("active")}, 800);
     },
+
+    anchorSmooth: function(event){
+        event.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
+
+        //On enlève la navbar
+        navbar.nav.classList.remove("active");
+        navbar.cross.classList.remove("active");
+        setTimeout(function(){
+            navbar.burger.classList.remove("active")}, 800);
+    }
 }

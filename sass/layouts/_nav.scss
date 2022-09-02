@@ -40,6 +40,7 @@
 
 .header-burger.active{
     display: none; 
+    position: relative;
 }
 
 .nav{
@@ -50,8 +51,9 @@
     
     &-cross.active{
         display: initial;
+        position : absolute;
         top:0%;
-        left:29%;
+        right:-5%;
         animation: slideFromUp 2s none ease-out;  
     }
 }

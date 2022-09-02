@@ -1,6 +1,6 @@
 @mixin navIconsPosition {
     padding: 2rem;
-    width: 4rem;
+    width: 3rem;
     position: fixed;
     
 }
@@ -63,4 +63,18 @@
     height: $height;
     background-color: transparent; 
 
+}
+
+// Media queries 
+
+@mixin small-mobile {
+    @media screen and (min-width: map-get($breakpoints, small-mobile)){
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: map-get($breakpoints, tablet)){
+        @content;
+    }
 }

@@ -5,7 +5,6 @@ const copyright = {
         const date = new Date();
 
         const copyright = document.querySelector("#copyright");
-        console.log(copyright);
 
         copyright.innerHTML = "Célia Tosic - " + date.getFullYear() + "";
     },

@@ -94,7 +94,7 @@ img {
 
 .header-burger {
   padding: 2rem;
-  width: 4rem;
+  width: 3rem;
   position: fixed;
   animation: slideFromUp 2s none ease-out;
   z-index: 5;
@@ -117,7 +117,7 @@ img {
 }
 .nav-cross {
   padding: 2rem;
-  width: 4rem;
+  width: 3rem;
   position: fixed;
   display: none;
 }
@@ -140,6 +140,7 @@ img {
 
 .header-burger.active {
   display: none;
+  position: relative;
 }
 
 .nav.active {
@@ -148,8 +149,9 @@ img {
 }
 .nav-cross.active {
   display: initial;
+  position: absolute;
   top: 0%;
-  left: 29%;
+  right: -5%;
   animation: slideFromUp 2s none ease-out;
 }
 
