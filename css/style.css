@@ -267,11 +267,9 @@ img {
 }
 .skills-card__list {
   margin: 2rem 1rem;
-  z-index: 0;
   background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  z-index: 4;
   column-count: 2;
   column-fill: auto;
   position: relative;
@@ -393,7 +391,6 @@ img {
   justify-content: center;
   margin-bottom: 2rem;
 }
-
 .slider__img {
   position: absolute;
   max-width: 100%;
@@ -403,17 +400,14 @@ img {
   transition: opacity 1s;
   filter: grayscale(1);
 }
-
 .slider__img:hover {
   filter: initial;
   transition: 0.3s ease-in;
 }
-
 .slider__img--current {
   opacity: 1;
   z-index: 1;
 }
-
 .slider__btn {
   position: relative;
   z-index: 2;
@@ -424,11 +418,9 @@ img {
   background-color: #F7F1F0;
   color: #C3A6A0;
 }
-
 .slider__btn.btn-previous {
   margin-right: 40%;
 }
-
 .slider__btn.btn-next {
   margin-left: 40%;
 }
@@ -470,19 +462,6 @@ img {
   flex-direction: column;
   align-items: center;
 }
-.contact-card form {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2rem 1rem;
-  z-index: 4;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-}
 .contact-card__square:nth-child(1) {
   position: absolute;
   left: -20px;
@@ -497,9 +476,22 @@ img {
 }
 .contact-card .glass {
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   position: absolute;
   background-color: rgba(255, 255, 255, 0);
+}
+.contact-card form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 1rem;
+  z-index: 4;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
 }
 
 .form-content {
@@ -507,13 +499,29 @@ img {
   flex-direction: column;
   width: 95%;
 }
-
-input {
+.form-content input {
   margin: 2rem 0;
   border: 2px solid #C3A6A0;
   border-radius: 5px;
   height: 4rem;
   background-color: transparent;
+}
+.form-content textarea {
+  margin: 2rem 0;
+  border: 2px solid #C3A6A0;
+  border-radius: 5px;
+  height: 10rem;
+  background-color: transparent;
+}
+.form-content label {
+  font-size: 1.7rem;
+  padding-top: 2rem;
+  width: 90%;
+}
+.form-content ::placeholder {
+  padding-left: 10px;
+  padding-top: 2px;
+  font-size: 1.2rem;
 }
 
 button.submit {
@@ -531,26 +539,6 @@ button.submit:hover {
   cursor: pointer;
   background-color: #C3A6A0;
   color: #262220;
-}
-
-::placeholder {
-  padding-left: 10px;
-  padding-top: 2px;
-  font-size: 1.2rem;
-}
-
-textarea {
-  margin: 2rem 0;
-  border: 2px solid #C3A6A0;
-  border-radius: 5px;
-  height: 10rem;
-  background-color: transparent;
-}
-
-label {
-  font-size: 1.7rem;
-  padding-top: 2rem;
-  width: 90%;
 }
 
 /*# sourceMappingURL=style.css.map */

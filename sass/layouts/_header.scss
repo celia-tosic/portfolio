@@ -13,12 +13,7 @@
     animation: slideFromLeft 2s none ease-out; 
     position: relative;
         &::before{
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 20%;
-            right: 20%;
-            border-bottom: 2px solid $color-decoration;
+            @include decorationLineBetweenSections; 
         }
     
         &__title--underline{

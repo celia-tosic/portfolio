@@ -1,5 +1,5 @@
 .header-burger{
-    @include IconsPosition;
+    @include navIconsPosition;
     animation: slideFromUp 2s none ease-out;
     z-index:5;    
 }
@@ -16,7 +16,7 @@
     z-index: 5;
     transition: 0.9s ease-in;
         &-cross{
-            @include IconsPosition;
+            @include navIconsPosition;
             display: none;
         }
 
