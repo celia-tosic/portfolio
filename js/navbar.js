@@ -13,7 +13,8 @@ const navbar = {
         navbar.burger.addEventListener("click", navbar.show);
         navbar.cross.addEventListener("click", navbar.removeSideBar);
 
-
+        const date = new Date();
+        console.log(date.getFullYear());
     },
 
     show: function(){

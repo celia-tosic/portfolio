@@ -1,0 +1,26 @@
+footer{
+    background-color: $color-background;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid $color-decoration;
+    padding :2rem;
+    color:$color-button-text;
+
+        p{
+            margin-bottom: 0;
+            font-size: 1.3rem;
+        }
+}
+
+.footer-links{
+    margin-bottom: 1.5rem;
+
+        a{
+            text-decoration: none;
+            padding: 1.5rem;
+            color: $color-button-text;
+            font-size:1.7rem;
+        }
+}

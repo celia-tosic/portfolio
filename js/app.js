@@ -2,6 +2,7 @@ const app = {
     init: function () {
         navbar.init();
         slider.init();
+        copyright.init();
     },
 }
 
