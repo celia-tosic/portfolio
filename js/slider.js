@@ -24,8 +24,10 @@ const slider = {
 
         //On récupère le bouton sur lequel on a cliqué 
         const child = event.target;
-        //On remonte jusqu'à son parent
-        const parent = child.parentNode;
+        //On remonte jusqu'à son parent (la div avec la classe .buttons)
+        const div = child.parentNode;
+        //On remonte jusqu'au parent de la div
+        const parent = div.parentNode;
         //On récupère les classes du parent
         const parentClasses = parent.classList;
         //On récupère la classe qui différencie chaque slider

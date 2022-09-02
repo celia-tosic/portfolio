@@ -342,6 +342,9 @@ img {
 .project {
   padding: 2rem 0rem;
   margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .project__description {
   margin-bottom: 2rem;
@@ -365,6 +368,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 3rem;
 }
 .project__actions a {
   text-decoration: none;
@@ -387,9 +391,10 @@ img {
   height: 18rem;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin-bottom: 2rem;
+  width: 100%;
 }
 .slider__img {
   position: absolute;
@@ -408,21 +413,23 @@ img {
   opacity: 1;
   z-index: 1;
 }
-.slider__btn {
-  position: relative;
-  z-index: 2;
+
+.buttons {
+  position: absolute;
+  bottom: -3rem;
+  width: 50%;
+  height: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.buttons .slider__btn {
   font-weight: bold;
   border-radius: 20%;
   font-size: 2rem;
   border: 1px solid #A15C38;
   background-color: #F7F1F0;
   color: #C3A6A0;
-}
-.slider__btn.btn-previous {
-  margin-right: 40%;
-}
-.slider__btn.btn-next {
-  margin-left: 40%;
 }
 
 .contact {

@@ -49,7 +49,6 @@
 .skills-card{
     position : relative;
     
- 
         &__list{
             margin: 2rem 1rem;
             @include colorBackgroundSkillsAndForm;
@@ -119,6 +118,9 @@
 .project{
     padding: 2rem 0rem;
     margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
         &__description{
             margin-bottom: 2rem;
@@ -144,6 +146,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 3rem;
                 a{
                     text-decoration: none;
                     padding : 1rem;
@@ -168,9 +171,11 @@
     height: 18rem;
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
     margin-bottom: 2rem;
+    width: 100%;
 
         &__img {
             position: absolute;
@@ -190,25 +195,25 @@
                     opacity: 1;
                     z-index: 1;
                 }
-        }
+        }    
+}
 
-        &__btn {
-            position: relative;
-            z-index: 2;
+.buttons{
+    position: absolute;
+    bottom:-3rem;
+    width: 50%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+        .slider__btn{
             font-weight: bold;
             border-radius: 20%;
             font-size:2rem;
             border: 1px solid $color-decoration;
             background-color: $color-primary;
             color: $color-background;
-
-                &.btn-previous{
-                margin-right: 40%
-                }
-
-                &.btn-next{
-                margin-left: 40%
-                }
         }
 }
 
@@ -275,7 +280,6 @@
             @include colorBackgroundSkillsAndForm;
             backdrop-filter: blur(5px); 
         }       
-
     }
 
 
