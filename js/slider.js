@@ -20,7 +20,7 @@ const slider = {
 
     },
 
-    ImagesRelatedToTheSlider(event){
+    imagesRelatedToTheSlider(event){
 
         //On récupère le bouton sur lequel on a cliqué 
         const child = event.target;
@@ -40,68 +40,68 @@ const slider = {
         return slideListImages;
     },
 
+    hideSlide:function(image){
+        image.classList.remove('slider__img--current');
+    },
+
+    showSlide:function(image){
+        image.classList.add('slider__img--current');
+    },
+
+
+    handleNextButtonClick:function(event){
+
+        const slideList = slider.imagesRelatedToTheSlider(event);
+
+        //Pour chaque image (image) et index (i) de la liste d'images récupérée (slideList) 
+        for(const [i, image] of slideList.entries()){
+            
+            //Si l'image contient la classe slider__img--current
+            if(image.classList.contains('slider__img--current')){
+                //Si on est sur la dernière image (donc si l'index est égal à la longueur de la liste-1) (et que la suivante est la première)
+                if (i === slideList.length - 1){
+                    //On lui enlève la classe current
+                    slider.hideSlide(image);
+                    //Et on ajoute la classe current à la première image pour la rendre visible
+                    slideList[0].classList.add('slider__img--current');
+                    //L'instruction break permet d'arrêter la boucle
+                    break;
+                }else{
+                    //Si nous ne sommes pas sur la dernière image, alors on lui enlève simplement la classe current 
+                    slider.hideSlide(image);
+                    //Et on rend visible la slide suivante.
+                    slider.showSlide(slideList[i+1]);
+                    break;
+                };
+            }
+        };
+    },
+
     handlePreviousButtonClick:function(event){
 
         //On récupère le résultat de la fonction ImagesRelatedToTheSlider() (donc les images du slider) dans une variable slideList
-        const slideList = slider.ImagesRelatedToTheSlider(event);
+        const slideList = slider.imagesRelatedToTheSlider(event);
          
-        //On passe en paramètre des différentes fonction les images récupérées.
-        slider.hideSlide(slider.currentSlideIndex, slideList);
-        slider.moveToPreviousSlide(slideList);
-        slider.showSlide(slider.currentSlideIndex, slideList);
+         //Pour chaque image (image) et index (i) de la liste d'images récupérée (slideList) 
+         for(const [i, image] of slideList.entries()){
 
+            //Si l'image contient la classe slider__img--current
+            if(image.classList.contains('slider__img--current')){
+                //Si on est sur la première image
+                if (i === 0){
+                    console.log(i, image);
+                    //On lui enlève la classe current
+                    slider.hideSlide(image);
+                    //Et on ajoute la classe current à la dernière image 
+                    slideList[slideList.length - 1].classList.add('slider__img--current');
+                    break;
+                // Si on n'est pas sur la première image, on enlève simplement la classe current à l'image actuelle et on rend visible la précédente.
+                 }else{
+                    slider.hideSlide(image);
+                    slider.showSlide(slideList[i-1]);
+                    break;
+                };
+            };
+        };
     },
-
-    handleNextButtonClick:function(event){
-         
-        const slideList = slider.ImagesRelatedToTheSlider(event);
-        
-        slider.hideSlide(slider.currentSlideIndex, slideList);
-        slider.moveToNextSlide(slideList);
-        slider.showSlide(slider.currentSlideIndex, slideList);
-
-   },
-
-
-    //4. On définit les fonctions 
-    hideSlide: function(slideIndexToHide, slideList)
-    {
-        console.log(slideList);
-        // on veut récupérer la slide qui est à l'index slideIndexToHide
-       slideList[slideIndexToHide].classList.remove('slider__img--current');
-    },
-
-    moveToPreviousSlide: function(slideList)
-    {
-
-        if(slider.currentSlideIndex === 0)
-        {
-            // si on est sur la première slide on change la valeur de currentSlide à la dernière slide
-            slider.currentSlideIndex = slideList.length - 1;
-        }
-        else {
-            // sinon on decrémente sa valeur
-            slider.currentSlideIndex--;
-        }
-    },
-
-    moveToNextSlide: function(slideList)
-    {
-       
-        if(slider.currentSlideIndex === slideList.length - 1)
-        {
-            // si on est sur la dernière slide on change la valeur de currentSlide à 0
-            slider.currentSlideIndex = 0;
-        }
-        else {
-            // sinon on incrémente sa valeur
-            slider.currentSlideIndex++;
-        }
-    },
-
-    showSlide: function(slideIndexToShow, slideList)
-    {
-        slideList[slideIndexToShow].classList.add('slider__img--current');
-    },
-
-}
+};
