@@ -66,26 +66,101 @@ h1 {
   margin-bottom: 2rem;
   padding-top: 2rem;
 }
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  h1 {
+    font-size: 3.2rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  h1 {
+    font-size: 5rem;
+  }
+}
 
 h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  h2 {
+    font-size: 2.8rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  h2 {
+    font-size: 3.8rem;
+  }
 }
 
 h3 {
   font-size: 1.7rem;
   margin-bottom: 2rem;
 }
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  h3 {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  h3 {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  h3 {
+    font-size: 3rem;
+  }
+}
 
 h4 {
   font-size: 1.5rem;
   margin-bottom: 2rem;
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  h4 {
+    font-size: 1.7rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  h4 {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  h4 {
+    font-size: 2.5rem;
+  }
 }
 
 p {
   font-size: 1.4rem;
   line-height: 2.6rem;
   margin-bottom: 2rem;
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  p {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  p {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  p {
+    font-size: 2rem;
+  }
 }
 
 img {
@@ -179,11 +254,26 @@ img {
   animation: slideFromLeft 2s none ease-out;
   position: relative;
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 600px) {
   .header-description {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .header-description {
+    padding: 0rem 4rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .header-description {
+    padding: 0rem 7rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .header-description {
+    margin: 0rem 15rem;
   }
 }
 .header-description::before {
@@ -194,7 +284,7 @@ img {
   right: 20%;
   border-bottom: 2px solid #A15C38;
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 600px) {
   .header-description div {
     width: 50%;
   }
@@ -208,17 +298,42 @@ img {
   transition: background-size 0.3s ease-in;
   background-position: 0% 88%;
 }
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .header-description__title--underline {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .header-description__title--underline {
+    font-size: 5rem;
+  }
+}
 .header-description__title--underline:hover {
   background-size: 100% 88%;
 }
 .header-description__paragraph {
   margin-bottom: 5%;
 }
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .header-description__paragraph {
+    font-size: 1.6rem;
+  }
+}
 .header-description__photo {
   height: 30%;
   display: flex;
   justify-content: center;
   filter: drop-shadow(0.5rem 0.5rem 0.5rem #A15C38);
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .header-description__photo {
+    height: 32%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .header-description__photo {
+    height: 35%;
+  }
 }
 .header-description .photo {
   clip-path: ellipse(33% 50%);
@@ -271,9 +386,24 @@ footer p {
   align-items: center;
   position: relative;
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 600px) {
   .skills {
     align-items: center;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .skills {
+    padding: 4rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .skills {
+    padding: 4rem 7rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .skills {
+    padding: 4rem 15rem;
   }
 }
 .skills::before {
@@ -306,13 +436,28 @@ footer p {
 .skills-presentation__paragraph {
   margin: 2rem 0;
 }
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .skills-presentation__paragraph {
+    font-size: 1.6rem;
+  }
+}
 
 .skills-card {
   position: relative;
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 600px) and (max-width: 768px) {
   .skills-card {
-    width: 85%;
+    width: 70%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .skills-card {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .skills-card {
+    width: 50%;
   }
 }
 .skills-card__list {
@@ -334,7 +479,7 @@ footer p {
   justify-content: center;
   align-items: center;
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 600px) {
   .skills-card__list li {
     padding: 2rem 1rem;
   }
@@ -342,8 +487,10 @@ footer p {
 .skills-card__list img {
   width: 35%;
   margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 600px) {
   .skills-card__list img {
     width: 20%;
   }
@@ -370,7 +517,7 @@ footer p {
 .portfolio, .wip {
   width: 80%;
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 600px) {
   .portfolio, .wip {
     width: 60%;
   }
@@ -390,6 +537,21 @@ footer p {
   flex-direction: column;
   justify-content: space-around;
   position: relative;
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .projects {
+    padding: 2rem 4rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .projects {
+    padding: 4rem 7rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .projects {
+    padding: 4rem 15rem;
+  }
 }
 .projects::before {
   content: "";
@@ -430,7 +592,7 @@ footer p {
   justify-content: space-around;
   align-items: center;
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 600px) {
   .project__techno {
     justify-content: flex-start;
   }
@@ -457,6 +619,7 @@ footer p {
   color: #F7F1F0;
   display: block;
   margin-bottom: 1rem;
+  margin-top: 2rem;
   background-color: #262220;
   border-radius: 3%;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -476,25 +639,32 @@ footer p {
   margin-bottom: 2rem;
   width: 100%;
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 600px) {
   .slider {
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     width: 45rem;
     height: 27rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .slider {
+    width: 60rem;
+    height: 30rem;
   }
 }
 .slider__img {
   position: absolute;
   max-width: 100%;
-  height: 100%;
+  max-height: 100%;
   object-fit: contain;
   opacity: 0;
   transition: opacity 1s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
   filter: grayscale(1);
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 600px) {
   .slider__img {
-    object-fit: contain;
+    object-fit: cover;
   }
 }
 .slider__img:hover {
@@ -508,14 +678,14 @@ footer p {
 
 .buttons {
   position: absolute;
-  bottom: -3rem;
+  bottom: -4rem;
   width: 50%;
   height: 15%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 600px) {
   .buttons {
     height: 10%;
   }
@@ -530,19 +700,18 @@ footer p {
 }
 
 .contact {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #F7F1F0;
-  padding: 2rem;
+  padding: 4rem;
 }
 .contact .title {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 3rem;
 }
 .contact .title h2 {
   margin-top: 2rem;
@@ -565,6 +734,21 @@ footer p {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .contact-card {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .contact-card {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .contact-card {
+    width: 60%;
+  }
 }
 .contact-card__square:nth-child(1) {
   position: absolute;

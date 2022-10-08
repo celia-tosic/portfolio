@@ -1,8 +1,9 @@
 @import "./base/reset";
-@import "./base/base";
+// @import "./base/base";
 @import "./utils/variables";
 @import "./utils/maps";
 @import "./utils/mixins";
+@import "./base/base";
 @import "./layouts/nav";
 @import "./layouts/header";
 @import "./layouts/footer";
@@ -19,8 +20,17 @@
     justify-content: space-around;
     align-items: center ;
     position : relative;
-    @include tablet{
+    @include mobile{
         align-items: center;
+    }
+    @include tablet{
+        padding: 4rem;
+    }
+    @include laptop{
+        padding: 4rem 7rem;
+    }
+    @include largeScreen{
+        padding: 4rem 15rem;
     }
         &::before{
            @include decorationLineBetweenSections; 
@@ -45,15 +55,23 @@
 
     &__paragraph{
         margin: 2rem 0;
+        @include tablet{
+            font-size: 1.6rem;
+        }
     }
-
 }
 
 
 .skills-card{
     position : relative;
     @include tablet {
-        width: 85%;
+        width: 70%;
+    }
+    @include laptop{
+        width: 70%;
+    }
+    @include largeScreen{
+        width: 50%;
     }
     
         &__list{
@@ -73,7 +91,7 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    @include tablet{
+                    @include mobile{
                         padding: 2rem 1rem;
                     }
                 }
@@ -81,7 +99,9 @@
                 img{
                     width: 35%;
                     margin-bottom: 10px;
-                    @include tablet {
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                    border-radius: 5px;
+                    @include mobile {
                         width: 20%;
                     }
                 }
@@ -105,7 +125,7 @@
 
 .portfolio, .wip{
     width:80%;
-    @include tablet{
+    @include mobile{
         width: 60%;
     }
 }
@@ -124,6 +144,16 @@
     flex-direction: column;
     justify-content: space-around;
     position : relative;
+    @include tablet{
+        padding: 2rem 4rem;
+    }
+    @include laptop{
+        padding: 4rem 7rem;
+    }
+    @include largeScreen{
+        padding: 4rem 15rem;
+    }
+    
         &::before{
             @include decorationLineBetweenSections; 
         }
@@ -157,7 +187,7 @@
             flex-wrap: wrap;
             justify-content: space-around;
             align-items: center;
-            @include tablet{
+            @include mobile{
                 justify-content: flex-start;
             }
                 span{
@@ -183,6 +213,7 @@
                     color: $color-primary;
                     display: block;
                     margin-bottom: 1rem;
+                    margin-top: 2rem;
                     background-color: $color-button-text;
                     border-radius: 3%;
                     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -205,22 +236,27 @@
     // justify-content: center;
     margin-bottom: 2rem;
     width: 100%;
-    @include tablet{
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    @include mobile{
         width: 45rem;
         height: 27rem;
+    }
+    @include largeScreen{
+        width: 60rem;
+        height: 30rem;
     }
 
         &__img {
             position: absolute;
             max-width: 100%;
-            height: 100%;
+            max-height: 100%;
             object-fit:contain;
             opacity: 0;
             transition: opacity 1s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
             filter: grayscale(1);
-            @include tablet{
-                object-fit: contain;
+            @include mobile{
+                object-fit: cover;
             }
 
                 &:hover{
@@ -237,13 +273,13 @@
 
 .buttons{
     position: absolute;
-    bottom:-3rem;
+    bottom:-4rem;
     width: 50%;
     height: 15%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    @include tablet{
+    @include mobile{
         height: 10%;
     }
 
@@ -261,19 +297,19 @@
 // Section Contact 
 
 .contact{
-    min-height: 100vh;
+    // min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: $color-primary;
-    padding:2rem;
+    padding: 4rem;
 
         .title{
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-bottom: 3rem;
 
                 h2{
                     margin-top: 2rem;
@@ -296,6 +332,15 @@
     display:flex ;
     flex-direction: column;
     align-items: center;
+    @include tablet{
+        width: 80%;
+    }
+    @include laptop{
+        width: 80%;
+    }
+    @include largeScreen{
+       width: 60%;
+    }
 
         &__square:nth-child(1){
             @include squareTop(-20px);

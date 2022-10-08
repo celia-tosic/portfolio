@@ -11,30 +11,78 @@ h1{
     font-size: 2.5rem;
     margin-bottom :2rem;
     padding-top :2rem;
+    @include tablet{
+        font-size: 2.8rem;
+    }
+    @include laptop{
+        font-size: 3.2rem;
+    }
+    @include largeScreen{
+        font-size: 5rem;
+    }
 }
 
 h2{
     font-size: 2rem;
     margin-bottom: 2rem;
+    @include tablet{
+        font-size:2.5rem;
+    }
+    @include laptop{
+        font-size: 2.8rem;
+    }
+    @include largeScreen{
+        font-size: 3.8rem;
+    }
+    
 }
 
 h3{
     font-size: 1.7rem;
     margin-bottom: 2rem;
+    @include tablet{
+        font-size:2rem;
+    }
+    @include laptop{
+        font-size: 2.5rem;
+    }
+    @include largeScreen{
+        font-size: 3rem;
+    }
+    
 
 }
 
 h4{
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    @include tablet{
+        font-size:1.7rem;
+    }
+    @include laptop{
+        font-size: 2rem;
+    }
+    @include largeScreen{
+        font-size: 2.5rem;
+    }
+    
 }
 
 p{
     font-size: 1.4rem;
     line-height: 2.6rem;
     margin-bottom: 2rem;
+    @include tablet{
+        font-size:1.6rem;
+    }
+    @include laptop{
+        font-size: 1.6rem;
+    }
+    @include largeScreen{
+        font-size: 2rem;
+    }
 }
 
 img{
     max-width: 100%;
-}
+    }

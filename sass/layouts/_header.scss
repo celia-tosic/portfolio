@@ -1,7 +1,6 @@
 .header{
     min-height: 100vh;
-    background-color: $color-primary;
-    
+    background-color: $color-primary;    
 }
 
 .header-description{
@@ -12,17 +11,26 @@
     justify-content: center;
     animation: slideFromLeft 2s none ease-out; 
     position: relative;
-    @include tablet {
+    @include mobile  {
         flex-direction: row;
         justify-content: center;
         align-items: center;
+    }
+    @include tablet{
+        padding : 0rem 4rem;  
+    }
+    @include laptop{
+        padding: 0rem 7rem;
+    }
+    @include largeScreen{
+        margin: 0rem 15rem;
     }
         &::before{
             @include decorationLineBetweenSections; 
         }
 
         div{
-            @include tablet {
+            @include mobile {
                 width: 50%;
             }
         }
@@ -32,13 +40,23 @@
             font-size: 2.5rem;
             @include underlineEffect;
             background-position: 0% 88%;
+            @include tablet{
+                font-size:3rem;
+            }
+            @include largeScreen{
+                font-size: 5rem;
+            }
                 &:hover {
                     background-size: 100% 88%;
                 }   
+            
         }
 
         &__paragraph{
             margin-bottom: 5%;
+            @include tablet{
+                font-size:1.6rem;
+            }
         }
 
         &__photo{
@@ -46,6 +64,12 @@
             display: flex;
             justify-content: center;
             filter: drop-shadow(0.5rem 0.5rem 0.5rem $color-decoration);
+            @include laptop{
+                height: 32%;
+            }
+            @include largeScreen{
+                height: 35%;
+            }
         }
        
         .photo{

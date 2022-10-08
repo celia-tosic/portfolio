@@ -67,8 +67,26 @@
 
 // Media queries 
 
+@mixin mobile {
+    @media screen and (min-width: map-get($breakpoints, mobile)){
+        @content;
+    }
+}
+
 @mixin tablet {
-    @media screen and (min-width: map-get($breakpoints, tablet)){
+    @media screen and (min-width: map-get($breakpoints, mobile)) and (max-width: map-get($breakpoints, tablet)){
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (min-width: map-get($breakpoints, tablet)) and (max-width: map-get($breakpoints, laptop)){
+        @content;
+    }
+}
+
+@mixin largeScreen {
+    @media screen and (min-width: map-get($breakpoints, largeScreen)){
         @content;
     }
 }
