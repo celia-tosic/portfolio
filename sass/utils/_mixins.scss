@@ -79,6 +79,12 @@
     }
 }
 
+@mixin navbarOnTablet {
+    @media screen and (min-width: map-get($breakpoints, tablet)){
+        @content;
+    }
+}
+
 @mixin laptop {
     @media screen and (min-width: map-get($breakpoints, tablet)) and (max-width: map-get($breakpoints, laptop)){
         @content;

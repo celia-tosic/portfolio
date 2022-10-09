@@ -155,11 +155,13 @@ p {
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   p {
     font-size: 1.6rem;
+    line-height: 3.5rem;
   }
 }
 @media screen and (min-width: 1025px) {
   p {
     font-size: 2rem;
+    line-height: 3.5rem;
   }
 }
 
@@ -173,6 +175,11 @@ img {
   position: fixed;
   animation: slideFromUp 2s none ease-out;
   z-index: 5;
+}
+@media screen and (min-width: 768px) {
+  .header-burger {
+    display: none;
+  }
 }
 
 .nav {
@@ -190,6 +197,13 @@ img {
   z-index: 5;
   transition: 0.9s ease-in;
 }
+@media screen and (min-width: 768px) {
+  .nav {
+    left: 0px;
+    width: 100%;
+    height: 68px;
+  }
+}
 .nav-cross {
   padding: 2rem;
   width: 3rem;
@@ -202,6 +216,13 @@ img {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .nav-ul {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
 .nav-link {
   text-decoration: none;
