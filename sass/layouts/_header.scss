@@ -1,6 +1,6 @@
 .header{
     min-height: 100vh;
-    background-color: $color-primary;    
+    background-color: #FDF8F8;    
 }
 
 .header-description{
@@ -53,7 +53,7 @@
         }
 
         &__paragraph{
-            margin-bottom: 5%;
+            margin-bottom: 3rem;
             @include tablet{
                 font-size:1.6rem;
             }

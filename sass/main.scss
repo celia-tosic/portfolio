@@ -12,7 +12,6 @@
 // Section skills
 
 .skills{
-    min-height: 100vh;
     padding: 2rem;
     background-color: $color-primary;
     display: flex;
@@ -99,7 +98,7 @@
                 img{
                     width: 35%;
                     margin-bottom: 10px;
-                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                    // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
                     border-radius: 5px;
                     @include mobile {
                         width: 20%;
@@ -139,7 +138,7 @@
 .projects{
     min-height: 100vh;
     padding: 2rem;
-    background-color: $color-primary;
+    background-color: #FDF8F8;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -197,7 +196,7 @@
                     font-size: 1.4rem;
                     background-color: rgba(255, 255, 255);
                     border-radius: 5%;
-                    border: 2px solid rgb(209, 186, 186); 
+                    border: 2px solid $color-decoration; 
                 }
             }
         
@@ -290,6 +289,7 @@
             border: 1px solid $color-decoration;
             background-color: $color-primary;
             color: $color-background;
+            cursor: pointer;
         }
 }
 
@@ -303,7 +303,7 @@
     align-items: center;
     justify-content: center;
     background-color: $color-primary;
-    padding: 4rem;
+    padding: 4rem 20px 4rem 20px;
 
         .title{
             display: flex;
