@@ -1,0 +1,56 @@
+# ===================================================================
+# Codelia : reglages du serveur (O2switch, Apache)
+# Copie dans dist/ par deploy.ps1, a placer a la racine du site.
+# ===================================================================
+
+# Pas de liste des fichiers quand un dossier n'a pas de page d'accueil
+Options -Indexes
+
+# Accents corrects dans les pages et dans llms.txt
+AddDefaultCharset UTF-8
+AddType application/manifest+json .webmanifest
+
+# Toujours en HTTPS (a activer une fois le certificat SSL en place,
+# O2switch le cree automatiquement pour chaque domaine)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Optionnel : une seule adresse pour le site (sans www).
+  # Retirer les # des deux lignes suivantes pour l'activer.
+  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Compression des fichiers texte (pages plus legeres)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/javascript application/javascript application/json application/manifest+json image/svg+xml
+</IfModule>
+
+# Cache navigateur
+# Les liens vers site.css et main.js portent un numero de version (?v=...)
+# ajoute par deploy.ps1 : ils peuvent donc etre gardes un an sans risque.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 week"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/plain "access plus 1 day"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType application/manifest+json "access plus 1 week"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 month"
+</IfModule>
+
+# En-tetes de securite de base
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>

@@ -1,0 +1,12 @@
+# Fichiers générés par deploy.ps1 (recréés à chaque déploiement)
+dist/
+codelia-site.zip
+
+# Fichiers système
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Outils IA (gardés en local, pas sur GitHub)
+skills/
+.agents/
