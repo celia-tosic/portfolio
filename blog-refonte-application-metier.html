@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Refonte d’une application métier : la méthode | Codelia</title>
+    <meta name="description" content="Quand refondre une application métier, refonte complète ou évolution ciblée, et comment basculer sans arrêter l’activité. Méthode et exemple d’un transporteur." />
+    <link rel="canonical" href="https://codelia.io/blog-refonte-application-metier.html" />
+    <meta property="og:url" content="https://codelia.io/blog-refonte-application-metier.html" />
+    <meta property="og:title" content="Refondre une application métier sans arrêter l’activité" />
+    <meta property="og:description" content="Les signes qui doivent alerter, le choix entre refonte et évolution, et une méthode de bascule progressive." />
+    <!-- include:head -->
+    <meta name="author" content="Célia" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <meta name="color-scheme" content="dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Codelia" />
+    <meta name="twitter:card" content="summary" />
+
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="css/site.css" />
+
+    <link rel="icon" href="favicon.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <script src="js/main.js" defer></script>
+    <!-- /include:head -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "@id": "https://codelia.io/blog-refonte-application-metier.html#article",
+            "headline": "Refondre une application métier sans arrêter l’activité",
+            "description": "Quand refondre une application métier, refonte complète ou évolution ciblée, et comment basculer sans arrêter l’activité. Méthode et exemple d’un transporteur.",
+            "datePublished": "2026-11-07",
+            "dateModified": "2026-11-07",
+            "inLanguage": "fr-FR",
+            "mainEntityOfPage": "https://codelia.io/blog-refonte-application-metier.html",
+            "author": {
+              "@type": "Person",
+              "name": "Célia",
+              "jobTitle": "Développeuse web fullstack",
+              "url": "https://codelia.io/about.html",
+              "sameAs": ["https://www.linkedin.com/in/celia-tosic"]
+            },
+            "publisher": { "@type": "Organization", "name": "Codelia", "url": "https://codelia.io/" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://codelia.io/" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://codelia.io/blog.html" },
+              { "@type": "ListItem", "position": 3, "name": "Refonte d’une application métier" }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Faut-il changer de technologie lors d’une refonte ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Pas forcément. Si la technologie actuelle est encore maintenue et que des développeurs savent la faire évoluer, la garder réduit le risque. Le changement s’impose quand la version n’est plus supportée ou que plus personne ne la maîtrise." }
+              },
+              {
+                "@type": "Question",
+                "name": "Peut-on refondre une application sans son code source ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Oui, mais c’est plus long : il faut repartir du fonctionnement observé et des données. Obtenir au moins un accès à la base de données facilite beaucoup la reprise." }
+              },
+              {
+                "@type": "Question",
+                "name": "Combien de temps dure une refonte ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Cela dépend du nombre de modules, de la reprise de données et du rythme de bascule choisi. L’inventaire de l’existant, première étape de la refonte, permet de donner une estimation fiable." }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body id="top">
+    <!-- include:icons -->
+    <!-- Icônes : Lucide (licence ISC), https://lucide.dev -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-layout" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+      <symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"/><path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></symbol>
+      <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></symbol>
+      <symbol id="i-life-buoy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+    </svg>
+    <!-- /include:icons -->
+
+    <!-- include:header -->
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header" data-header>
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="Codelia, retour à l’accueil">
+          <span class="brand__mark" aria-hidden="true">C</span>
+          <span class="brand__name" aria-hidden="true">Codelia</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span class="sr-only">Ouvrir le menu</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+          <ul class="site-nav__links" role="list">
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li class="current"><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <a class="btn btn--primary btn--sm" href="contact.html">
+            Me contacter
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <!-- /include:header -->
+
+    <main id="contenu">
+      <article>
+        <header class="page-hero page-hero--article">
+          <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d’Ariane">
+              <ol role="list">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li aria-current="page">Refonte d’une application métier</li>
+              </ol>
+            </nav>
+            <p class="eyebrow">Refonte</p>
+            <h1 class="article-title" id="page-title">Refondre une application métier sans arrêter l’activité</h1>
+            <p class="lead page-hero__lead">
+              Une refonte réussie commence par l’inventaire de ce que l’outil actuel fait au quotidien, s’appuie sur les
+              personnes qui l’utilisent chaque jour et se termine par une bascule progressive. Selon l’état du code, une
+              évolution ciblée suffit parfois, pour un coût bien inférieur à celui d’une refonte complète.
+            </p>
+            <ul class="article-meta" role="list">
+              <li>Par <a href="about.html">Célia</a>, développeuse web fullstack</li>
+              <li>Publié le <time datetime="2026-11-07">7 novembre 2026</time></li>
+              <li>5 min de lecture</li>
+            </ul>
+          </div>
+        </header>
+
+        <div class="section">
+          <div class="container article-layout">
+            <aside class="article-aside">
+              <nav class="toc" aria-labelledby="toc-title">
+                <p class="toc__title" id="toc-title">Sommaire</p>
+                <ol role="list">
+                  <li><a href="#signes">Les signes qu’une refonte s’impose</a></li>
+                  <li><a href="#choix">Refonte complète ou évolution</a></li>
+                  <li><a href="#etapes">Les 5 étapes d’une refonte</a></li>
+                  <li><a href="#exemple">Exemple&nbsp;: Transports Nastasi</a></li>
+                  <li><a href="#erreurs">Les erreurs à éviter</a></li>
+                  <li><a href="#faq">Questions fréquentes</a></li>
+                </ol>
+              </nav>
+            </aside>
+
+            <div class="prose">
+              <h2 id="signes">Les signes qu’une refonte s’impose</h2>
+              <p>
+                Une application métier vieillit par couches. Chaque évolution ajoutée dans l’urgence complique la suivante,
+                jusqu’au jour où l’outil freine l’activité qu’il devait faciliter. Ce retard accumulé s’appelle la dette
+                technique, et il coûte cher&nbsp;: dans une enquête McKinsey, des directeurs informatiques estimaient que 10 à 20&nbsp;%
+                du budget prévu pour de nouveaux produits partait dans la résolution de problèmes liés à cette dette
+                (<a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/tech-debt-reclaiming-tech-equity" rel="noopener">McKinsey, 2020</a>).
+              </p>
+              <p>Ces signaux doivent vous alerter&nbsp;:</p>
+              <ul>
+                <li>chaque nouvelle fonctionnalité prend plus de temps que la précédente, et les corrections en cassent d’autres&nbsp;;</li>
+                <li>vos équipes contournent l’outil avec des tableurs, des e-mails ou du papier&nbsp;;</li>
+                <li>
+                  la technologie n’est plus maintenue&nbsp;: la version de PHP ou du framework ne reçoit plus de correctifs de
+                  sécurité (le <a href="https://www.php.net/supported-versions.php" rel="noopener">calendrier officiel de PHP</a>
+                  indique la date de fin de chaque version). C’est loin d’être rare&nbsp;: début novembre 2026, au moins un tiers des
+                  sites en PHP tournaient encore sur PHP&nbsp;7 ou une version plus ancienne, qui ne reçoivent plus aucun correctif
+                  (<a href="https://w3techs.com/technologies/details/pl-php" rel="noopener">W3Techs</a>)&nbsp;;
+                </li>
+                <li>personne n’ose plus modifier le code, par exemple parce que la personne qui l’a écrit est partie&nbsp;;</li>
+                <li>l’outil ne suit plus votre organisation&nbsp;: nouveaux métiers, nouveaux sites, nouveaux types de clients.</li>
+              </ul>
+              <p>Un seul de ces signes justifie rarement une refonte complète. Trois ou quatre à la fois, si.</p>
+
+              <h2 id="choix">Refonte complète ou évolution ciblée&nbsp;?</h2>
+              <p>
+                Une refonte peut porter sur l’interface, sur quelques modules ou sur l’application entière. Le bon périmètre
+                dépend de l’état du code et de l’écart entre l’outil et vos besoins.
+              </p>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col">Situation</th>
+                      <th scope="col">Ce que je recommande</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>L’interface a vieilli, mais le code et les données sont sains.</td>
+                      <td>Refaire l’interface en conservant la partie serveur.</td>
+                    </tr>
+                    <tr>
+                      <td>Le cœur de l’application fonctionne, quelques modules bloquent.</td>
+                      <td>Reprendre ces modules un par un, sans toucher au reste.</td>
+                    </tr>
+                    <tr>
+                      <td>La technologie n’est plus supportée et chaque modification devient risquée.</td>
+                      <td>Refonte complète, avec reprise des données.</td>
+                    </tr>
+                    <tr>
+                      <td>Votre métier a changé au point que l’outil ne correspond plus aux tâches réelles.</td>
+                      <td>Refonte complète, en repartant du recueil du besoin.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                Une évolution ciblée coûte moins cher et produit des résultats plus tôt. La refonte complète se justifie quand
+                chaque évolution coûte plus cher que ce qu’elle apporte.
+              </p>
+
+              <h2 id="etapes">Les 5 étapes d’une refonte</h2>
+
+              <h3>1. Faire l’inventaire de l’existant</h3>
+              <p>
+                Avant de reconstruire, il faut savoir précisément ce que l’outil fait. Je liste les fonctionnalités utilisées,
+                les calculs, les exports et les règles de gestion enfouies dans le code. Certaines fonctionnalités ne servent
+                plus à personne&nbsp;: la refonte est le bon moment pour les retirer.
+              </p>
+
+              <h3>2. Écouter les personnes qui utilisent l’outil chaque jour</h3>
+              <p>
+                Les utilisateurs quotidiens connaissent les détours, les cas particuliers et les bugs qu’ils ont appris à éviter.
+                Ils savent aussi ce qui leur fait perdre du temps. Une refonte qui recopie l’ancien outil avec une interface plus
+                moderne laisse en place ces mêmes pertes de temps. Leurs retours fixent les priorités.
+              </p>
+
+              <h3>3. Prioriser</h3>
+              <p>
+                Tout ne doit pas être prêt le premier jour. Je sépare ce qui doit exister à la bascule, sans quoi l’équipe ne peut
+                pas travailler, de ce qui peut suivre dans les semaines d’après.
+              </p>
+
+              <h3>4. Préparer la reprise des données</h3>
+              <p>
+                Clients, historique, documents&nbsp;: les données sont la partie la plus sensible d’une refonte. Il faut les nettoyer,
+                les convertir vers la nouvelle structure et vérifier que rien ne se perd. Une migration se prépare tôt et se répète
+                sur une copie des données avant la bascule réelle.
+              </p>
+
+              <h3>5. Basculer progressivement</h3>
+              <p>Plusieurs choix réduisent le risque au moment de la bascule&nbsp;:</p>
+              <ul>
+                <li>faire tester la nouvelle application par quelques utilisateurs avant de l’ouvrir à tous&nbsp;;</li>
+                <li>basculer module par module plutôt que tout le même jour&nbsp;;</li>
+                <li>choisir une période calme de votre activité&nbsp;;</li>
+                <li>garder l’ancien outil accessible en consultation pendant quelques semaines.</li>
+              </ul>
+              <p>
+                Prévoyez aussi une courte prise en main pour chaque profil d’utilisateur. Même un outil plus simple demande un
+                temps d’adaptation, surtout quand l’ancien était utilisé depuis des années.
+              </p>
+
+              <h2 id="exemple">Exemple&nbsp;: l’application de livraisons de Transports Nastasi</h2>
+              <p>
+                En freelance, j’ai mené la refonte complète de l’application de gestion des livraisons de Transports Nastasi,
+                un transporteur poids lourd, de la conception à la mise en production. Plus de 20 personnes l’utilisent chaque jour.
+                L’objectif était d’améliorer le suivi opérationnel et de réduire les délais.
+              </p>
+              <p>
+                L’application repose sur React et TypeScript pour l’interface, Symfony et API Platform pour la partie serveur.
+                API Platform expose les données sous forme d’API, ce qui facilite le branchement d’autres outils par la suite.
+              </p>
+
+              <h2 id="erreurs">Les erreurs à éviter</h2>
+              <ul>
+                <li>Recopier l’ancien outil à l’identique, défauts compris.</li>
+                <li>Tout basculer en une fois, sans période de test.</li>
+                <li>Reprendre les données historiques sans les vérifier.</li>
+                <li>Laisser les utilisateurs découvrir l’outil le jour de la bascule.</li>
+                <li>
+                  Mettre la nouvelle version en ligne sans avoir fait tester sa sécurité. Une refonte est le bon moment pour un
+                  <a href="blog-securite-application-web.html">test d’intrusion</a>.
+                </li>
+                <li>
+                  Oublier la suite. Une application refondue doit rester à jour, ce que couvre sa
+                  <a href="blog-maintenance-application-web.html">maintenance</a>.
+                </li>
+              </ul>
+              <p>
+                Si votre application ne suit plus vos besoins, je peux la reprendre en main, la moderniser et lui ajouter les
+                fonctionnalités qui vous manquent. Le détail figure sur la page <a href="services.html">services</a>.
+              </p>
+
+              <h2 id="faq">Questions fréquentes</h2>
+              <div class="faq">
+                <details>
+                  <summary>
+                    Faut-il changer de technologie lors d’une refonte&nbsp;?
+                    <svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>
+                  </summary>
+                  <p>
+                    Pas forcément. Si la technologie actuelle est encore maintenue et que des développeurs savent la faire
+                    évoluer, la garder réduit le risque. Le changement s’impose quand la version n’est plus supportée ou que
+                    plus personne ne la maîtrise.
+                  </p>
+                </details>
+                <details>
+                  <summary>
+                    Peut-on refondre une application sans son code source&nbsp;?
+                    <svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>
+                  </summary>
+                  <p>
+                    Oui, mais c’est plus long&nbsp;: il faut repartir du fonctionnement observé et des données. Obtenir au moins
+                    un accès à la base de données facilite beaucoup la reprise.
+                  </p>
+                </details>
+                <details>
+                  <summary>
+                    Combien de temps dure une refonte&nbsp;?
+                    <svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>
+                  </summary>
+                  <p>
+                    Cela dépend du nombre de modules, de la reprise de données et du rythme de bascule choisi. L’inventaire de
+                    l’existant, première étape de la refonte, permet de donner une estimation fiable.
+                  </p>
+                </details>
+              </div>
+
+              <!-- include:author-box -->
+              <div class="author-box">
+                <img src="images/portrait-400.jpg" width="400" height="400" alt="" loading="lazy" />
+                <p>
+                  <strong>Célia, fondatrice de Codelia</strong>
+                  Développeuse web fullstack, formée en 2020. Depuis janvier 2023, je conçois et fais évoluer des applications métier
+                  au sein du Ministère des Armées. <a href="about.html">Découvrir mon parcours</a>
+                </p>
+              </div>
+              <!-- /include:author-box -->
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="section" aria-labelledby="related-title">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <div>
+              <p class="eyebrow">À lire aussi</p>
+              <h2 class="h2" id="related-title">Pour aller <em>plus loin.</em></h2>
+            </div>
+          </div>
+          <ul class="projects posts" role="list" data-stagger>
+            <!-- include:post-creer-application-metier -->
+            <li>
+              <article class="project post-card">
+                <p class="meta">Création · 6 min de lecture</p>
+                <h3><a href="blog-creer-application-metier.html">Créer une application métier sur mesure, étape par étape</a></h3>
+                <p>Les 7 étapes d’un projet, du recueil du besoin à la mise en production, et quand préférer un logiciel du marché.</p>
+                <span class="link-arrow" aria-hidden="true">
+                  Lire l’article
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </span>
+              </article>
+            </li>
+            <!-- /include:post-creer-application-metier -->
+            <!-- include:post-maintenance-application-web -->
+            <li>
+              <article class="project post-card">
+                <p class="meta">Maintenance · 6 min de lecture</p>
+                <h3><a href="blog-maintenance-application-web.html">Ce que couvre la maintenance d’une application web</a></h3>
+                <p>Les quatre volets de la maintenance, le calendrier des mises à jour PHP et Symfony, et les points à vérifier dans un contrat.</p>
+                <span class="link-arrow" aria-hidden="true">
+                  Lire l’article
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </span>
+              </article>
+            </li>
+            <!-- /include:post-maintenance-application-web -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- include:cta -->
+      <section class="cta" aria-labelledby="cta-title">
+        <div class="container cta__inner" data-reveal>
+          <p class="eyebrow eyebrow--center">Contact</p>
+          <h2 class="cta__title" id="cta-title">Un projet web <em>à concrétiser&nbsp;?</em></h2>
+          <p class="cta__text">Décrivez votre besoin en quelques lignes. Je vous réponds rapidement.</p>
+          <a class="btn btn--primary" href="contact.html">
+            Parler de mon projet
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </div>
+      </section>
+      <!-- /include:cta -->
+    </main>
+
+    <!-- include:footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__top">
+          <div class="site-footer__about">
+            <a class="brand" href="index.html" aria-label="Codelia, retour à l’accueil">
+              <span class="brand__mark" aria-hidden="true">C</span>
+              <span class="brand__name" aria-hidden="true">Codelia</span>
+            </a>
+            <p>Agence de développement web. Conception, développement et mise en production d’applications web et métier sur mesure, à distance.</p>
+          </div>
+
+          <nav class="site-footer__nav" aria-label="Plan du site">
+            <ul class="footer-links" role="list">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li class="current"><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-footer__contact">
+            <ul class="social-list" role="list">
+              <!-- include:social-links -->
+              <li>
+                <a href="https://www.linkedin.com/in/celia-tosic" target="_blank" rel="noopener" aria-label="LinkedIn (nouvel onglet)">
+                  <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
+                </a>
+              </li>
+              <!-- /include:social-links -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© 2026 Codelia</p>
+          <p>Base du design : <a href="https://www.styleshout.com/">StyleShout</a>, distribué par <a href="https://themewagon.com">ThemeWagon</a></p>
+          <a class="to-top" href="#top">
+            Haut de page
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <!-- /include:footer -->
+  </body>
+</html>

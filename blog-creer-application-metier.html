@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Application métier sur mesure : les 7 étapes | Codelia</title>
+    <meta name="description" content="Créer une application métier sur mesure, du besoin à la mise en production : les 7 étapes, quand préférer un logiciel existant et ce qui fait varier le coût." />
+    <link rel="canonical" href="https://codelia.io/blog-creer-application-metier.html" />
+    <meta property="og:url" content="https://codelia.io/blog-creer-application-metier.html" />
+    <meta property="og:title" content="Créer une application métier sur mesure, étape par étape" />
+    <meta property="og:description" content="Les 7 étapes d’un projet d’application métier, illustrées par une application développée pour le Ministère des Armées." />
+    <!-- include:head -->
+    <meta name="author" content="Célia" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <meta name="color-scheme" content="dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Codelia" />
+    <meta name="twitter:card" content="summary" />
+
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="css/site.css" />
+
+    <link rel="icon" href="favicon.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <script src="js/main.js" defer></script>
+    <!-- /include:head -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "@id": "https://codelia.io/blog-creer-application-metier.html#article",
+            "headline": "Créer une application métier sur mesure, étape par étape",
+            "description": "Créer une application métier sur mesure, du besoin à la mise en production : les 7 étapes, quand préférer un logiciel existant et ce qui fait varier le coût.",
+            "datePublished": "2026-11-07",
+            "dateModified": "2026-11-07",
+            "inLanguage": "fr-FR",
+            "mainEntityOfPage": "https://codelia.io/blog-creer-application-metier.html",
+            "author": {
+              "@type": "Person",
+              "name": "Célia",
+              "jobTitle": "Développeuse web fullstack",
+              "url": "https://codelia.io/about.html",
+              "sameAs": ["https://www.linkedin.com/in/celia-tosic"]
+            },
+            "publisher": { "@type": "Organization", "name": "Codelia", "url": "https://codelia.io/" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://codelia.io/" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://codelia.io/blog.html" },
+              { "@type": "ListItem", "position": 3, "name": "Créer une application métier sur mesure" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body id="top">
+    <!-- include:icons -->
+    <!-- Icônes : Lucide (licence ISC), https://lucide.dev -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-layout" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+      <symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"/><path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></symbol>
+      <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></symbol>
+      <symbol id="i-life-buoy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+    </svg>
+    <!-- /include:icons -->
+
+    <!-- include:header -->
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header" data-header>
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="Codelia, retour à l’accueil">
+          <span class="brand__mark" aria-hidden="true">C</span>
+          <span class="brand__name" aria-hidden="true">Codelia</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span class="sr-only">Ouvrir le menu</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+          <ul class="site-nav__links" role="list">
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li class="current"><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <a class="btn btn--primary btn--sm" href="contact.html">
+            Me contacter
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <!-- /include:header -->
+
+    <main id="contenu">
+      <article>
+        <header class="page-hero page-hero--article">
+          <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d’Ariane">
+              <ol role="list">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li aria-current="page">Application métier sur mesure</li>
+              </ol>
+            </nav>
+            <p class="eyebrow">Création</p>
+            <h1 class="article-title" id="page-title">Créer une application métier sur mesure, étape par étape</h1>
+            <p class="lead page-hero__lead">
+              Une application métier se construit en sept étapes&nbsp;: comprendre le besoin, dessiner les écrans, écrire
+              les user stories, modéliser les données, définir la première version, développer par petites étapes, puis
+              mettre en production et suivre. Avant la première, vérifiez qu’un logiciel du marché ne couvre pas déjà
+              l’essentiel de votre besoin.
+            </p>
+            <ul class="article-meta" role="list">
+              <li>Par <a href="about.html">Célia</a>, développeuse web fullstack</li>
+              <li>Publié le <time datetime="2026-11-07">7 novembre 2026</time></li>
+              <li>6 min de lecture</li>
+            </ul>
+          </div>
+        </header>
+
+        <div class="section">
+          <div class="container article-layout">
+            <aside class="article-aside">
+              <nav class="toc" aria-labelledby="toc-title">
+                <p class="toc__title" id="toc-title">Sommaire</p>
+                <ol role="list">
+                  <li><a href="#definition">Qu’est-ce qu’une application métier&nbsp;?</a></li>
+                  <li><a href="#choix">Sur mesure, logiciel du marché ou no-code</a></li>
+                  <li><a href="#etapes">Les 7 étapes d’un projet</a></li>
+                  <li><a href="#exemple">Deux projets en production</a></li>
+                  <li><a href="#cout">Ce qui fait varier le coût et la durée</a></li>
+                </ol>
+              </nav>
+            </aside>
+
+            <div class="prose">
+              <h2 id="definition">Qu’est-ce qu’une application métier&nbsp;?</h2>
+              <p>
+                Une application métier est un logiciel conçu pour les tâches propres à une organisation&nbsp;: suivre des
+                livraisons, planifier des interventions, instruire des dossiers, piloter une activité. Elle s’utilise le plus
+                souvent dans un navigateur, au bureau comme sur le terrain, et remplace des tableurs, des ressaisies ou un outil
+                devenu inadapté.
+              </p>
+              <p>
+                «&nbsp;Sur mesure&nbsp;» veut dire qu’elle reprend vos règles, vos étapes et votre vocabulaire. Vos équipes n’ont
+                pas à adapter leur façon de travailler à un logiciel pensé pour d’autres.
+              </p>
+
+              <h2 id="choix">Sur mesure, logiciel du marché ou no-code&nbsp;?</h2>
+              <p>
+                Une application sur mesure demande un investissement de départ plus élevé qu’un abonnement. Avant de vous
+                lancer, comparez les trois options.
+              </p>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col">Option</th>
+                      <th scope="col">Quand elle convient</th>
+                      <th scope="col">Ses limites</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Logiciel du marché (SaaS)</td>
+                      <td>Votre besoin est courant&nbsp;: facturation, relation client, prise de rendez-vous.</td>
+                      <td>Votre organisation s’adapte à l’outil. Le prix dépend en général du nombre d’utilisateurs.</td>
+                    </tr>
+                    <tr>
+                      <td>Outil no-code</td>
+                      <td>Un besoin simple, peu d’utilisateurs, une idée à tester vite.</td>
+                      <td>Les règles complexes et les gros volumes atteignent vite les limites de la plateforme. Vous dépendez de son éditeur.</td>
+                    </tr>
+                    <tr>
+                      <td>Application sur mesure</td>
+                      <td>Des processus propres à votre activité, plusieurs profils d’utilisateurs, des échanges avec vos autres logiciels.</td>
+                      <td>Coût de départ plus élevé. Une maintenance à prévoir dans la durée.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                Si un logiciel du marché couvre l’essentiel de votre besoin, je vous conseille de commencer par lui. Le sur
+                mesure se justifie quand l’écart entre l’outil et votre façon de travailler vous fait perdre du temps chaque jour.
+              </p>
+
+              <h2 id="etapes">Les 7 étapes d’un projet d’application métier</h2>
+
+              <h3>1. Comprendre le besoin</h3>
+              <p>
+                Tout commence par des échanges avec vous, puis avec les futurs utilisateurs. L’idéal est de les voir
+                travailler&nbsp;: le tableur qu’ils remplissent, les e-mails qu’ils s’envoient, les étapes qu’ils sautent quand
+                ils sont pressés. Une partie des règles métier n’est écrite nulle part&nbsp;: les utilisateurs l’appliquent de mémoire.
+              </p>
+              <p>
+                Si vous avez déjà rédigé un document, il sert de point de départ. Sinon, ce guide vous aide à préparer le
+                <a href="blog-cahier-des-charges-application-web.html">cahier des charges de votre application</a>.
+              </p>
+
+              <h3>2. Dessiner les écrans</h3>
+              <p>
+                Avant toute ligne de code, je dessine les écrans principaux sous forme de maquettes simples, les
+                <em>wireframes</em>. Elles montrent où se trouve chaque information et dans quel ordre l’utilisateur avance.
+                Corriger une maquette prend quelques minutes. Corriger un écran déjà développé prend des heures.
+              </p>
+
+              <h3>3. Écrire les user stories</h3>
+              <p>
+                Chaque action attendue devient une phrase courte&nbsp;: «&nbsp;En tant que responsable d’exploitation, je veux voir les
+                livraisons en retard afin de prévenir les clients.&nbsp;» Ces phrases forment la liste de travail du projet et
+                servent de base aux tests. Une fonctionnalité est terminée quand l’utilisateur peut faire ce que sa phrase décrit.
+              </p>
+
+              <h3>4. Modéliser les données</h3>
+              <p>
+                Je décris ensuite les informations que l’application manipule et leurs liens&nbsp;: un client a plusieurs sites,
+                une livraison a un chauffeur, une intervention a un statut. Ce modèle de données porte toute l’application.
+                Une erreur à ce stade coûte cher à rattraper une fois les écrans construits dessus, c’est pourquoi j’y consacre
+                du temps avant de développer.
+              </p>
+
+              <h3>5. Définir la première version</h3>
+              <p>
+                La première version, souvent appelée MVP, contient le minimum qui rend l’application utile au quotidien.
+                Le reste attend la version suivante. Elle se livre plus vite, et les retours des utilisateurs montrent ce
+                qui mérite d’être développé ensuite.
+              </p>
+
+              <h3>6. Développer par petites étapes</h3>
+              <p>
+                Je construis l’application par lots de fonctionnalités, que vous testez au fur et à mesure. Vous voyez l’outil
+                prendre forme et vous pouvez corriger le tir tôt, quand un changement coûte encore peu.
+              </p>
+              <p>
+                Je développe à la fois l’interface que voient les utilisateurs et la partie serveur, qui stocke les données et
+                applique les règles métier. Une seule interlocutrice sur les deux, c’est moins d’allers-retours et moins
+                d’informations perdues entre deux équipes.
+              </p>
+
+              <h3>7. Mettre en production et suivre</h3>
+              <p>
+                La mise en ligne passe par des déploiements automatisés&nbsp;: chaque nouvelle version suit la même procédure,
+                vérifications comprises, ce qui limite les erreurs de manipulation. Pour la sécurité, je travaille avec SSHack,
+                un cabinet spécialisé qui peut tester l’application avant sa mise en ligne. L’article sur la
+                <a href="blog-securite-application-web.html">sécurité d’une application web</a> décrit cette étape.
+              </p>
+              <p>
+                Une application en production demande ensuite un suivi régulier&nbsp;: mises à jour, corrections, évolutions.
+                Ce suivi est détaillé dans l’article sur la
+                <a href="blog-maintenance-application-web.html">maintenance d’une application web</a>.
+              </p>
+
+              <h2 id="exemple">Deux projets en production</h2>
+              <p>
+                Au Ministère des Armées, j’ai développé une application métier en autonomie complète, interface et API.
+                J’ai mené chacune des étapes décrites ici&nbsp;: wireframes, user stories, modélisation de la base de données,
+                première version, puis mise en production. L’application compte aujourd’hui plus de 90 utilisateurs.
+              </p>
+              <p>
+                Pour Transports Nastasi, un transporteur poids lourd, le point de départ était différent&nbsp;: il s’agissait de
+                refondre entièrement l’application de gestion des livraisons, utilisée chaque jour par plus de 20 personnes.
+                Une refonte suit les mêmes étapes, avec deux contraintes en plus&nbsp;: reprendre les données existantes et basculer
+                sans interrompre l’activité. Je les détaille dans l’article sur la
+                <a href="blog-refonte-application-metier.html">refonte d’une application métier</a>.
+              </p>
+
+              <h2 id="cout">Ce qui fait varier le coût et la durée</h2>
+              <p>
+                Je ne donne pas de prix sans connaître le projet. Les facteurs qui pèsent le plus sur le devis sont en revanche
+                toujours les mêmes&nbsp;:
+              </p>
+              <ul>
+                <li>le nombre de profils d’utilisateurs et de niveaux de droits&nbsp;;</li>
+                <li>le nombre d’écrans et la complexité des règles métier&nbsp;;</li>
+                <li>les échanges avec d’autres logiciels (comptabilité, ERP, outils de vos partenaires)&nbsp;;</li>
+                <li>la reprise de données existantes&nbsp;;</li>
+                <li>la disponibilité attendue&nbsp;: une application utilisée la nuit ou le week-end demande une surveillance adaptée.</li>
+              </ul>
+              <p>
+                Délimiter la première version est le levier le plus direct sur le budget&nbsp;: tout ce qui attend la version
+                suivante sort du premier devis. La durée pèse aussi. McKinsey et l’université d’Oxford ont étudié plus de
+                5&nbsp;400 projets informatiques&nbsp;: chaque année supplémentaire de projet augmente les dépassements de coûts de
+                15&nbsp;%. Les plus gros projets, au-delà de 15 millions de dollars, dépassent leur budget de 45&nbsp;% en moyenne et
+                livrent 56&nbsp;% de valeur en moins que prévu
+                (<a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/delivering-large-scale-it-projects-on-time-on-budget-and-on-value" rel="noopener">McKinsey, 2012</a>).
+                Votre projet est sans doute bien plus modeste, mais la leçon tient&nbsp;: un périmètre court se maîtrise mieux qu’un long.
+              </p>
+              <p>
+                Pour en parler sur votre projet, vous pouvez consulter mes
+                <a href="services.html">services</a> ou <a href="contact.html">m’écrire</a>.
+              </p>
+
+              <!-- include:author-box -->
+              <div class="author-box">
+                <img src="images/portrait-400.jpg" width="400" height="400" alt="" loading="lazy" />
+                <p>
+                  <strong>Célia, fondatrice de Codelia</strong>
+                  Développeuse web fullstack, formée en 2020. Depuis janvier 2023, je conçois et fais évoluer des applications métier
+                  au sein du Ministère des Armées. <a href="about.html">Découvrir mon parcours</a>
+                </p>
+              </div>
+              <!-- /include:author-box -->
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="section" aria-labelledby="related-title">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <div>
+              <p class="eyebrow">À lire aussi</p>
+              <h2 class="h2" id="related-title">Pour aller <em>plus loin.</em></h2>
+            </div>
+          </div>
+          <ul class="projects posts" role="list" data-stagger>
+            <!-- include:post-cahier-des-charges-application-web -->
+            <li>
+              <article class="project post-card">
+                <p class="meta">Cadrage · 6 min de lecture</p>
+                <h3><a href="blog-cahier-des-charges-application-web.html">Cahier des charges d’une application web&nbsp;: ce qu’il doit contenir</a></h3>
+                <p>Un modèle en 8 rubriques pour obtenir des devis comparables, et les oublis qui faussent les estimations.</p>
+                <span class="link-arrow" aria-hidden="true">
+                  Lire l’article
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </span>
+              </article>
+            </li>
+            <!-- /include:post-cahier-des-charges-application-web -->
+            <!-- include:post-maintenance-application-web -->
+            <li>
+              <article class="project post-card">
+                <p class="meta">Maintenance · 6 min de lecture</p>
+                <h3><a href="blog-maintenance-application-web.html">Ce que couvre la maintenance d’une application web</a></h3>
+                <p>Les quatre volets de la maintenance, le calendrier des mises à jour PHP et Symfony, et les points à vérifier dans un contrat.</p>
+                <span class="link-arrow" aria-hidden="true">
+                  Lire l’article
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </span>
+              </article>
+            </li>
+            <!-- /include:post-maintenance-application-web -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- include:cta -->
+      <section class="cta" aria-labelledby="cta-title">
+        <div class="container cta__inner" data-reveal>
+          <p class="eyebrow eyebrow--center">Contact</p>
+          <h2 class="cta__title" id="cta-title">Un projet web <em>à concrétiser&nbsp;?</em></h2>
+          <p class="cta__text">Décrivez votre besoin en quelques lignes. Je vous réponds rapidement.</p>
+          <a class="btn btn--primary" href="contact.html">
+            Parler de mon projet
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </div>
+      </section>
+      <!-- /include:cta -->
+    </main>
+
+    <!-- include:footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__top">
+          <div class="site-footer__about">
+            <a class="brand" href="index.html" aria-label="Codelia, retour à l’accueil">
+              <span class="brand__mark" aria-hidden="true">C</span>
+              <span class="brand__name" aria-hidden="true">Codelia</span>
+            </a>
+            <p>Agence de développement web. Conception, développement et mise en production d’applications web et métier sur mesure, à distance.</p>
+          </div>
+
+          <nav class="site-footer__nav" aria-label="Plan du site">
+            <ul class="footer-links" role="list">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li class="current"><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-footer__contact">
+            <ul class="social-list" role="list">
+              <!-- include:social-links -->
+              <li>
+                <a href="https://www.linkedin.com/in/celia-tosic" target="_blank" rel="noopener" aria-label="LinkedIn (nouvel onglet)">
+                  <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
+                </a>
+              </li>
+              <!-- /include:social-links -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© 2026 Codelia</p>
+          <p>Base du design : <a href="https://www.styleshout.com/">StyleShout</a>, distribué par <a href="https://themewagon.com">ThemeWagon</a></p>
+          <a class="to-top" href="#top">
+            Haut de page
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <!-- /include:footer -->
+  </body>
+</html>

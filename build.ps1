@@ -32,6 +32,10 @@ function Expand-Includes([string]$html, [string]$page, [string]$nl) {
         $body = Expand-Includes $partials[$name] $page "`n"
         # Lien actif du menu pour la page en cours (classe + annonce pour les lecteurs d'ecran).
         $body = $body.Replace('<li><a href="' + $page + '">', '<li class="current"><a href="' + $page + '" aria-current="page">')
+        # Sur un article (blog-*.html), le lien "Blog" du menu reste actif.
+        if ($page -like 'blog-*.html') {
+            $body = $body.Replace('<li><a href="blog.html">', '<li class="current"><a href="blog.html">')
+        }
         $lines = ($body -split "`r?`n") | ForEach-Object { if ($_ -eq "") { "" } else { $indent + $_ } }
         return $indent + "<!-- include:$name -->" + $nl + ($lines -join $nl) + $nl + $indent + "<!-- /include:$name -->"
     }, $options)

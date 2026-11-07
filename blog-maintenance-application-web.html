@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Maintenance d’application web : ce qu’elle couvre | Codelia</title>
+    <meta name="description" content="Maintenance corrective, préventive, évolutive et gestion des incidents : ce que couvre la maintenance d’une application web et ce qu’un contrat doit préciser." />
+    <link rel="canonical" href="https://codelia.io/blog-maintenance-application-web.html" />
+    <meta property="og:url" content="https://codelia.io/blog-maintenance-application-web.html" />
+    <meta property="og:title" content="Ce que couvre la maintenance d’une application web" />
+    <meta property="og:description" content="Les quatre volets de la maintenance, le calendrier des mises à jour PHP et Symfony, et la liste des points à vérifier dans un contrat." />
+    <!-- include:head -->
+    <meta name="author" content="Célia" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <meta name="color-scheme" content="dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Codelia" />
+    <meta name="twitter:card" content="summary" />
+
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="css/site.css" />
+
+    <link rel="icon" href="favicon.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <script src="js/main.js" defer></script>
+    <!-- /include:head -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "@id": "https://codelia.io/blog-maintenance-application-web.html#article",
+            "headline": "Ce que couvre la maintenance d’une application web",
+            "description": "Maintenance corrective, préventive, évolutive et gestion des incidents : ce que couvre la maintenance d’une application web et ce qu’un contrat doit préciser.",
+            "datePublished": "2026-11-07",
+            "dateModified": "2026-11-07",
+            "inLanguage": "fr-FR",
+            "mainEntityOfPage": "https://codelia.io/blog-maintenance-application-web.html",
+            "author": {
+              "@type": "Person",
+              "name": "Célia",
+              "jobTitle": "Développeuse web fullstack",
+              "url": "https://codelia.io/about.html",
+              "sameAs": ["https://www.linkedin.com/in/celia-tosic"]
+            },
+            "publisher": { "@type": "Organization", "name": "Codelia", "url": "https://codelia.io/" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://codelia.io/" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://codelia.io/blog.html" },
+              { "@type": "ListItem", "position": 3, "name": "Maintenance d’une application web" }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Quelle différence entre maintenance corrective et maintenance évolutive ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "La maintenance corrective répare ce qui ne fonctionne pas comme prévu. La maintenance évolutive ajoute ou modifie des fonctionnalités pour suivre vos besoins. La première protège l’existant, la seconde le fait grandir." }
+              },
+              {
+                "@type": "Question",
+                "name": "Qu’est-ce que la TMA ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "La tierce maintenance applicative (TMA) désigne la maintenance d’une application confiée à un prestataire extérieur. Le terme est surtout employé dans les grandes entreprises et le secteur public." }
+              },
+              {
+                "@type": "Question",
+                "name": "À quelle fréquence faut-il mettre à jour une application web ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Un correctif qui comble une faille exploitable s’applique dès sa publication. Les autres mises à jour peuvent être regroupées, par exemple chaque mois. Les montées de version majeures se planifient avant la fin du support de la version utilisée." }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body id="top">
+    <!-- include:icons -->
+    <!-- Icônes : Lucide (licence ISC), https://lucide.dev -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-layout" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+      <symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"/><path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></symbol>
+      <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></symbol>
+      <symbol id="i-life-buoy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+    </svg>
+    <!-- /include:icons -->
+
+    <!-- include:header -->
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header" data-header>
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="Codelia, retour à l’accueil">
+          <span class="brand__mark" aria-hidden="true">C</span>
+          <span class="brand__name" aria-hidden="true">Codelia</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span class="sr-only">Ouvrir le menu</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+          <ul class="site-nav__links" role="list">
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li class="current"><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <a class="btn btn--primary btn--sm" href="contact.html">
+            Me contacter
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <!-- /include:header -->
+
+    <main id="contenu">
+      <article>
+        <header class="page-hero page-hero--article">
+          <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d’Ariane">
+              <ol role="list">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li aria-current="page">Maintenance d’une application web</li>
+              </ol>
+            </nav>
+            <p class="eyebrow">Maintenance</p>
+            <h1 class="article-title" id="page-title">Ce que couvre la maintenance d’une application web</h1>
+            <p class="lead page-hero__lead">
+              La maintenance d’une application web regroupe quatre activités&nbsp;: corriger les anomalies, appliquer les mises
+              à jour, faire évoluer les fonctionnalités et réagir aux incidents en production. Les dates de fin de support
+              de PHP et de Symfony sont publiées à l’avance&nbsp;: les mises à jour se planifient au lieu de se subir.
+            </p>
+            <ul class="article-meta" role="list">
+              <li>Par <a href="about.html">Célia</a>, développeuse web fullstack</li>
+              <li>Publié le <time datetime="2026-11-07">7 novembre 2026</time></li>
+              <li>6 min de lecture</li>
+            </ul>
+          </div>
+        </header>
+
+        <div class="section">
+          <div class="container article-layout">
+            <aside class="article-aside">
+              <nav class="toc" aria-labelledby="toc-title">
+                <p class="toc__title" id="toc-title">Sommaire</p>
+                <ol role="list">
+                  <li><a href="#volets">Les quatre volets de la maintenance</a></li>
+                  <li><a href="#calendrier">Un calendrier de mises à jour connu d’avance</a></li>
+                  <li><a href="#incident">Quand un incident survient</a></li>
+                  <li><a href="#contrat">Ce qu’un contrat doit préciser</a></li>
+                  <li><a href="#petite">Et pour une petite application&nbsp;?</a></li>
+                  <li><a href="#faq">Questions fréquentes</a></li>
+                </ol>
+              </nav>
+            </aside>
+
+            <div class="prose">
+              <h2 id="volets">Les quatre volets de la maintenance</h2>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col">Volet</th>
+                      <th scope="col">Ce qu’il couvre</th>
+                      <th scope="col">Exemple</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Corrective</td>
+                      <td>Corriger les anomalies signalées par les utilisateurs ou détectées par la surveillance.</td>
+                      <td>Un export qui échoue dès qu’un nom de client contient une apostrophe.</td>
+                    </tr>
+                    <tr>
+                      <td>Préventive</td>
+                      <td>Mettre à jour le langage, le framework, les bibliothèques et le serveur avant qu’un problème survienne.</td>
+                      <td>Passer à une version de Symfony encore supportée.</td>
+                    </tr>
+                    <tr>
+                      <td>Évolutive</td>
+                      <td>Ajouter ou modifier des fonctionnalités pour suivre vos besoins.</td>
+                      <td>Un nouveau statut de commande, un tableau de bord pour la direction.</td>
+                    </tr>
+                    <tr>
+                      <td>Incidents</td>
+                      <td>Surveiller l’application et rétablir le service en cas de panne.</td>
+                      <td>Un serveur saturé un lundi matin.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                Les volets correctif et préventif protègent ce qui existe. L’évolutif fait grandir l’application. Ils se budgètent
+                souvent à part&nbsp;: un forfait pour le suivi courant, un devis pour chaque évolution importante.
+              </p>
+
+              <h2 id="calendrier">Les mises à jour suivent un calendrier connu d’avance</h2>
+              <p>
+                Les technologies qui font tourner une application ont une durée de support publique. Passé cette date, plus aucun
+                correctif de sécurité n’est publié pour la version concernée. L’application continue de fonctionner, mais les
+                failles découvertes ensuite ne seront jamais corrigées sur cette version.
+              </p>
+              <p>
+                Ces failles sont devenues la première porte d’entrée des attaquants. D’après le rapport annuel de Verizon sur les
+                violations de données, 31&nbsp;% des violations commencent désormais par une faille logicielle, devant le vol de
+                mots de passe (<a href="https://www.verizon.com/business/resources/reports/dbir/" rel="noopener">Verizon DBIR 2026</a>).
+              </p>
+              <p>Deux exemples pour une application écrite en PHP&nbsp;:</p>
+              <ul>
+                <li>
+                  <strong>PHP</strong>&nbsp;: chaque version reçoit deux ans de support complet, puis deux ans de correctifs de
+                  sécurité uniquement, selon le <a href="https://www.php.net/supported-versions.php" rel="noopener">calendrier publié sur php.net</a>.
+                </li>
+                <li>
+                  <strong>Symfony</strong>&nbsp;: les versions à support long (LTS) reçoivent des corrections de bugs pendant trois ans
+                  et des correctifs de sécurité pendant quatre ans. Les autres versions sont maintenues huit mois, d’après le
+                  <a href="https://symfony.com/doc/current/contributing/code/releases.html" rel="noopener">processus de publication de Symfony</a>.
+                </li>
+              </ul>
+              <div class="callout">
+                <p>
+                  <strong>Deux échéances proches.</strong> PHP&nbsp;8.2 ne reçoit plus de correctifs de sécurité après le
+                  31 décembre 2026. Symfony 6.4, version LTS sortie en novembre 2023, ne reçoit plus de corrections de bugs
+                  après novembre 2026, et ses correctifs de sécurité s’arrêtent en novembre 2027
+                  (<a href="https://symfony.com/releases/6.4" rel="noopener">symfony.com</a>).
+                </p>
+                <p>Si votre application utilise l’une de ces versions, c’est le moment de planifier sa montée de version.</p>
+              </div>
+              <p>
+                Une montée de version planifiée se prépare, se teste et se déploie au calme. Faite dans l’urgence après la
+                publication d’une faille, elle coûte plus cher et laisse moins de temps pour vérifier que tout fonctionne.
+              </p>
+              <p>
+                Si votre application traite des données personnelles, le RGPD vous impose en plus de garantir un niveau de
+                sécurité adapté au risque (<a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article32" rel="noopener">article 32</a>).
+                Concrètement, cela passe par les mises à jour, mais aussi par les protections prévues dès le développement et
+                par des tests de sécurité, détaillés dans l’article sur la
+                <a href="blog-securite-application-web.html">sécurité d’une application web</a>.
+              </p>
+
+              <h2 id="incident">Quand un incident survient en production</h2>
+              <p>
+                Au Ministère des Armées, je participe aux astreintes et à la gestion des incidents de production, dans un
+                environnement opérationnel critique. Quelle que soit l’application, un incident se traite dans cet ordre&nbsp;:
+              </p>
+              <ol>
+                <li>
+                  <strong>Mesurer l’impact.</strong> Qui est bloqué, depuis quand, sur quelle fonctionnalité&nbsp;? La réponse fixe
+                  le niveau d’urgence.
+                </li>
+                <li>
+                  <strong>Rétablir le service.</strong> Revenir à la version précédente, redémarrer un service, mettre en place un
+                  contournement provisoire. Les utilisateurs doivent pouvoir reprendre le travail au plus vite.
+                </li>
+                <li>
+                  <strong>Corriger la cause.</strong> Une fois le service rétabli, chercher l’origine du problème et la corriger
+                  proprement, avec un test qui l’empêche de revenir.
+                </li>
+                <li>
+                  <strong>Informer.</strong> Expliquer ce qui s’est passé, ce qui a été fait et ce qui change pour que cela ne se
+                  reproduise pas.
+                </li>
+              </ol>
+              <p>
+                Les déploiements automatisés accélèrent l’étape 2&nbsp;: quand la procédure est prête, revenir à la version précédente
+                prend quelques minutes.
+              </p>
+
+              <h2 id="contrat">Ce qu’un contrat de maintenance doit préciser</h2>
+              <p>
+                Le mot «&nbsp;maintenance&nbsp;» recouvre des prestations différentes d’un prestataire à l’autre. C’est le contrat qui
+                fixe ce qui est couvert. Vérifiez au minimum&nbsp;:
+              </p>
+              <ul>
+                <li>le périmètre&nbsp;: quels volets sont inclus, lesquels sont facturés à part&nbsp;;</li>
+                <li>les délais de prise en charge selon la gravité&nbsp;: application bloquée, fonctionnalité gênée, demande de confort&nbsp;;</li>
+                <li>les plages couvertes&nbsp;: jours ouvrés, soirées, week-ends&nbsp;;</li>
+                <li>la façon de signaler un problème, et la personne qui répond&nbsp;;</li>
+                <li>la fréquence des mises à jour de sécurité&nbsp;;</li>
+                <li>les sauvegardes&nbsp;: leur fréquence, leur lieu de stockage et la date du dernier test de restauration&nbsp;;</li>
+                <li>la réversibilité&nbsp;: votre accès au code source, aux données et à la documentation si vous changez de prestataire.</li>
+              </ul>
+              <p>
+                Le test de restauration est facile à oublier. Tant qu’une sauvegarde n’a pas été restaurée au moins une fois,
+                personne ne sait si elle permet de repartir après une panne.
+              </p>
+
+              <h2 id="petite">Et pour une petite application&nbsp;?</h2>
+              <p>
+                Même une application utilisée par dix personnes repose sur un serveur, un langage et des bibliothèques qui
+                évoluent. Sans suivi, elle accumule du retard sur les mises à jour, et le rattrapage finit par coûter plus cher
+                qu’un suivi régulier. Pour une application de cette taille, un forfait léger centré sur la sécurité et les corrections
+                peut suffire.
+              </p>
+              <p>
+                Je maintiens les applications que je développe et je peux reprendre une application existante. Je commence alors
+                par un état des lieux&nbsp;: versions utilisées, tests en place, procédure de déploiement, sauvegardes. Le suivi se
+                construit à partir de ce constat. Vous pouvez <a href="contact.html">m’écrire</a> pour en parler, ou relire les
+                étapes d’une <a href="blog-refonte-application-metier.html">refonte</a> si votre application a pris trop de retard.
+              </p>
+
+              <h2 id="faq">Questions fréquentes</h2>
+              <div class="faq">
+                <details>
+                  <summary>
+                    Quelle différence entre maintenance corrective et maintenance évolutive&nbsp;?
+                    <svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>
+                  </summary>
+                  <p>
+                    La maintenance corrective répare ce qui ne fonctionne pas comme prévu. La maintenance évolutive ajoute ou
+                    modifie des fonctionnalités pour suivre vos besoins. La première protège l’existant, la seconde le fait grandir.
+                  </p>
+                </details>
+                <details>
+                  <summary>
+                    Qu’est-ce que la TMA&nbsp;?
+                    <svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>
+                  </summary>
+                  <p>
+                    La tierce maintenance applicative (TMA) désigne la maintenance d’une application confiée à un prestataire
+                    extérieur. Le terme est surtout employé dans les grandes entreprises et le secteur public.
+                  </p>
+                </details>
+                <details>
+                  <summary>
+                    À quelle fréquence faut-il mettre à jour une application web&nbsp;?
+                    <svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>
+                  </summary>
+                  <p>
+                    Un correctif qui comble une faille exploitable s’applique dès sa publication. Les autres mises à jour peuvent
+                    être regroupées, par exemple chaque mois. Les montées de version majeures se planifient avant la fin du
+                    support de la version utilisée.
+                  </p>
+                </details>
+              </div>
+
+              <!-- include:author-box -->
+              <div class="author-box">
+                <img src="images/portrait-400.jpg" width="400" height="400" alt="" loading="lazy" />
+                <p>
+                  <strong>Célia, fondatrice de Codelia</strong>
+                  Développeuse web fullstack, formée en 2020. Depuis janvier 2023, je conçois et fais évoluer des applications métier
+                  au sein du Ministère des Armées. <a href="about.html">Découvrir mon parcours</a>
+                </p>
+              </div>
+              <!-- /include:author-box -->
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="section" aria-labelledby="related-title">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <div>
+              <p class="eyebrow">À lire aussi</p>
+              <h2 class="h2" id="related-title">Pour aller <em>plus loin.</em></h2>
+            </div>
+          </div>
+          <ul class="projects posts" role="list" data-stagger>
+            <!-- include:post-refonte-application-metier -->
+            <li>
+              <article class="project post-card">
+                <p class="meta">Refonte · 5 min de lecture</p>
+                <h3><a href="blog-refonte-application-metier.html">Refondre une application métier sans arrêter l’activité</a></h3>
+                <p>Les signes qui doivent alerter, le choix entre refonte et évolution, et une méthode de bascule progressive.</p>
+                <span class="link-arrow" aria-hidden="true">
+                  Lire l’article
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </span>
+              </article>
+            </li>
+            <!-- /include:post-refonte-application-metier -->
+            <!-- include:post-securite-application-web -->
+            <li>
+              <article class="project post-card">
+                <p class="meta">Sécurité · 6 min de lecture</p>
+                <h3><a href="blog-securite-application-web.html">Sécuriser une application web, de la conception à la mise en production</a></h3>
+                <p>Droits d’accès, code, test d’intrusion et mises à jour&nbsp;: comment je sécurise mes projets avec SSHack, cabinet de sécurité offensive.</p>
+                <span class="link-arrow" aria-hidden="true">
+                  Lire l’article
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </span>
+              </article>
+            </li>
+            <!-- /include:post-securite-application-web -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- include:cta -->
+      <section class="cta" aria-labelledby="cta-title">
+        <div class="container cta__inner" data-reveal>
+          <p class="eyebrow eyebrow--center">Contact</p>
+          <h2 class="cta__title" id="cta-title">Un projet web <em>à concrétiser&nbsp;?</em></h2>
+          <p class="cta__text">Décrivez votre besoin en quelques lignes. Je vous réponds rapidement.</p>
+          <a class="btn btn--primary" href="contact.html">
+            Parler de mon projet
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </div>
+      </section>
+      <!-- /include:cta -->
+    </main>
+
+    <!-- include:footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__top">
+          <div class="site-footer__about">
+            <a class="brand" href="index.html" aria-label="Codelia, retour à l’accueil">
+              <span class="brand__mark" aria-hidden="true">C</span>
+              <span class="brand__name" aria-hidden="true">Codelia</span>
+            </a>
+            <p>Agence de développement web. Conception, développement et mise en production d’applications web et métier sur mesure, à distance.</p>
+          </div>
+
+          <nav class="site-footer__nav" aria-label="Plan du site">
+            <ul class="footer-links" role="list">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li class="current"><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-footer__contact">
+            <ul class="social-list" role="list">
+              <!-- include:social-links -->
+              <li>
+                <a href="https://www.linkedin.com/in/celia-tosic" target="_blank" rel="noopener" aria-label="LinkedIn (nouvel onglet)">
+                  <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
+                </a>
+              </li>
+              <!-- /include:social-links -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© 2026 Codelia</p>
+          <p>Base du design : <a href="https://www.styleshout.com/">StyleShout</a>, distribué par <a href="https://themewagon.com">ThemeWagon</a></p>
+          <a class="to-top" href="#top">
+            Haut de page
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <!-- /include:footer -->
+  </body>
+</html>

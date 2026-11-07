@@ -7,6 +7,5 @@ Thumbs.db
 desktop.ini
 .DS_Store
 
-# Outils IA (gardés en local, pas sur GitHub)
-skills/
+# Outils IA (gardés en local, pas sur GitHub) : fiche de contexte lue par les skills marketing
 .agents/

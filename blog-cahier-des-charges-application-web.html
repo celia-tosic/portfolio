@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cahier des charges d’une application web | Codelia</title>
+    <meta name="description" content="Ce que doit contenir le cahier des charges d’une application web pour obtenir des devis comparables : un modèle en 8 rubriques et les oublis à éviter." />
+    <link rel="canonical" href="https://codelia.io/blog-cahier-des-charges-application-web.html" />
+    <meta property="og:url" content="https://codelia.io/blog-cahier-des-charges-application-web.html" />
+    <meta property="og:title" content="Cahier des charges d’une application web : le modèle en 8 rubriques" />
+    <meta property="og:description" content="Un modèle simple, rédigé du point de vue de la développeuse qui va chiffrer votre projet." />
+    <!-- include:head -->
+    <meta name="author" content="Célia" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <meta name="color-scheme" content="dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Codelia" />
+    <meta name="twitter:card" content="summary" />
+
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="css/site.css" />
+
+    <link rel="icon" href="favicon.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <script src="js/main.js" defer></script>
+    <!-- /include:head -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "@id": "https://codelia.io/blog-cahier-des-charges-application-web.html#article",
+            "headline": "Cahier des charges d’une application web : ce qu’il doit contenir",
+            "description": "Ce que doit contenir le cahier des charges d’une application web pour obtenir des devis comparables : un modèle en 8 rubriques et les oublis à éviter.",
+            "datePublished": "2026-11-07",
+            "dateModified": "2026-11-07",
+            "inLanguage": "fr-FR",
+            "mainEntityOfPage": "https://codelia.io/blog-cahier-des-charges-application-web.html",
+            "author": {
+              "@type": "Person",
+              "name": "Célia",
+              "jobTitle": "Développeuse web fullstack",
+              "url": "https://codelia.io/about.html",
+              "sameAs": ["https://www.linkedin.com/in/celia-tosic"]
+            },
+            "publisher": { "@type": "Organization", "name": "Codelia", "url": "https://codelia.io/" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://codelia.io/" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://codelia.io/blog.html" },
+              { "@type": "ListItem", "position": 3, "name": "Cahier des charges d’une application web" }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Le cahier des charges est-il obligatoire ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Aucune règle ne l’impose, mais sans description écrite, deux devis ne parlent pas du même projet. Pour une petite évolution, un e-mail détaillé suffit. Pour une nouvelle application, prévoyez un document." }
+              },
+              {
+                "@type": "Question",
+                "name": "Faut-il rédiger un cahier des charges technique ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Pas de votre côté. Le développeur traduit votre besoin en choix techniques et les explique dans sa proposition. Signalez seulement les contraintes réelles : serveur imposé, outil à utiliser, politique de sécurité." }
+              },
+              {
+                "@type": "Question",
+                "name": "Combien de pages faut-il écrire ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Autant qu’il en faut pour couvrir les huit rubriques. Pour une première application métier, quelques pages suffisent en général pour obtenir un premier chiffrage." }
+              },
+              {
+                "@type": "Question",
+                "name": "Le cahier des charges peut-il changer en cours de projet ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Oui. En avançant par petites étapes, de nouveaux besoins apparaissent. L’important est de décider ensemble ce qui entre dans la version en cours et ce qui attend la suivante." }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body id="top">
+    <!-- include:icons -->
+    <!-- Icônes : Lucide (licence ISC), https://lucide.dev -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-layout" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+      <symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"/><path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></symbol>
+      <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></symbol>
+      <symbol id="i-life-buoy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+    </svg>
+    <!-- /include:icons -->
+
+    <!-- include:header -->
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header" data-header>
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="Codelia, retour à l’accueil">
+          <span class="brand__mark" aria-hidden="true">C</span>
+          <span class="brand__name" aria-hidden="true">Codelia</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span class="sr-only">Ouvrir le menu</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+          <ul class="site-nav__links" role="list">
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li class="current"><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <a class="btn btn--primary btn--sm" href="contact.html">
+            Me contacter
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <!-- /include:header -->
+
+    <main id="contenu">
+      <article>
+        <header class="page-hero page-hero--article">
+          <div class="container">
+            <nav class="breadcrumb" aria-label="Fil d’Ariane">
+              <ol role="list">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li aria-current="page">Cahier des charges</li>
+              </ol>
+            </nav>
+            <p class="eyebrow">Cadrage</p>
+            <h1 class="article-title" id="page-title">Cahier des charges d’une application web&nbsp;: ce qu’il doit contenir</h1>
+            <p class="lead page-hero__lead">
+              Un bon cahier des charges décrit qui utilisera l’application, ce que chaque personne doit pouvoir faire
+              et avec quelles données. Quelques pages bien construites suffisent pour obtenir des devis comparables,
+              sans aucune partie technique. Le modèle ci-dessous tient en huit rubriques, chacune avec les questions
+              auxquelles répondre.
+            </p>
+            <ul class="article-meta" role="list">
+              <li>Par <a href="about.html">Célia</a>, développeuse web fullstack</li>
+              <li>Publié le <time datetime="2026-11-07">7 novembre 2026</time></li>
+              <li>6 min de lecture</li>
+            </ul>
+          </div>
+        </header>
+
+        <div class="section">
+          <div class="container article-layout">
+            <aside class="article-aside">
+              <nav class="toc" aria-labelledby="toc-title">
+                <p class="toc__title" id="toc-title">Sommaire</p>
+                <ol role="list">
+                  <li><a href="#role">À quoi sert le cahier des charges</a></li>
+                  <li><a href="#modele">Le modèle en 8 rubriques</a></li>
+                  <li><a href="#technique">Ce que vous pouvez laisser au développeur</a></li>
+                  <li><a href="#oublis">Les oublis qui faussent les devis</a></li>
+                  <li><a href="#temps">Si vous n’avez pas le temps de l’écrire</a></li>
+                  <li><a href="#faq">Questions fréquentes</a></li>
+                </ol>
+              </nav>
+            </aside>
+
+            <div class="prose">
+              <h2 id="role">À quoi sert le cahier des charges</h2>
+              <p>
+                Le cahier des charges sert à deux choses. Il permet au développeur d’estimer le travail, et il vous permet
+                de comparer des devis qui partent de la même description. Sans lui, chaque prestataire imagine un projet
+                différent, et les écarts de prix reflètent surtout des écarts d’interprétation.
+              </p>
+              <p>
+                Le risque se mesure. Dans une étude publiée en 2014, le Project Management Institute a constaté que près de la
+                moitié (47&nbsp;%) des projets qui n’atteignent pas leurs objectifs échouent à cause d’une mauvaise gestion des
+                besoins (<a href="https://www.pmi.org/learning/thought-leadership/pulse/core-competency-project-program-success" rel="noopener">PMI, Pulse of the Profession</a>).
+              </p>
+              <p>
+                Beaucoup de modèles disponibles en ligne demandent de remplir une partie technique&nbsp;: langage, hébergement,
+                architecture. Si vous n’êtes pas du métier, laissez-la de côté. Pour chiffrer un projet, j’ai surtout besoin
+                de comprendre votre activité, vos utilisateurs et ce qu’ils font chaque jour.
+              </p>
+
+              <h2 id="modele">Le modèle en 8 rubriques</h2>
+              <p>
+                Recopiez ces rubriques dans un document et répondez aux questions avec vos mots. Une phrase approximative
+                m’apprend plus qu’une case vide.
+              </p>
+
+              <h3>1. Le contexte et le problème à régler</h3>
+              <p>
+                Que fait votre entreprise et quel problème l’application doit-elle régler&nbsp;? Décrivez la situation actuelle&nbsp;:
+                un tableur partagé par e-mail, un logiciel qui ne suit plus, des ressaisies entre deux outils. Si vous savez
+                ce que ce problème vous coûte, en heures ou en erreurs, notez-le.
+              </p>
+
+              <h3>2. Les utilisateurs</h3>
+              <p>
+                Listez les profils&nbsp;: qui saisit, qui valide, qui consulte, qui administre. Pour chacun, indiquez le nombre de
+                personnes et l’endroit où elles travaillent. Un technicien sur le terrain avec un téléphone n’a pas les mêmes
+                besoins qu’une assistante au bureau devant deux écrans.
+              </p>
+
+              <h3>3. Ce que chaque utilisateur doit pouvoir faire</h3>
+              <p>
+                C’est la rubrique qui pèse le plus dans l’estimation. Écrivez une phrase par action, sous la forme d’une
+                <em>user story</em>&nbsp;:
+              </p>
+              <p class="callout">«&nbsp;En tant que [profil], je veux [action] afin de [bénéfice].&nbsp;»</p>
+              <p>Par exemple, pour une entreprise qui planifie des interventions chez ses clients&nbsp;:</p>
+              <ul>
+                <li>En tant que planificateur, je veux affecter une intervention à un technicien afin qu’il la retrouve sur son téléphone.</li>
+                <li>En tant que technicien, je veux joindre une photo à mon compte rendu afin de prouver que le travail est fait.</li>
+                <li>En tant que responsable, je veux voir les interventions en retard de la semaine afin de prévenir les clients concernés.</li>
+              </ul>
+              <p>
+                Le «&nbsp;afin de&nbsp;» compte autant que l’action. Quand je connais le but, je peux proposer une solution plus
+                simple que celle imaginée au départ, et donc moins chère.
+              </p>
+
+              <h3>4. Les données</h3>
+              <p>
+                Quelles informations l’application doit-elle saisir, calculer et conserver&nbsp;? Joignez vos fichiers actuels
+                (tableurs, formulaires papier, exports)&nbsp;: ils décrivent vos données mieux qu’un long texte. Précisez s’il faut
+                reprendre l’historique existant, et sur combien d’années.
+              </p>
+
+              <h3>5. Les outils avec lesquels l’application doit échanger</h3>
+              <p>
+                Logiciel de comptabilité, ERP, outil de facturation, site e-commerce&nbsp;: pour chaque outil, donnez son nom et
+                ce qui doit circuler. «&nbsp;Les factures validées partent vers la comptabilité chaque soir&nbsp;» suffit. Chaque
+                échange représente du développement et doit apparaître dans le devis.
+              </p>
+
+              <h3>6. Les contraintes</h3>
+              <p>
+                Délais, budget envisagé, règles internes, données personnelles soumises au RGPD, accès depuis l’extérieur de
+                l’entreprise, hébergement imposé. Indiquez aussi une fourchette de budget&nbsp;: le développeur peut alors proposer
+                ce qui tient dans l’enveloppe, plutôt qu’un projet idéal hors de portée.
+              </p>
+
+              <h3>7. Ce qui peut attendre</h3>
+              <p>
+                Classez vos besoins en deux listes&nbsp;: ce qui doit exister le jour de la mise en ligne, et ce qui peut venir
+                ensuite. La première liste définit la première version, celle qui va à l’essentiel. Elle se livre plus vite,
+                et les retours des utilisateurs orientent la suite.
+              </p>
+
+              <h3>8. Les critères de réussite</h3>
+              <p>
+                Comment saurez-vous, dans six mois, que le projet a réussi&nbsp;? Moins de ressaisies, un délai de traitement plus
+                court, un tableau de bord consulté chaque lundi. Un critère mesurable aide à trancher les arbitrages en cours
+                de route.
+              </p>
+
+              <h2 id="technique">Ce que vous pouvez laisser au développeur</h2>
+              <p>
+                Le choix du langage, du framework, de la base de données et de l’architecture revient au prestataire. C’est son
+                métier, et il doit justifier ses choix avec des arguments que vous comprenez&nbsp;: coût de maintenance, facilité
+                à trouver d’autres développeurs sur cette technologie, durée de support des versions.
+              </p>
+              <p>
+                Signalez en revanche vos contraintes techniques réelles&nbsp;: un serveur interne imposé par votre service
+                informatique, un outil que l’application doit utiliser, une politique de sécurité à respecter.
+              </p>
+
+              <h2 id="oublis">Les oublis qui faussent les devis</h2>
+              <p>Ces points manquent souvent dans les premières versions d’un cahier des charges. Chacun peut faire varier le prix.</p>
+              <ul>
+                <li>
+                  <strong>L’administration.</strong> Qui crée les comptes, modifie les listes de choix, corrige une erreur de
+                  saisie&nbsp;? Ces écrans ne se voient pas en démonstration, mais ils demandent du travail.
+                </li>
+                <li>
+                  <strong>La reprise des données.</strong> Importer dix ans d’historique depuis des fichiers hétérogènes demande
+                  du temps de nettoyage avant l’import.
+                </li>
+                <li>
+                  <strong>Les droits d’accès.</strong> Qui voit quoi&nbsp;? Un technicien voit-il les interventions de ses collègues&nbsp;?
+                  Un client a-t-il un accès&nbsp;?
+                </li>
+                <li>
+                  <strong>Les cas particuliers.</strong> Une intervention annulée, un client en double, une commande modifiée
+                  après validation. Vos équipes les connaissent par cœur, ils figurent rarement dans le document.
+                </li>
+                <li>
+                  <strong>La sécurité.</strong> L’application sera-t-elle accessible depuis Internet, par vos clients&nbsp;?
+                  Contient-elle des données sensibles&nbsp;? Ces réponses décident s’il faut prévoir un
+                  <a href="blog-securite-application-web.html">test d’intrusion</a> avant la mise en ligne.
+                </li>
+                <li>
+                  <strong>La suite.</strong> Mises à jour de sécurité, corrections, évolutions&nbsp;: une application vit après sa
+                  mise en ligne. Prévoyez sa <a href="blog-maintenance-application-web.html">maintenance</a> dès le départ.
+                </li>
+              </ul>
+
+              <h2 id="temps">Si vous n’avez pas le temps de l’écrire</h2>
+              <p>
+                Le cadrage fait partie de mon travail. J’écoute votre besoin, j’échange avec vos futurs utilisateurs, je dessine
+                les écrans et j’écris les user stories avec vous. Le document obtenu sert de base au devis, puis au
+                développement. Les <a href="blog-creer-application-metier.html">étapes d’un projet d’application métier</a>
+                détaillent la suite.
+              </p>
+
+              <h2 id="faq">Questions fréquentes</h2>
+              <div class="faq">
+                <details>
+                  <summary>
+                    Le cahier des charges est-il obligatoire&nbsp;?
+                    <svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>
+                  </summary>
+                  <p>
+                    Aucune règle ne l’impose, mais sans description écrite, deux devis ne parlent pas du même projet. Pour une
+                    petite évolution, un e-mail détaillé suffit. Pour une nouvelle application, prévoyez un document.
+                  </p>
+                </details>
+                <details>
+                  <summary>
+                    Faut-il rédiger un cahier des charges technique&nbsp;?
+                    <svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>
+                  </summary>
+                  <p>
+                    Pas de votre côté. Le développeur traduit votre besoin en choix techniques et les explique dans sa
+                    proposition. Signalez seulement les contraintes réelles&nbsp;: serveur imposé, outil à utiliser, politique de sécurité.
+                  </p>
+                </details>
+                <details>
+                  <summary>
+                    Combien de pages faut-il écrire&nbsp;?
+                    <svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>
+                  </summary>
+                  <p>
+                    Autant qu’il en faut pour couvrir les huit rubriques. Pour une première application métier, quelques pages
+                    suffisent en général pour obtenir un premier chiffrage.
+                  </p>
+                </details>
+                <details>
+                  <summary>
+                    Le cahier des charges peut-il changer en cours de projet&nbsp;?
+                    <svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>
+                  </summary>
+                  <p>
+                    Oui. En avançant par petites étapes, de nouveaux besoins apparaissent. L’important est de décider ensemble
+                    ce qui entre dans la version en cours et ce qui attend la suivante.
+                  </p>
+                </details>
+              </div>
+
+              <!-- include:author-box -->
+              <div class="author-box">
+                <img src="images/portrait-400.jpg" width="400" height="400" alt="" loading="lazy" />
+                <p>
+                  <strong>Célia, fondatrice de Codelia</strong>
+                  Développeuse web fullstack, formée en 2020. Depuis janvier 2023, je conçois et fais évoluer des applications métier
+                  au sein du Ministère des Armées. <a href="about.html">Découvrir mon parcours</a>
+                </p>
+              </div>
+              <!-- /include:author-box -->
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="section" aria-labelledby="related-title">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <div>
+              <p class="eyebrow">À lire aussi</p>
+              <h2 class="h2" id="related-title">Pour aller <em>plus loin.</em></h2>
+            </div>
+          </div>
+          <ul class="projects posts" role="list" data-stagger>
+            <!-- include:post-creer-application-metier -->
+            <li>
+              <article class="project post-card">
+                <p class="meta">Création · 6 min de lecture</p>
+                <h3><a href="blog-creer-application-metier.html">Créer une application métier sur mesure, étape par étape</a></h3>
+                <p>Les 7 étapes d’un projet, du recueil du besoin à la mise en production, et quand préférer un logiciel du marché.</p>
+                <span class="link-arrow" aria-hidden="true">
+                  Lire l’article
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </span>
+              </article>
+            </li>
+            <!-- /include:post-creer-application-metier -->
+            <!-- include:post-refonte-application-metier -->
+            <li>
+              <article class="project post-card">
+                <p class="meta">Refonte · 5 min de lecture</p>
+                <h3><a href="blog-refonte-application-metier.html">Refondre une application métier sans arrêter l’activité</a></h3>
+                <p>Les signes qui doivent alerter, le choix entre refonte et évolution, et une méthode de bascule progressive.</p>
+                <span class="link-arrow" aria-hidden="true">
+                  Lire l’article
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </span>
+              </article>
+            </li>
+            <!-- /include:post-refonte-application-metier -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- include:cta -->
+      <section class="cta" aria-labelledby="cta-title">
+        <div class="container cta__inner" data-reveal>
+          <p class="eyebrow eyebrow--center">Contact</p>
+          <h2 class="cta__title" id="cta-title">Un projet web <em>à concrétiser&nbsp;?</em></h2>
+          <p class="cta__text">Décrivez votre besoin en quelques lignes. Je vous réponds rapidement.</p>
+          <a class="btn btn--primary" href="contact.html">
+            Parler de mon projet
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </div>
+      </section>
+      <!-- /include:cta -->
+    </main>
+
+    <!-- include:footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__top">
+          <div class="site-footer__about">
+            <a class="brand" href="index.html" aria-label="Codelia, retour à l’accueil">
+              <span class="brand__mark" aria-hidden="true">C</span>
+              <span class="brand__name" aria-hidden="true">Codelia</span>
+            </a>
+            <p>Agence de développement web. Conception, développement et mise en production d’applications web et métier sur mesure, à distance.</p>
+          </div>
+
+          <nav class="site-footer__nav" aria-label="Plan du site">
+            <ul class="footer-links" role="list">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li class="current"><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-footer__contact">
+            <ul class="social-list" role="list">
+              <!-- include:social-links -->
+              <li>
+                <a href="https://www.linkedin.com/in/celia-tosic" target="_blank" rel="noopener" aria-label="LinkedIn (nouvel onglet)">
+                  <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
+                </a>
+              </li>
+              <!-- /include:social-links -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© 2026 Codelia</p>
+          <p>Base du design : <a href="https://www.styleshout.com/">StyleShout</a>, distribué par <a href="https://themewagon.com">ThemeWagon</a></p>
+          <a class="to-top" href="#top">
+            Haut de page
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <!-- /include:footer -->
+  </body>
+</html>

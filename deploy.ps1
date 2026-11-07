@@ -18,7 +18,8 @@ $utf8 = New-Object System.Text.UTF8Encoding $false
 
 # Fichiers du site en ligne (a completer si une page ou une image est ajoutee)
 $files = @(
-    "index.html", "about.html", "services.html", "contact.html",
+    "index.html", "about.html", "services.html", "contact.html", "blog.html",
+    "sitemap.xml", "robots.txt",
     "css/site.css",
     "js/main.js",
     "images/portrait-400.jpg", "images/portrait-800.jpg",
@@ -28,6 +29,8 @@ $files = @(
     "llms.txt",
     ".htaccess"
 )
+# Articles du blog : tous les fichiers blog-*.html, sans avoir a les lister
+$files += Get-ChildItem (Join-Path $root "blog-*.html") | ForEach-Object { $_.Name }
 
 # 1. Pages a jour
 & (Join-Path $root "build.ps1")

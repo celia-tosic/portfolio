@@ -10,6 +10,15 @@ Depuis janvier 2023, elle est développeuse fullstack au Ministère des Armées.
 - [À propos](about.html): parcours (biologie, écologie du littoral, reconversion en 2020, Ministère des Armées) et façon de travailler
 - [Services](services.html): conception et cadrage, développement fullstack, mise en production, maintenance, refonte et évolution, méthode de travail
 - [Contact](contact.html): formulaire de contact, LinkedIn et questions fréquentes
+- [Blog](blog.html): articles sur la création, la sécurité, la refonte et la maintenance d’applications web et métier
+
+## Articles
+
+- [Créer une application métier sur mesure, étape par étape](blog-creer-application-metier.html): les 7 étapes d’un projet, du recueil du besoin à la mise en production, et quand préférer un logiciel du marché
+- [Cahier des charges d’une application web](blog-cahier-des-charges-application-web.html): modèle en 8 rubriques pour obtenir des devis comparables
+- [Sécuriser une application web](blog-securite-application-web.html): droits d’accès, protections dans le code, test d’intrusion avec SSHack (cabinet de sécurité offensive) et suivi
+- [Refondre une application métier sans arrêter l’activité](blog-refonte-application-metier.html): signes d’alerte, refonte ou évolution, bascule progressive, exemple de Transports Nastasi
+- [Ce que couvre la maintenance d’une application web](blog-maintenance-application-web.html): maintenance corrective, préventive, évolutive, incidents, calendrier de support PHP et Symfony
 
 ## Contact
 
