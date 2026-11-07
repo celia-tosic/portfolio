@@ -1,0 +1,48 @@
+<!-- Google Analytics via Google Tag Manager.
+     Rien n’est chargé avant l’accord du visiteur : le bandeau cookies (js/main.js)
+     appelle window.loadAnalytics() quand il clique sur « Accepter ». -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+  gtag('js', new Date());
+
+  (function () {
+    var KEY = 'codelia-consent';
+    var MAX_AGE = 182 * 24 * 3600 * 1000; // 6 mois, durée recommandée par la CNIL
+
+    // Choix enregistré et encore valable, sinon null (le bandeau s’affiche).
+    window.readConsent = function () {
+      try {
+        var choice = JSON.parse(localStorage.getItem(KEY));
+        if (choice && typeof choice.analytics === 'boolean' && Date.now() - choice.date < MAX_AGE) return choice;
+      } catch (e) {}
+      return null;
+    };
+
+    window.saveConsent = function (accepted) {
+      try {
+        localStorage.setItem(KEY, JSON.stringify({ analytics: accepted, date: Date.now() }));
+      } catch (e) {}
+    };
+
+    // Charge Google Tag Manager une seule fois, après accord.
+    window.loadAnalytics = function () {
+      if (window.analyticsLoaded) return;
+      window.analyticsLoaded = true;
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-KXNJGHF3';
+      document.head.appendChild(script);
+    };
+
+    var choice = window.readConsent();
+    if (choice && choice.analytics) window.loadAnalytics();
+  })();
+</script>

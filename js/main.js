@@ -5,6 +5,7 @@
  * - menu mobile accessible (Échap, focus, contenu inerte derrière)
  * - apparition discrète des sections au défilement
  * - formulaire de contact envoyé sans quitter la page (Formspree)
+ * - bandeau cookies : Google Analytics chargé seulement après accord
  * Toutes les animations sont coupées si le visiteur préfère
  * réduire les mouvements.
  * =================================================================== */
@@ -153,6 +154,61 @@
           submit.innerHTML = submitContent;
         });
     });
+  }
+
+  /* Bandeau cookies (Google Analytics)
+   * Google Analytics ne se charge qu’après « Accepter » (partials/analytics.html).
+   * Sans choix enregistré, le bandeau apparaît après 10 secondes.
+   * Le choix est gardé 6 mois, puis le bandeau revient. Le lien « Cookies »
+   * du pied de page le rouvre pour changer d’avis.
+   * ---------------------------------------------------------------- */
+  var consentBox = document.querySelector("[data-consent]");
+  var CONSENT_DELAY = 10000; // en millisecondes
+
+  if (consentBox) {
+    var consentChosen = false;
+
+    // Efface les cookies Google Analytics (_ga, _ga_XXXX) après un refus.
+    var clearAnalyticsCookies = function () {
+      var host = location.hostname;
+      var domains = ["", host, "." + host.replace(/^www\./, "")];
+      document.cookie.split(";").forEach(function (part) {
+        var name = part.split("=")[0].trim();
+        if (name.indexOf("_ga") !== 0) return;
+        domains.forEach(function (domain) {
+          document.cookie = name + "=; Max-Age=0; path=/" + (domain ? "; domain=" + domain : "");
+        });
+      });
+    };
+
+    consentBox.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-consent-choice]");
+      if (!button) return;
+      var accepted = button.getAttribute("data-consent-choice") === "accept";
+      consentChosen = true;
+      if (window.saveConsent) window.saveConsent(accepted);
+      if (accepted) {
+        if (window.loadAnalytics) window.loadAnalytics();
+      } else {
+        if (window.gtag) window.gtag("consent", "update", { analytics_storage: "denied" });
+        clearAnalyticsCookies();
+      }
+      consentBox.hidden = true;
+    });
+
+    document.querySelectorAll("[data-consent-open]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        consentBox.hidden = false;
+        consentBox.querySelector("button").focus();
+      });
+    });
+
+    if (!(window.readConsent && window.readConsent())) {
+      setTimeout(function () {
+        // Le visiteur a peut-être déjà choisi via le lien « Cookies » entre-temps
+        if (!consentChosen) consentBox.hidden = false;
+      }, CONSENT_DELAY);
+    }
   }
 
   /* Apparition au défilement (blocs simples et cascades)

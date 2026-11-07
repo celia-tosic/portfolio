@@ -19,6 +19,7 @@ $utf8 = New-Object System.Text.UTF8Encoding $false
 # Fichiers du site en ligne (a completer si une page ou une image est ajoutee)
 $files = @(
     "index.html", "about.html", "services.html", "contact.html", "blog.html",
+    "mentions-legales.html", "confidentialite.html",
     "sitemap.xml", "robots.txt",
     "css/site.css",
     "js/main.js",

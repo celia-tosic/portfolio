@@ -27,7 +27,11 @@
     </div>
 
     <div class="site-footer__bottom">
-      <p>© 2026 Codelia</p>
+      <p>
+        © 2026 Codelia · <a href="mentions-legales.html">Mentions légales</a> ·
+        <a href="confidentialite.html">Confidentialité</a> ·
+        <button class="footer-cookies" type="button" data-consent-open>Cookies</button>
+      </p>
       <p>Base du design : <a href="https://www.styleshout.com/">StyleShout</a>, distribué par <a href="https://themewagon.com">ThemeWagon</a></p>
       <a class="to-top" href="#top">
         Haut de page
@@ -36,3 +40,18 @@
     </div>
   </div>
 </footer>
+
+<!-- Bandeau cookies : affiché par js/main.js tant que le visiteur n’a pas fait de choix -->
+<section class="consent" aria-labelledby="consent-title" data-consent hidden>
+  <p class="consent__title" id="consent-title">Cookies</p>
+  <p class="consent__text">
+    Avec votre accord, des cookies mesurent la fréquentation du site pour m’aider à l’améliorer.
+    Si vous refusez, aucun de ces cookies n’est déposé. Votre choix est conservé 6 mois et vous pouvez
+    le modifier à tout moment avec le lien «&nbsp;Cookies&nbsp;» en bas de page.
+    <a href="confidentialite.html">En savoir plus</a>
+  </p>
+  <div class="consent__actions">
+    <button class="btn btn--ghost btn--sm" type="button" data-consent-choice="refuse">Refuser</button>
+    <button class="btn btn--ghost btn--sm" type="button" data-consent-choice="accept">Accepter</button>
+  </div>
+</section>

@@ -1,6 +1,56 @@
 <!doctype html>
 <html lang="fr" class="no-js">
   <head>
+    <!-- include:analytics -->
+    <!-- Google Analytics via Google Tag Manager.
+         Rien n’est chargé avant l’accord du visiteur : le bandeau cookies (js/main.js)
+         appelle window.loadAnalytics() quand il clique sur « Accepter ». -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      gtag('js', new Date());
+
+      (function () {
+        var KEY = 'codelia-consent';
+        var MAX_AGE = 182 * 24 * 3600 * 1000; // 6 mois, durée recommandée par la CNIL
+
+        // Choix enregistré et encore valable, sinon null (le bandeau s’affiche).
+        window.readConsent = function () {
+          try {
+            var choice = JSON.parse(localStorage.getItem(KEY));
+            if (choice && typeof choice.analytics === 'boolean' && Date.now() - choice.date < MAX_AGE) return choice;
+          } catch (e) {}
+          return null;
+        };
+
+        window.saveConsent = function (accepted) {
+          try {
+            localStorage.setItem(KEY, JSON.stringify({ analytics: accepted, date: Date.now() }));
+          } catch (e) {}
+        };
+
+        // Charge Google Tag Manager une seule fois, après accord.
+        window.loadAnalytics = function () {
+          if (window.analyticsLoaded) return;
+          window.analyticsLoaded = true;
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-KXNJGHF3';
+          document.head.appendChild(script);
+        };
+
+        var choice = window.readConsent();
+        if (choice && choice.analytics) window.loadAnalytics();
+      })();
+    </script>
+    <!-- /include:analytics -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cahier des charges d’une application web | Codelia</title>
@@ -480,7 +530,11 @@
         </div>
 
         <div class="site-footer__bottom">
-          <p>© 2026 Codelia</p>
+          <p>
+            © 2026 Codelia · <a href="mentions-legales.html">Mentions légales</a> ·
+            <a href="confidentialite.html">Confidentialité</a> ·
+            <button class="footer-cookies" type="button" data-consent-open>Cookies</button>
+          </p>
           <p>Base du design : <a href="https://www.styleshout.com/">StyleShout</a>, distribué par <a href="https://themewagon.com">ThemeWagon</a></p>
           <a class="to-top" href="#top">
             Haut de page
@@ -489,6 +543,21 @@
         </div>
       </div>
     </footer>
+
+    <!-- Bandeau cookies : affiché par js/main.js tant que le visiteur n’a pas fait de choix -->
+    <section class="consent" aria-labelledby="consent-title" data-consent hidden>
+      <p class="consent__title" id="consent-title">Cookies</p>
+      <p class="consent__text">
+        Avec votre accord, des cookies mesurent la fréquentation du site pour m’aider à l’améliorer.
+        Si vous refusez, aucun de ces cookies n’est déposé. Votre choix est conservé 6 mois et vous pouvez
+        le modifier à tout moment avec le lien «&nbsp;Cookies&nbsp;» en bas de page.
+        <a href="confidentialite.html">En savoir plus</a>
+      </p>
+      <div class="consent__actions">
+        <button class="btn btn--ghost btn--sm" type="button" data-consent-choice="refuse">Refuser</button>
+        <button class="btn btn--ghost btn--sm" type="button" data-consent-choice="accept">Accepter</button>
+      </div>
+    </section>
     <!-- /include:footer -->
   </body>
 </html>
