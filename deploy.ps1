@@ -22,8 +22,8 @@ $files = @(
     "css/site.css",
     "js/main.js",
     "images/portrait-400.jpg", "images/portrait-800.jpg",
-    "favicon.ico", "favicon-16x16.png", "favicon-32x32.png",
-    "apple-touch-icon.png", "android-chrome-192x192.png", "android-chrome-512x512.png",
+    "favicon.ico", "images/favicon-16x16.png", "images/favicon-32x32.png",
+    "images/apple-touch-icon.png", "images/android-chrome-192x192.png", "images/android-chrome-512x512.png",
     "site.webmanifest",
     "llms.txt",
     ".htaccess"
