@@ -23,7 +23,7 @@ $files = @(
     "sitemap.xml", "robots.txt",
     "css/site.css",
     "js/main.js",
-    "images/portrait-400.jpg", "images/portrait-800.jpg",
+    "images/portrait-400.jpg", "images/portrait-800.jpg", "images/og-codelia.png",
     "favicon.ico", "images/favicon-16x16.png", "images/favicon-32x32.png",
     "images/apple-touch-icon.png", "images/android-chrome-192x192.png", "images/android-chrome-512x512.png",
     "site.webmanifest",
