@@ -23,4 +23,5 @@ Depuis janvier 2023, elle est développeuse fullstack au Ministère des Armées.
 ## Contact
 
 - [Formulaire de contact](contact.html)
-- [LinkedIn](https://www.linkedin.com/in/celia-tosic)
+- [Page LinkedIn de Codelia](https://www.linkedin.com/company/codelia-io)
+- [Profil LinkedIn de Célia](https://www.linkedin.com/in/celia-tosic)

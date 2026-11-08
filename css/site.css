@@ -1005,6 +1005,10 @@ strong {
   background: var(--surface);
 }
 
+.channel + .channel {
+  margin-top: 10px;
+}
+
 .channel .icon-badge {
   width: 44px;
   height: 44px;
