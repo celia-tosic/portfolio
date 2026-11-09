@@ -726,6 +726,47 @@ strong {
   line-height: 1.1;
 }
 
+/* Réalisation cliquable : toute la carte ouvre le site dans un nouvel onglet */
+.project--link {
+  position: relative;
+}
+
+.project--link h3 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.project--link h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+}
+
+.project--link h3 a:focus-visible {
+  outline: none;
+}
+
+.project--link:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.project__ext {
+  width: 22px;
+  height: 22px;
+  margin-top: 4px;
+  color: var(--text-subtle);
+  transition: color 0.3s var(--ease), transform 0.35s var(--ease);
+}
+
+.project--link:hover .project__ext {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
 .project p {
   font-size: 1rem;
   color: var(--text-muted);
@@ -841,10 +882,11 @@ strong {
 }
 
 .step h3 {
-  margin-top: 28px;
-  font-size: 1.0625rem;
-  font-weight: 600;
-  line-height: 1.4;
+  margin-top: 24px;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.12;
 }
 
 .step p {

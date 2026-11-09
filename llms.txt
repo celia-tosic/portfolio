@@ -6,7 +6,7 @@ Depuis janvier 2023, elle est développeuse fullstack au Ministère des Armées.
 
 ## Pages
 
-- [Accueil](index.html): positionnement, accompagnement de A à Z, technologies et réalisations (Transports Nastasi, Ministère des Armées, Gemmyo)
+- [Accueil](index.html): positionnement, accompagnement de A à Z, technologies et réalisations en ligne (Transports Nastasi, Stealint, VigiDoc, SSHack, EPS Campus, Sound of Brit)
 - [À propos](about.html): parcours (biologie, écologie du littoral, reconversion en 2020, Ministère des Armées) et façon de travailler
 - [Services](services.html): conception et cadrage, développement fullstack, mise en production, maintenance, refonte et évolution, méthode de travail
 - [Contact](contact.html): formulaire de contact, LinkedIn et questions fréquentes
