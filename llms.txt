@@ -9,6 +9,7 @@ Depuis janvier 2023, elle est développeuse fullstack au Ministère des Armées.
 - [Accueil](index.html): positionnement, accompagnement de A à Z, technologies et réalisations en ligne (Transports Nastasi, Stealint, VigiDoc, SSHack, EPS Campus, Sound of Brit)
 - [À propos](about.html): parcours (biologie, écologie du littoral, reconversion en 2020, Ministère des Armées) et façon de travailler
 - [Services](services.html): conception et cadrage, développement fullstack, mise en production, maintenance, refonte et évolution, méthode de travail
+- [Tarifs](tarifs.html): site vitrine statique à 80 € HT par mois sans frais de création (création, optimisation pour les moteurs de recherche, mise en ligne, maintenance : corrections de bugs et mises à jour techniques ; modifications après mise en ligne sur devis ; engagement d’un an renouvelable par tacite reconduction), applications métier sur devis
 - [Contact](contact.html): formulaire de contact, LinkedIn et questions fréquentes
 - [Blog](blog.html): articles sur la création, la sécurité, la refonte et la maintenance d’applications web et métier
 

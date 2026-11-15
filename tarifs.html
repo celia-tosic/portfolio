@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    <!-- include:analytics -->
+    <!-- Google Analytics via Google Tag Manager.
+         Rien n’est chargé avant l’accord du visiteur : le bandeau cookies (js/main.js)
+         appelle window.loadAnalytics() quand il clique sur « Accepter ». -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      gtag('js', new Date());
+
+      (function () {
+        var KEY = 'codelia-consent';
+        var MAX_AGE = 182 * 24 * 3600 * 1000; // 6 mois, durée recommandée par la CNIL
+
+        // Choix enregistré et encore valable, sinon null (le bandeau s’affiche).
+        window.readConsent = function () {
+          try {
+            var choice = JSON.parse(localStorage.getItem(KEY));
+            if (choice && typeof choice.analytics === 'boolean' && Date.now() - choice.date < MAX_AGE) return choice;
+          } catch (e) {}
+          return null;
+        };
+
+        window.saveConsent = function (accepted) {
+          try {
+            localStorage.setItem(KEY, JSON.stringify({ analytics: accepted, date: Date.now() }));
+          } catch (e) {}
+        };
+
+        // Charge Google Tag Manager une seule fois, après accord.
+        window.loadAnalytics = function () {
+          if (window.analyticsLoaded) return;
+          window.analyticsLoaded = true;
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-KXNJGHF3';
+          document.head.appendChild(script);
+        };
+
+        var choice = window.readConsent();
+        if (choice && choice.analytics) window.loadAnalytics();
+      })();
+    </script>
+    <!-- /include:analytics -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tarifs : site vitrine et application métier | Codelia</title>
+    <meta name="description" content="Site vitrine à 80 € HT par mois, sans frais de création : création, mise en ligne et maintenance comprises. Applications métier sur devis. Les tarifs de Codelia." />
+    <link rel="canonical" href="https://codelia.io/tarifs.html" />
+    <meta property="og:url" content="https://codelia.io/tarifs.html" />
+    <meta property="og:title" content="Les tarifs de Codelia : site vitrine et application métier" />
+    <meta property="og:description" content="Site vitrine à 80 € HT par mois, tout compris et sans frais de création. Applications métier sur devis." />
+    <!-- include:head -->
+    <meta name="author" content="Célia" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <meta name="color-scheme" content="dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Codelia" />
+    <meta property="og:image" content="https://codelia.io/images/og-codelia.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Codelia, agence de développement web : applications web et métier sur mesure" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="robots" content="max-image-preview:large" />
+
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;display=swap" />
+    <link rel="stylesheet" href="css/site.css" />
+
+    <link rel="icon" href="favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <script src="js/main.js" defer></script>
+    <!-- /include:head -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Site vitrine",
+        "serviceType": "Création, mise en ligne et maintenance de site vitrine",
+        "provider": { "@type": "Organization", "@id": "https://codelia.io/#organisation", "name": "Codelia", "url": "https://codelia.io/" },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://codelia.io/tarifs.html",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": 80,
+            "priceCurrency": "EUR",
+            "valueAddedTaxIncluded": false,
+            "referenceQuantity": { "@type": "QuantitativeValue", "value": 1, "unitCode": "MON" }
+          }
+        }
+      }
+    </script>
+  </head>
+
+  <body id="top">
+    <!-- include:icons -->
+    <!-- Icônes : Lucide (licence ISC), https://lucide.dev -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-layout" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+      <symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"/><path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></symbol>
+      <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></symbol>
+      <symbol id="i-life-buoy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+    </svg>
+    <!-- /include:icons -->
+
+    <!-- include:header -->
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header" data-header>
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="Codelia, retour à l’accueil">
+          <span class="brand__mark" aria-hidden="true">C</span>
+          <span class="brand__name" aria-hidden="true">Codelia</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span class="sr-only">Ouvrir le menu</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+          <ul class="site-nav__links" role="list">
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li class="current"><a href="tarifs.html" aria-current="page">Tarifs</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <a class="btn btn--primary btn--sm" href="contact.html">
+            Me contacter
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <!-- /include:header -->
+
+    <main id="contenu">
+      <section class="page-hero" aria-labelledby="page-title">
+        <div class="container">
+          <h1 id="page-title">
+            <span class="eyebrow">Tarifs</span>
+            <span class="display">Des tarifs clairs, <em>adaptés à votre projet.</em></span>
+          </h1>
+          <p class="lead page-hero__lead">
+            Un abonnement mensuel tout compris pour votre site vitrine, un devis sur mesure pour votre application métier.
+          </p>
+        </div>
+      </section>
+
+      <!-- Formules -->
+      <section class="section" id="formules" aria-labelledby="formules-title">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <div>
+              <p class="eyebrow">Formules</p>
+              <h2 class="h2" id="formules-title">Deux formules, <em>selon votre besoin.</em></h2>
+            </div>
+            <p class="lead section-head__lead">
+              Un site pour présenter votre activité, ou une application pour la faire tourner.
+            </p>
+          </div>
+
+          <ul class="cards cards--2" role="list" data-reveal>
+            <li class="card price-card">
+              <h3>Site vitrine</h3>
+              <p class="price">
+                <span class="price__amount">80&nbsp;€</span>
+                <span class="price__unit">HT par mois</span>
+              </p>
+              <p class="price-card__terms">
+                Sans frais de création, engagement d’un an, renouvelé par tacite reconduction.
+                Le code du site reste la propriété de Codelia.
+              </p>
+              <p class="price-card__desc">
+                Un site vitrine présente votre activité sur internet&nbsp;: qui vous êtes, ce que vous proposez et comment vous joindre.
+                C’est souvent le premier contact avec vos futurs clients, qui vous trouvent sur Google et vous écrivent directement.
+              </p>
+              <ul class="checklist" role="list">
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
+                  <span>Création de votre site</span>
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
+                  <span>Optimisation pour les moteurs de recherche</span>
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
+                  <span>Mise en ligne</span>
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
+                  <span>Maintenance&nbsp;: corrections de bugs et mises à jour techniques</span>
+                </li>
+              </ul>
+              <p class="price-card__note">Les modifications apportées au site après sa mise en ligne sont sur devis.</p>
+              <div class="price-card__actions">
+                <a class="btn btn--primary" href="contact.html">
+                  Demander mon site vitrine
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </a>
+              </div>
+            </li>
+
+            <li class="card price-card">
+              <h3>Application métier</h3>
+              <p class="price">
+                <span class="price__amount">Sur devis</span>
+              </p>
+              <p class="price-card__desc">
+                Un outil sur mesure pour gérer votre activité, que ce soit une nouvelle application ou la refonte d’un outil existant.
+                Le prix dépend des fonctionnalités&nbsp;: après un premier échange sur votre besoin, je vous envoie un devis détaillé.
+              </p>
+              <ul class="checklist" role="list">
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
+                  <span>Conception et cadrage</span>
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
+                  <span>Développement fullstack</span>
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
+                  <span>Mise en production</span>
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
+                  <span>Maintenance et évolutions</span>
+                </li>
+              </ul>
+              <div class="price-card__actions">
+                <a class="btn btn--ghost" href="contact.html">
+                  Demander un devis
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </a>
+                <a class="link-arrow" href="services.html">
+                  Voir les services
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- include:cta -->
+      <section class="cta" aria-labelledby="cta-title">
+        <div class="container cta__inner" data-reveal>
+          <p class="eyebrow eyebrow--center">Contact</p>
+          <h2 class="cta__title" id="cta-title">Un projet web <em>à concrétiser&nbsp;?</em></h2>
+          <p class="cta__text">Décrivez votre besoin en quelques lignes. Je vous réponds rapidement.</p>
+          <a class="btn btn--primary" href="contact.html">
+            Parler de mon projet
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </div>
+      </section>
+      <!-- /include:cta -->
+    </main>
+
+    <!-- include:footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__top">
+          <div class="site-footer__about">
+            <a class="brand" href="index.html" aria-label="Codelia, retour à l’accueil">
+              <span class="brand__mark" aria-hidden="true">C</span>
+              <span class="brand__name" aria-hidden="true">Codelia</span>
+            </a>
+            <p>Agence de développement web. Conception, développement et mise en production d’applications web et métier sur mesure, à distance.</p>
+          </div>
+
+          <nav class="site-footer__nav" aria-label="Plan du site">
+            <ul class="footer-links" role="list">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li class="current"><a href="tarifs.html" aria-current="page">Tarifs</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-footer__contact">
+            <ul class="social-list" role="list">
+              <!-- include:social-links -->
+              <li>
+                <a href="https://www.linkedin.com/company/codelia-io" target="_blank" rel="noopener" aria-label="Page LinkedIn de Codelia (nouvel onglet)" title="Codelia sur LinkedIn">
+                  <svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg>
+                </a>
+              </li>
+              <!-- /include:social-links -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>
+            © 2026 Codelia · <a href="mentions-legales.html">Mentions légales</a> ·
+            <a href="confidentialite.html">Confidentialité</a> ·
+            <button class="footer-cookies" type="button" data-consent-open>Cookies</button>
+          </p>
+          <p>Base du design : <a href="https://www.styleshout.com/">StyleShout</a>, distribué par <a href="https://themewagon.com">ThemeWagon</a></p>
+          <a class="to-top" href="#top">
+            Haut de page
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bandeau cookies : affiché par js/main.js tant que le visiteur n’a pas fait de choix -->
+    <section class="consent" aria-labelledby="consent-title" data-consent hidden>
+      <p class="consent__title" id="consent-title">Cookies</p>
+      <p class="consent__text">
+        Avec votre accord, des cookies mesurent la fréquentation du site pour m’aider à l’améliorer.
+        Si vous refusez, aucun de ces cookies n’est déposé. Votre choix est conservé 6 mois et vous pouvez
+        le modifier à tout moment avec le lien «&nbsp;Cookies&nbsp;» en bas de page.
+        <a href="confidentialite.html">En savoir plus</a>
+      </p>
+      <div class="consent__actions">
+        <button class="btn btn--ghost btn--sm" type="button" data-consent-choice="refuse">Refuser</button>
+        <button class="btn btn--ghost btn--sm" type="button" data-consent-choice="accept">Accepter</button>
+      </div>
+    </section>
+    <!-- /include:footer -->
+  </body>
+</html>
