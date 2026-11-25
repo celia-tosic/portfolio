@@ -1,0 +1,205 @@
+/* Maquette faite à la main : Garage des Monts de Gy (design du canevas, voir data/handoff/garage-des-monts-de-gy/).
+   site.css reste celui de comparer.html ; cette page ne charge que ce fichier. */
+:root{
+  --night:#14181D;--night-2:#1E252C;--night-3:#0E1114;--amber:#F5A524;--amber-dark:#D98A0B;--amber-text:#8A5100;
+  --ink:#15191E;--muted:#545B63;--paper:#F3F1EC;--paper-2:#E8E5DE;--line:#E2DED6;--sheet:#FBF8F1;--dash:#CFC8BA;
+  --on-night:#C9D0D7;--on-night-2:#E6EAEE;--on-foot:#AEB6BF;--stamp:#2446A8;--plate:#1F3FA6;--sign-red:#C8102E;--steel:#8A949E;
+  --display:"Barlow Condensed","Arial Narrow",sans-serif;--body:"Barlow",system-ui,sans-serif;
+  --tap:44px;--maxw:1200px;--gutter:clamp(16px,4vw,40px);--dur:200ms;--ease:cubic-bezier(.2,.7,.2,1)
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:700}
+ul,ol{padding:0;list-style:none}
+a{color:var(--ink)}
+a:hover{color:var(--amber-text)}
+.ic{flex:none}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+
+:focus-visible{outline:3px solid var(--amber-text);outline-offset:3px;border-radius:6px}
+.topbar :focus-visible,.dark :focus-visible,.site :focus-visible,.foot :focus-visible,.banner :focus-visible{outline-color:var(--amber)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+.skip{position:absolute;left:-999px;top:8px;background:#FFFFFF;color:var(--ink);padding:.6rem 1rem;border-radius:8px;z-index:100;min-height:var(--tap);display:inline-flex;align-items:center}
+.skip:focus{left:8px}
+
+/* bandeau de proposition (identique aux maquettes générées) */
+.banner{background:#111;color:#FFFFFF;font-size:.9rem;padding:.6rem 0}
+.banner .wrap{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:center;justify-content:space-between}
+.banner a{color:#FFD166;font-weight:600;min-height:var(--tap);display:inline-flex;align-items:center;gap:.3rem}
+
+/* bandeau du haut */
+.topbar{background:var(--night-3);color:var(--on-night);font-size:14px}
+.topbar .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0 24px}
+.topbar-label{padding-block:8px}
+.topbar a{color:#FFFFFF;font-weight:700;text-decoration:none;min-height:var(--tap);display:inline-flex;align-items:center}
+.topbar a:hover{color:#FFFFFF;text-decoration:underline}
+
+/* en-tête sombre */
+.site{position:relative;background:var(--night);color:var(--on-night-2);border-bottom:1px solid rgba(255,255,255,.1)}
+.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px 28px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:#FFFFFF;min-height:var(--tap);min-width:0}
+.brand:hover{color:#FFFFFF}
+.plate{display:inline-flex;align-items:stretch;flex:none;height:38px;border-radius:6px;overflow:hidden;border:2px solid #FFFFFF;background:#FFFFFF}
+.plate-band{width:12px;background:var(--plate)}
+.plate-text{display:flex;align-items:center;padding:0 10px;font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.06em;color:var(--ink)}
+.plate-dept{display:flex;align-items:center;padding:0 6px;background:var(--plate);font-family:var(--display);font-weight:700;font-size:14px;color:#FFFFFF}
+.brand-text{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+.brand-name{font-family:var(--display);font-weight:700;font-size:25px;letter-spacing:.01em}
+.brand-sub{font-size:13px;color:var(--on-night)}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:0 26px;font-size:16px;font-weight:600}
+.nav a{color:var(--on-night-2);text-decoration:none;min-height:var(--tap);min-width:var(--tap);display:inline-flex;align-items:center;justify-content:center;transition:color var(--dur) var(--ease)}
+.nav a:hover{color:var(--amber)}
+.header-actions{display:flex;align-items:center;gap:12px}
+.menu{display:none}
+.menu summary{list-style:none;cursor:pointer;min-height:var(--tap);padding:0 16px;border:1.5px solid rgba(255,255,255,.35);border-radius:8px;display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#FFFFFF}
+.menu summary::-webkit-details-marker{display:none}
+.menu-panel{position:absolute;right:var(--gutter);top:calc(100% - 6px);z-index:20;min-width:240px;background:#FFFFFF;border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 18px 40px rgba(0,0,0,.25);display:flex;flex-direction:column}
+.menu-panel a{color:var(--ink);text-decoration:none;font-weight:600;min-height:var(--tap);display:flex;align-items:center;padding:0 14px;border-radius:8px}
+.menu-panel a:hover{background:var(--paper);color:var(--ink)}
+
+/* boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:8px;border:1.5px solid transparent;font-weight:700;text-decoration:none;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease),color var(--dur) var(--ease)}
+.btn-lg{min-height:54px;padding:0 26px;font-size:18px}
+.btn-sm{min-height:46px;padding:0 20px;font-size:16px}
+.btn-amber{background:var(--amber);color:var(--ink)}
+.btn-amber:hover{background:var(--amber-dark);color:var(--ink)}
+.btn-night{background:var(--night);color:#FFFFFF}
+.btn-night:hover{background:#000;color:#FFFFFF}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#FFFFFF}
+.btn-ghost:hover{border-color:#FFFFFF;color:#FFFFFF}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* titres */
+.section{padding-block:clamp(56px,7vw,104px)}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amber-text)}
+.dark .eyebrow,.hero .eyebrow,.car-new .eyebrow{color:var(--amber)}
+h2{font-size:clamp(38px,4.4vw,60px);line-height:1.02}
+.section-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 48px;margin-bottom:44px}
+.section-head .stack{flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.section-head > p{flex:1 1 340px;max-width:30em;color:var(--muted)}
+.dark{background:var(--night);color:#FFFFFF}
+
+/* ouverture : texte et carnet d'entretien tamponné, puis les Monts de Gy */
+.hero{background:var(--night);color:#FFFFFF}
+.hero .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:56px 72px;padding-top:clamp(40px,6vw,88px);padding-bottom:clamp(24px,3vw,40px)}
+.hero-text{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:26px}
+.hero h1{font-size:clamp(46px,6vw,84px);line-height:1;letter-spacing:-.005em}
+.hero h1 span{color:var(--amber)}
+.lead{max-width:34em;font-size:clamp(17px,1.4vw,20px);line-height:1.6;color:var(--on-night)}
+.lights{margin-top:8px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:14px 32px;font-weight:600;color:var(--on-night-2)}
+.lights li{display:flex;align-items:center;gap:10px}
+.lights li::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(245,165,36,.22);flex:none}
+.carnet-wrap{flex:1 1 400px;max-width:470px;min-width:0;margin-inline:auto}
+.carnet{background:var(--sheet);color:var(--ink);border-radius:14px;padding:30px 30px 34px;box-shadow:0 30px 60px rgba(0,0,0,.4);transform:rotate(-1.5deg);display:flex;flex-direction:column;gap:18px}
+.carnet-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.carnet-title{font-family:var(--display);font-weight:700;font-size:28px;text-transform:uppercase;letter-spacing:.04em}
+.carnet-head span:last-child,.carnet-foot > span{font-size:14px;color:var(--muted)}
+.carnet-list li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1.5px dashed var(--dash)}
+.check{color:var(--stamp)}
+.pill{padding:2px 12px;border-radius:999px;background:var(--amber);font-size:14px;font-weight:700}
+.carnet-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding-top:6px}
+.stamp{transform:rotate(-7deg);border:2.5px solid var(--stamp);border-radius:8px;padding:10px 16px;color:var(--stamp);text-align:center;line-height:1.25;opacity:.92;font-family:var(--display);text-transform:uppercase;letter-spacing:.06em}
+.stamp strong{display:block;font-weight:700;font-size:20px}
+.stamp span{display:block;font-weight:600;font-size:15px}
+.hills{display:block;width:100%;height:120px;margin-bottom:-1px;background:linear-gradient(transparent 88%,var(--paper) 88%)}
+.hill-back{fill:var(--night-2)}
+.hill-front{fill:var(--paper)}
+.road{fill:none;stroke:var(--amber);stroke-width:3;stroke-dasharray:16 14}
+
+/* l'atelier : un voyant par prestation */
+.services{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:18px}
+.service{background:#FFFFFF;border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:14px}
+.service-head{display:flex;align-items:center;gap:14px}
+.lamp{width:50px;height:50px;border-radius:50%;background:var(--night);color:var(--amber);display:flex;align-items:center;justify-content:center;flex:none}
+.service h3{font-size:27px;line-height:1.1}
+.service p{color:var(--muted)}
+.service-dark{background:var(--night);border-color:var(--night);color:#FFFFFF}
+.service-dark .lamp{background:var(--amber);color:var(--ink)}
+.service-dark p{color:var(--on-night)}
+.services-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px;margin-top:30px}
+.services-foot p{color:var(--muted)}
+.services-foot p a{font-weight:700;min-height:var(--tap);display:inline-flex;align-items:center}
+
+/* neuf et occasion */
+.cars{background:var(--paper-2)}
+.car-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:18px}
+.car{background:#FFFFFF;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.car-pic{position:relative;height:160px;background:#DCD8CF;display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px}
+.car-pic svg{width:220px;height:auto;max-width:80%}
+.car-pic .tag{position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:6px;background:#FFFFFF;font-size:13px;font-weight:600;color:var(--muted)}
+.car-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px}
+.car h3{font-size:24px;line-height:1.15}
+.car-body > p{font-size:15px;color:var(--muted)}
+.car-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:6px}
+.price{font-family:var(--display);font-weight:700;font-size:24px}
+.car-foot a{font-weight:700;min-height:var(--tap);display:inline-flex;align-items:center}
+.car-new{background:var(--night);color:#FFFFFF;border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:14px;justify-content:space-between}
+.car-new h3{font-size:30px;line-height:1.05}
+.car-new p{color:var(--on-night)}
+.car-new .stack{display:flex;flex-direction:column;gap:12px}
+
+/* venir au garage : panneau d'entrée de Gy et directions */
+.access .wrap{display:flex;flex-direction:column;gap:48px}
+.access-top{display:flex;flex-wrap:wrap;align-items:center;gap:40px 64px}
+.access-text{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.access-text > p{max-width:32em;color:var(--on-night)}
+.signs{flex:0 1 360px;min-width:0;margin-inline:auto;display:flex;flex-direction:column;align-items:center;gap:14px}
+.town-sign{background:#FFFFFF;color:var(--ink);border:7px solid var(--sign-red);border-radius:12px;padding:10px 40px 8px;text-align:center;box-shadow:0 16px 30px rgba(0,0,0,.35);font-family:var(--display)}
+.town-sign strong{display:block;font-weight:700;font-size:72px;line-height:1;letter-spacing:.04em}
+.town-sign span{display:block;font-weight:600;font-size:18px;letter-spacing:.08em;text-transform:uppercase}
+.arrows{display:flex;flex-direction:column;align-items:center;gap:8px}
+.arrow{width:250px;max-width:100%;height:46px;background:#FFFFFF;color:var(--ink);display:flex;align-items:center;font-family:var(--display);font-weight:700;font-size:26px}
+.arrow-r{padding:0 34px 0 18px;clip-path:polygon(0 0,88% 0,100% 50%,88% 100%,0 100%)}
+.arrow-l{justify-content:flex-end;padding:0 18px 0 34px;clip-path:polygon(12% 0,100% 0,100% 100%,12% 100%,0 50%)}
+.post{width:10px;height:60px;background:var(--steel);border-radius:0 0 3px 3px}
+.contact-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:0 24px;border-top:1px solid rgba(255,255,255,.14)}
+.contact-list div{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.contact-list dt{font-size:14px;color:var(--on-night)}
+.contact-list dd{margin-top:4px;font-weight:700;min-height:var(--tap);display:flex;align-items:center}
+.contact-list a{color:#FFFFFF;min-height:var(--tap);display:inline-flex;align-items:center;overflow-wrap:anywhere}
+.contact-list a:hover{color:var(--amber)}
+
+/* pied de page */
+.foot{background:var(--night-3);color:var(--on-foot)}
+.foot .wrap{display:flex;flex-direction:column;gap:28px;padding-block:48px 32px}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 48px}
+.foot-name{font-family:var(--display);font-weight:700;font-size:30px;color:#FFFFFF}
+.foot nav{display:flex;flex-wrap:wrap;gap:0 24px}
+.foot a{color:var(--on-foot);text-decoration:none;min-height:var(--tap);display:inline-flex;align-items:center}
+.foot a:hover{color:#FFFFFF;text-decoration:underline}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:14px}
+.foot-links{display:flex;flex-wrap:wrap;gap:0 24px}
+.todo{background:#FFF7E0;border:1.5px dashed #C98A00;color:#4A3300;border-radius:14px;padding:16px 20px;font-size:.95rem;display:flex;gap:.6rem;align-items:flex-start}
+.todo .ic{color:#9A6700;margin-top:.15rem}
+
+/* téléphone : menu repliable et barre d'appel fixe */
+.sticky-call{display:none}
+@media (max-width:1023px){
+  .hills{height:96px}
+  .nav{display:none}
+  .menu{display:block}
+}
+@media (max-width:640px){
+  .header-cta{display:none}
+  .brand-sub{display:none}
+  .brand-name{font-size:21px}
+  .hills{height:72px}
+  .plate{height:34px}
+  .plate-text{font-size:21px;padding:0 8px}
+  .carnet{padding:22px 20px 26px}
+  .carnet-title{font-size:23px}
+  .carnet-head{flex-wrap:wrap}
+  .carnet-foot{flex-direction:column;align-items:flex-end;gap:12px}
+  .carnet-foot > span{align-self:flex-start}
+  .stamp strong{font-size:18px}
+  .stamp span{font-size:14px}
+  .foot .wrap{padding-bottom:calc(32px + 64px)}
+  .sticky-call{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:center;align-items:center;gap:.6rem;min-height:56px;padding:.75rem 1rem;padding-bottom:calc(.75rem + env(safe-area-inset-bottom));background:var(--amber);color:var(--ink);font-weight:700;text-decoration:none;font-size:1.05rem;box-shadow:0 -4px 16px rgba(0,0,0,.25)}
+  .sticky-call:hover{color:var(--ink)}
+}
+@media (max-width:400px){
+  .plate{display:none}
+}

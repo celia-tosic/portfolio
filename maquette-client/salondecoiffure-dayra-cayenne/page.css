@@ -1,0 +1,207 @@
+/* Maquette faite à la main : Salon Dayra (design du canevas, voir data/handoff/salon-dayra/).
+   site.css reste celui de comparer.html ; cette page ne charge que ce fichier. */
+:root{
+  --espresso:#2B1A12;--espresso-dark:#1E120C;--amber:#E2A73F;--amber-dark:#D0912A;--gold:#8F5A12;
+  --ink:#2B1A12;--muted:#5E4A3D;--muted-2:#6E5A4C;--cream:#FBF4EA;--sand:#F3E4D3;--honey:#F6E6CF;--line:#E8D9C6;--outline:#CDB89F;
+  --on-esp:#D9C9B5;--on-esp-2:#E9DCCB;--on-foot:#CDBBA6;
+  /* les îles : soleil, lagon, hibiscus, madras */
+  --sun:#F7B928;--sun-soft:#FBE3A3;--lagoon:#0F4F4B;--lagoon-ink:#0E5C57;--on-lagoon:#CFE6E1;--turq-soft:#DDEFEA;--palm-brown:#3B2A1E;
+  --madras:repeating-linear-gradient(90deg,transparent 0 6px,rgba(255,255,255,.6) 6px 7px,transparent 7px 16px,rgba(46,125,79,.9) 16px 22px,transparent 22px 28px,rgba(200,64,44,.92) 28px 44px,transparent 44px 50px,rgba(232,119,46,.85) 50px 56px,transparent 56px 64px),repeating-linear-gradient(0deg,rgba(200,64,44,.5) 0 3px,transparent 3px 6px,rgba(46,125,79,.45) 6px 8px,transparent 8px 10px),#F7B928;
+  --display:"Fraunces",Georgia,serif;--body:"Manrope",system-ui,sans-serif;
+  --tap:44px;--maxw:1200px;--gutter:clamp(16px,4vw,40px);--dur:200ms;--ease:cubic-bezier(.2,.7,.2,1)
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,ol,address,figure{margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:500}
+ul,ol{padding:0;list-style:none}
+address{font-style:normal}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--ink)}
+a:hover{color:var(--gold)}
+em{font-style:italic}
+.ic{flex:none}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.topbar :focus-visible,.dark :focus-visible,.foot :focus-visible,.banner :focus-visible{outline-color:var(--amber)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+.skip{position:absolute;left:-999px;top:8px;background:#FFFFFF;color:var(--ink);padding:.6rem 1rem;border-radius:8px;z-index:100;min-height:var(--tap);display:inline-flex;align-items:center}
+.skip:focus{left:8px}
+
+/* bandeau de proposition (identique aux maquettes générées) */
+.banner{background:#111;color:#FFFFFF;font-size:.9rem;padding:.6rem 0}
+.banner .wrap{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:center;justify-content:space-between}
+.banner a{color:#FFD166;font-weight:600;min-height:var(--tap);display:inline-flex;align-items:center;gap:.3rem}
+
+/* bandeau du haut */
+.topbar{background:var(--espresso);color:var(--on-esp-2);font-size:14px}
+.topbar .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0 24px}
+.topbar-label{padding-block:8px}
+.topbar-phones{display:flex;flex-wrap:wrap;gap:0 20px}
+.topbar a{color:#FFFFFF;font-weight:700;text-decoration:none;min-height:var(--tap);display:inline-flex;align-items:center}
+.topbar a:hover{color:#FFFFFF;text-decoration:underline}
+
+/* en-tête */
+.site{position:relative}
+.site::after{content:"";display:block;height:12px;background:var(--madras)}
+.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px 32px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);min-height:var(--tap)}
+.brand:hover{color:var(--ink)}
+.brand-ic{color:var(--gold);margin-right:-2px}
+.brand-name{font-family:var(--display);font-style:italic;font-weight:500;font-size:38px;line-height:1}
+.brand-sub{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-2)}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:0 26px;font-size:15px;font-weight:600}
+.nav a{color:var(--ink);text-decoration:none;min-height:var(--tap);min-width:var(--tap);display:inline-flex;align-items:center;justify-content:center;transition:color var(--dur) var(--ease)}
+.nav a:hover{color:var(--gold)}
+.header-actions{display:flex;align-items:center;gap:12px}
+.menu{display:none}
+.menu summary{list-style:none;cursor:pointer;min-height:var(--tap);padding:0 18px;border:1.5px solid var(--outline);border-radius:999px;display:inline-flex;align-items:center;gap:8px;font-weight:700}
+.menu summary::-webkit-details-marker{display:none}
+.menu-panel{position:absolute;right:var(--gutter);top:calc(100% - 8px);z-index:20;min-width:240px;background:#FFFFFF;border:1px solid var(--line);border-radius:18px;padding:8px;box-shadow:0 18px 40px rgba(43,26,18,.16);display:flex;flex-direction:column}
+.menu-panel a{color:var(--ink);text-decoration:none;font-weight:600;min-height:var(--tap);display:flex;align-items:center;padding:0 14px;border-radius:10px}
+.menu-panel a:hover{background:var(--honey);color:var(--ink)}
+
+/* boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;border:1.5px solid transparent;font-weight:700;text-decoration:none;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease),color var(--dur) var(--ease)}
+.btn-sm{min-height:46px;padding:0 22px;font-size:15px}
+.btn-esp{background:var(--espresso);color:var(--cream)}
+.btn-esp:hover{background:#000;color:var(--cream)}
+.btn-outline{border-color:var(--outline);color:var(--ink)}
+.btn-outline:hover{border-color:var(--ink);color:var(--ink)}
+.btn-amber{background:var(--sun);color:var(--ink)}
+.btn-amber:hover{background:var(--amber-dark);color:var(--ink)}
+.btn-ghost{border-color:rgba(251,244,234,.4);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--cream);color:var(--cream)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* titres */
+.section{padding-block:clamp(64px,8vw,112px)}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+h2{font-size:clamp(36px,4vw,56px);line-height:1.06}
+.stack{display:flex;flex-direction:column;gap:12px}
+.section-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 48px;margin-bottom:44px}
+.section-head .stack{flex:1 1 520px;min-width:0}
+.section-head > p{flex:1 1 340px;max-width:30em;color:var(--muted)}
+
+/* ouverture : soleil et palmiers derrière la carte des mèches */
+.hero{position:relative;overflow:hidden;background:radial-gradient(70% 80% at 92% 8%,var(--sun-soft) 0,rgba(251,227,163,0) 70%),var(--cream)}
+.hero .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:48px 64px;padding-top:clamp(36px,5vw,72px);padding-bottom:clamp(56px,7vw,96px)}
+.hero-text{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.hero h1{font-weight:600;font-size:clamp(40px,5vw,70px);line-height:1.08;letter-spacing:-.02em}
+.hero h1 em{color:var(--gold)}
+.lead{max-width:32em;font-size:clamp(17px,1.4vw,19px);line-height:1.65;color:var(--muted)}
+.facts{display:flex;flex-wrap:wrap;gap:20px 36px;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.fact{display:flex;flex-direction:column;padding-top:16px}
+.fact strong{font-family:var(--display);font-weight:600;font-size:32px;line-height:1.1}
+.fact span{font-size:15px;color:var(--muted)}
+.strands-wrap{position:relative;flex:1 1 420px;min-width:0;max-width:520px;margin-inline:auto;padding-top:120px}
+.island{position:absolute;inset:0 0 auto 0;height:240px;pointer-events:none}
+.sun{position:absolute;top:0;right:96px;width:150px;height:150px;border-radius:50%;background:var(--sun)}
+.palm{position:absolute;fill:var(--palm-brown)}
+.palm-1{width:220px;height:260px;top:-10px;right:-36px}
+.palm-2{width:160px;height:190px;top:24px;right:150px;transform:scaleX(-1)}
+.strands{position:relative;z-index:1;padding:clamp(28px,4vw,44px);border-radius:32px;background:var(--espresso);color:var(--cream);display:flex;flex-direction:column;gap:24px}
+.strands .eyebrow{color:var(--amber)}
+.strand-row{display:flex;justify-content:space-between;gap:8px}
+.strand{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:12px;font-size:14px;color:var(--on-esp-2)}
+.strand svg{width:100%;max-width:48px;height:auto}
+.strands-quote{font-family:var(--display);font-style:italic;font-size:22px;line-height:1.4}
+
+/* philosophie */
+.dark{background:var(--espresso);color:var(--cream)}
+.philosophy{background:var(--lagoon)}
+.philosophy .wrap{display:flex;flex-direction:column;gap:24px;padding-block:44px}
+.philosophy .eyebrow{color:var(--sun)}
+.philosophy ol{display:flex;flex-wrap:wrap;gap:20px 32px}
+.philosophy li{flex:1 1 200px;min-width:0;display:flex;gap:14px;align-items:baseline}
+.philosophy .num{flex:none;min-width:30px;font-family:var(--display);font-size:40px;line-height:1;color:var(--sun)}
+.philosophy strong{display:block;font-family:var(--display);font-weight:500;font-size:26px}
+.philosophy li span span{color:var(--on-lagoon);font-size:15px}
+
+/* prestations */
+.cards{display:flex;flex-wrap:wrap;gap:20px}
+.card{flex:1 1 340px;min-width:0;padding:28px;border-radius:24px;background:#FFFFFF;display:flex;flex-direction:column;gap:14px}
+.card-wide{flex:2 1 560px;background:var(--honey)}
+.card-head{display:flex;align-items:center;gap:12px}
+.card-ic{width:44px;height:44px;border-radius:50%;background:var(--turq-soft);color:var(--lagoon-ink);display:flex;align-items:center;justify-content:center;flex:none}
+.card-wide .card-ic{background:#FFFFFF}
+.card h3{font-weight:600;font-size:26px;line-height:1.2}
+.card > p{color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags li{padding:6px 12px;border-radius:999px;background:var(--cream);font-size:15px}
+.card-wide .tags li{background:#FFFFFF}
+.cards-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px;margin-top:28px}
+.cards-foot p{color:var(--muted)}
+.cards-foot p a{font-weight:700;min-height:var(--tap);display:inline-flex;align-items:center}
+
+/* mariage */
+.wedding{background:var(--turq-soft);overflow:hidden}
+.wedding .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:48px 64px}
+.arch{position:relative;flex:1 1 400px;min-width:0;min-height:clamp(320px,40vw,440px);border-radius:200px 200px 28px 28px;background:repeating-linear-gradient(135deg,#C9E4DD 0 14px,#D4EAE4 14px 28px);display:flex;align-items:flex-end;justify-content:center;padding:28px}
+.hib{position:absolute;pointer-events:none}
+.hib-1{width:150px;height:150px;top:-22px;right:-22px}
+.hib-2{width:88px;height:88px;top:112px;right:-30px;transform:rotate(-24deg)}
+.tag{padding:10px 16px;border-radius:999px;background:#FFFFFF;font-size:14px;font-weight:600;color:var(--muted)}
+.wedding-text{flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.wedding-text p{color:var(--muted);line-height:1.7}
+.wedding-text .btn{align-self:flex-start}
+
+/* le salon */
+.salon .wrap{display:flex;flex-direction:column;gap:40px}
+.salon .section-head{margin-bottom:0}
+.photos{display:flex;flex-wrap:wrap;gap:16px}
+.photo{border-radius:24px;background:repeating-linear-gradient(135deg,#EFE2D1 0 14px,#F6ECDF 14px 28px);display:flex;align-items:flex-end;padding:18px}
+.photo-main{flex:2 1 480px;min-width:0;aspect-ratio:16/10}
+.photo-side{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.photo-side .photo{flex:1 1 0;min-height:180px}
+
+/* contact */
+.contact{position:relative;overflow:hidden}
+.contact-palm{position:absolute;right:-40px;bottom:-40px;width:300px;height:355px;fill:var(--amber);opacity:.12;pointer-events:none}
+.contact .wrap{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:48px 64px}
+.contact .eyebrow{color:var(--amber)}
+.contact-text{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.contact-text > p{color:var(--on-esp)}
+.contact-list{flex:1 1 380px;min-width:0;display:flex;flex-direction:column}
+.contact-list div{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid rgba(251,244,234,.16)}
+.contact-list div:last-child{border-bottom:0}
+.contact-list dt{color:var(--on-esp)}
+.contact-list dd{margin:0;font-weight:700;text-align:right}
+.contact-list a{color:var(--cream);text-decoration:none;min-height:var(--tap);display:inline-flex;align-items:center}
+.contact-list a:hover{color:var(--amber);text-decoration:underline}
+
+/* pied de page */
+.foot{background:var(--espresso-dark);color:var(--on-foot)}
+.foot::before{content:"";display:block;height:12px;background:var(--madras)}
+.foot .wrap{display:flex;flex-direction:column;gap:32px;padding-block:48px 32px}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 48px}
+.foot-name{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-style:italic;font-size:34px;color:var(--cream)}
+.foot-name .ic{color:var(--sun)}
+.foot nav{display:flex;flex-wrap:wrap;gap:0 24px}
+.foot a{color:var(--on-foot);text-decoration:none;min-height:var(--tap);display:inline-flex;align-items:center}
+.foot a:hover{color:#FFFFFF;text-decoration:underline}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:14px}
+.foot-links{display:flex;flex-wrap:wrap;gap:0 24px}
+.todo{background:#FFF7E0;border:1.5px dashed #C98A00;color:#4A3300;border-radius:14px;padding:16px 20px;font-size:.95rem;display:flex;gap:.6rem;align-items:flex-start}
+.todo .ic{color:#9A6700;margin-top:.15rem}
+
+/* téléphone : menu repliable et barre d'appel fixe */
+.sticky-call{display:none}
+@media (max-width:1023px){
+  .nav{display:none}
+  .menu{display:block}
+}
+@media (max-width:640px){
+  .header-cta{display:none}
+  .brand-sub{display:none}
+  .hib-1{width:120px;height:120px;top:-16px;right:-4px}
+  .hib-2{width:72px;height:72px;top:92px;right:-2px}
+  .contact-palm{width:220px;height:260px}
+  .foot .wrap{padding-bottom:calc(32px + 64px)}
+  .sticky-call{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:center;align-items:center;gap:.6rem;min-height:56px;padding:.75rem 1rem;padding-bottom:calc(.75rem + env(safe-area-inset-bottom));background:var(--espresso);color:var(--cream);font-weight:700;text-decoration:none;font-size:1.05rem;box-shadow:0 -4px 16px rgba(0,0,0,.18)}
+  .sticky-call:hover{color:var(--cream)}
+}

@@ -1,0 +1,200 @@
+/* Maquette faite à la main : Ets Chatelard (design du canevas, voir data/handoff/ets-chatelard/).
+   site.css reste celui de comparer.html ; cette page ne charge que ce fichier. */
+:root{
+  --forest:#1F4D2E;--forest-2:#173B23;--leaf:#3F7D3A;--leaf-soft:#E3EDD8;--terracotta:#A94F2C;--terracotta-dark:#8F4224;--peach:#F2C9A8;
+  --ink:#1D2A1F;--muted:#55604F;--paper:#FBF8F0;--kraft:#EDE5D2;--sage:#EEF2E6;--line:#E4DCC8;--outline:#B9C3AC;
+  --on-forest:#DCE7D3;--on-foot:#C9D6C0;
+  --display:"Young Serif",Georgia,serif;--body:"Figtree",system-ui,sans-serif;
+  --tap:44px;--maxw:1200px;--gutter:clamp(16px,4vw,40px);--dur:200ms;--ease:cubic-bezier(.2,.7,.2,1)
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:400}
+ul,ol{padding:0;list-style:none}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--forest)}
+a:hover{color:var(--terracotta-dark)}
+.ic{flex:none}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+
+:focus-visible{outline:3px solid var(--terracotta);outline-offset:3px;border-radius:6px}
+.topbar :focus-visible,.dark :focus-visible,.foot :focus-visible,.banner :focus-visible,.tax :focus-visible{outline-color:var(--peach)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+.skip{position:absolute;left:-999px;top:8px;background:#FFFFFF;color:var(--ink);padding:.6rem 1rem;border-radius:8px;z-index:100;min-height:var(--tap);display:inline-flex;align-items:center}
+.skip:focus{left:8px}
+
+/* bandeau de proposition (identique aux maquettes générées) */
+.banner{background:#111;color:#FFFFFF;font-size:.9rem;padding:.6rem 0}
+.banner .wrap{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:center;justify-content:space-between}
+.banner a{color:#FFD166;font-weight:600;min-height:var(--tap);display:inline-flex;align-items:center;gap:.3rem}
+
+/* bandeau du haut */
+.topbar{background:var(--forest);color:var(--on-forest);font-size:14px}
+.topbar .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0 24px}
+.topbar-label{padding-block:8px}
+.topbar-right{display:flex;flex-wrap:wrap;align-items:center;gap:0 20px}
+.topbar a{color:#FFFFFF;font-weight:700;text-decoration:none;min-height:var(--tap);display:inline-flex;align-items:center}
+.topbar a:hover{color:#FFFFFF;text-decoration:underline}
+
+/* en-tête */
+.site{position:relative;background:var(--paper);border-bottom:1px solid var(--line)}
+.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px 28px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);min-height:var(--tap);min-width:0}
+.brand:hover{color:var(--ink)}
+.brand-mark{width:44px;height:44px;border-radius:50%;background:var(--forest);color:var(--leaf-soft);display:flex;align-items:center;justify-content:center;flex:none}
+.brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.brand-name{font-family:var(--display);font-size:26px;white-space:nowrap}
+.brand-sub{font-size:13px;color:var(--muted)}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:0 26px;font-size:16px;font-weight:600}
+.nav a{color:var(--ink);text-decoration:none;min-height:var(--tap);min-width:var(--tap);display:inline-flex;align-items:center;justify-content:center;transition:color var(--dur) var(--ease)}
+.nav a:hover{color:var(--terracotta)}
+.header-actions{display:flex;align-items:center;gap:12px}
+.menu{display:none}
+.menu summary{list-style:none;cursor:pointer;min-height:var(--tap);padding:0 16px;border:1.5px solid var(--outline);border-radius:999px;display:inline-flex;align-items:center;gap:8px;font-weight:700}
+.menu summary::-webkit-details-marker{display:none}
+.menu-panel{position:absolute;right:var(--gutter);top:calc(100% - 6px);z-index:20;min-width:240px;background:#FFFFFF;border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 18px 40px rgba(29,42,31,.16);display:flex;flex-direction:column}
+.menu-panel a{color:var(--ink);text-decoration:none;font-weight:600;min-height:var(--tap);display:flex;align-items:center;padding:0 14px;border-radius:10px}
+.menu-panel a:hover{background:var(--leaf-soft);color:var(--ink)}
+
+/* boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;border:1.5px solid transparent;font-weight:700;text-decoration:none;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease),color var(--dur) var(--ease)}
+.btn-lg{min-height:54px;padding:0 26px;font-size:18px}
+.btn-sm{min-height:46px;padding:0 20px;font-size:16px}
+.btn-forest{background:var(--forest);color:#FFFFFF}
+.btn-forest:hover{background:var(--forest-2);color:#FFFFFF}
+.btn-outline{background:#FFFFFF;border-color:var(--outline);color:var(--ink)}
+.btn-outline:hover{border-color:var(--ink);color:var(--ink)}
+.btn-peach{background:var(--peach);color:var(--ink)}
+.btn-peach:hover{background:#E9B48B;color:var(--ink)}
+.btn-ghost{border-color:rgba(255,255,255,.4);color:#FFFFFF}
+.btn-ghost:hover{border-color:#FFFFFF;color:#FFFFFF}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* titres */
+.section{padding-block:clamp(56px,7vw,104px)}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta)}
+h2{font-size:clamp(34px,4vw,54px);line-height:1.08}
+.section-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 48px;margin-bottom:44px}
+.section-head .stack{flex:1 1 560px;min-width:0}
+.section-head > p{flex:1 1 340px;max-width:30em;color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:12px}
+
+/* ouverture : le pot et son étiquette, puis le Gers et les Pyrénées */
+.hero{background:var(--sage)}
+.hero .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:40px 64px;padding-top:clamp(40px,6vw,80px)}
+.hero-text{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.hero h1{font-size:clamp(42px,5.4vw,74px);line-height:1.06;letter-spacing:-.01em}
+.hero h1 span{color:var(--leaf)}
+.lead{max-width:33em;font-size:clamp(17px,1.4vw,19px);color:var(--muted)}
+.ticks{margin-top:6px;display:flex;flex-wrap:wrap;gap:10px 28px;font-weight:600}
+.ticks li{display:flex;align-items:center;gap:8px}
+.ticks .ic{color:var(--leaf)}
+.pot{flex:0 1 420px;width:100%;max-width:420px;min-width:0;margin-inline:auto;position:relative}
+.pot svg{display:block;width:100%;height:auto}
+.leaf-1{fill:#5B9A45}.leaf-2{fill:var(--leaf)}.leaf-3{fill:#2F6B3A}.leaf-4{fill:#6FAE52}
+.soil{fill:#4A3524}.pot-body{fill:var(--terracotta)}.pot-rim{fill:#8F4224}
+.label{position:absolute;left:4%;top:24%;width:52%;transform:rotate(-6deg);display:flex;flex-direction:column;align-items:center}
+.label-card{width:100%;background:#FFFFFF;border-radius:14px 14px 8px 8px;overflow:hidden;box-shadow:0 12px 26px rgba(29,42,31,.18)}
+.label-band{height:30px;background:var(--forest);display:flex;align-items:center;justify-content:center}
+.label-band::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--sage)}
+.label-body{padding:12px 14px 16px;text-align:center;display:flex;flex-direction:column;gap:4px}
+.label-body strong{font-family:var(--display);font-weight:400;font-size:22px;line-height:1.1}
+.label-body span{font-size:14px;color:var(--muted)}
+.label-body .place{font-weight:700;color:var(--terracotta)}
+.stake{width:26px;height:54px;background:#FFFFFF;clip-path:polygon(0 0,100% 0,100% 70%,50% 100%,0 70%)}
+.landscape{display:block;width:100%;height:clamp(120px,14vw,200px);margin-top:-10px}
+.peaks{fill:#C3CFD6}.snow{fill:#FFFFFF}.hills-back{fill:#A9C08A}.hills-front{fill:#6E9A4E}.row-dot{fill:#2F6B3A}
+
+/* paysage */
+.services{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:18px}
+.service{background:#FFFFFF;border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.service-ic{width:48px;height:48px;border-radius:14px;background:var(--leaf-soft);color:var(--forest);display:flex;align-items:center;justify-content:center}
+.service h3{font-size:24px;line-height:1.2}
+.service p{color:var(--muted)}
+.tax{background:var(--forest);color:#FFFFFF;border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+.tax-figure{font-family:var(--display);font-size:64px;line-height:1;color:var(--peach)}
+.tax h3{font-size:24px;line-height:1.2}
+.tax p{color:var(--on-forest)}
+
+/* végétaux : les étiquettes de la pépinière */
+.plants{background:var(--kraft)}
+.plants .eyebrow{color:var(--terracotta-dark)}
+.tags{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 24px}
+.tags li{display:flex;flex-direction:column;align-items:center;height:100%}
+.tag-card{flex:1 1 auto;width:100%;background:#FFFFFF;border-radius:12px 12px 6px 6px;overflow:hidden;box-shadow:0 6px 14px rgba(29,42,31,.12)}
+.tag-band{height:30px;display:flex;align-items:center;justify-content:center}
+.tag-band::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--kraft)}
+.tag-body{padding:12px 12px 16px;text-align:center}
+.tag-body strong{display:block;font-family:var(--display);font-weight:400;font-size:19px;line-height:1.15}
+.tag-body span{font-size:14px;color:var(--muted)}
+.tags .stake{width:24px;height:44px}
+.t1{background:#2F6B3A}.t2{background:#8A6A2F}.t3{background:#B4496E}.t4{background:#C0643A}.t5{background:#5B7F3A}.t6{background:#1F4D2E}.t7{background:#6A5C9E}.t8{background:#7A8F2E}
+.depot-strip{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;background:var(--paper);border-radius:18px;padding:22px 26px}
+.depot-strip p{display:flex;align-items:center;gap:14px}
+.depot-strip .ic{color:var(--terracotta)}
+.depot-strip a{font-weight:700;min-height:var(--tap);display:inline-flex;align-items:center}
+
+/* motoculture */
+.moto .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:40px 64px}
+.moto-text{flex:1 1 440px;min-width:0;gap:18px}
+.moto-text > p{color:var(--muted)}
+.moto-text .btn{align-self:flex-start}
+.moto-photos{flex:1 1 520px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.moto-photos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
+
+/* le dépôt et contact */
+.dark{background:var(--forest);color:#FFFFFF}
+.dark .eyebrow{color:var(--peach)}
+.contact .wrap{display:flex;flex-wrap:wrap;gap:40px 64px}
+.contact-text{flex:1 1 440px;min-width:0;gap:20px}
+.contact-text > p{color:var(--on-forest)}
+.contact-list{flex:1 1 400px;min-width:0;display:flex;flex-direction:column}
+.contact-list div{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:8px 0;min-height:60px;border-bottom:1px solid rgba(255,255,255,.16)}
+.contact-list div:last-child{border-bottom:0}
+.contact-list dt{color:var(--on-forest)}
+.contact-list dd{font-weight:700;text-align:right;overflow-wrap:anywhere}
+.contact-list a{color:#FFFFFF;min-height:var(--tap);display:inline-flex;align-items:center}
+.contact-list a:hover{color:var(--peach)}
+
+.form{margin-top:8px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;background:#FFFFFF;color:var(--ink);border-radius:18px;padding:20px}
+.form label{flex:1 1 180px;display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}
+.form input{min-height:50px;border:1.5px solid var(--outline);border-radius:12px;padding:0 14px;font:inherit;font-weight:400;color:var(--ink);background:#FFFFFF}
+.form input:focus-visible{border-color:var(--forest);outline-color:var(--terracotta)}
+.form button{flex:1 1 100%;min-height:52px;border:0;border-radius:999px;background:var(--forest);color:#FFFFFF;font:inherit;font-weight:700;cursor:pointer}
+.form button:hover{background:var(--forest-2)}
+.form button:focus-visible{outline-color:var(--terracotta)}
+.form-note{flex:1 1 100%;background:var(--leaf-soft);color:var(--ink);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.5}
+
+/* pied de page */
+.foot{background:var(--forest-2);color:var(--on-foot)}
+.foot .wrap{display:flex;flex-direction:column;gap:28px;padding-block:44px 32px}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 48px}
+.foot-name{font-family:var(--display);font-size:28px;color:#FFFFFF}
+.foot nav{display:flex;flex-wrap:wrap;gap:0 24px}
+.foot a{color:var(--on-foot);text-decoration:none;min-height:var(--tap);min-width:var(--tap);display:inline-flex;align-items:center;justify-content:center}
+.foot a:hover{color:#FFFFFF;text-decoration:underline}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:14px}
+.foot-links{display:flex;flex-wrap:wrap;gap:0 24px}
+.todo{background:#FFF7E0;border:1.5px dashed #C98A00;color:#4A3300;border-radius:14px;padding:16px 20px;font-size:.95rem;display:flex;gap:.6rem;align-items:flex-start}
+.todo .ic{color:#9A6700;margin-top:.15rem}
+
+/* téléphone : menu repliable et barre d'appel fixe */
+.sticky-call{display:none}
+@media (max-width:1023px){
+  .nav{display:none}
+  .menu{display:block}
+}
+@media (max-width:640px){
+  .header-cta{display:none}
+  .brand-sub{display:none}
+  .brand-name{font-size:22px}
+  .site .wrap{gap:12px}
+  .moto-photos{grid-template-columns:minmax(0,1fr)}
+  .tags{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}
+  .foot .wrap{padding-bottom:calc(32px + 64px)}
+  .sticky-call{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:center;align-items:center;gap:.6rem;min-height:56px;padding:.75rem 1rem;padding-bottom:calc(.75rem + env(safe-area-inset-bottom));background:var(--forest);color:#FFFFFF;font-weight:700;text-decoration:none;font-size:1.05rem;box-shadow:0 -4px 16px rgba(0,0,0,.2)}
+  .sticky-call:hover{color:#FFFFFF}
+}
